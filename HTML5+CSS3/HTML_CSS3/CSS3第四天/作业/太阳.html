@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background: black;
+				
+			}
+			.sun{
+				width: 1600px;
+				height: 800px;
+				/*border: 1px solid white;*/
+				margin: 0 auto;
+				position: relative;
+			}
+			.sun>img{
+				margin-top:200px ;
+				margin-left: 300px;
+			}
+			.earth{
+				width: 100px;
+				height: 100px;
+				
+				/*border: 1px solid white;*/
+				position: absolute;
+				animation: earthmove 20s infinite linear;
+			}
+			.earth_p{
+				margin: 20px 30px;
+			}
+			
+			@keyframes earthmove{
+				0%{top:0px ;left:400px;}
+				12.5%{top:150px ;left: 150px;}
+				25%{top:400px ;left:0px;}
+				37.5%{top:550px ;left: 150px;}
+				50%{top: 700px ;left:400px;}
+				62.5%{top:600px ;left: 800px;}
+				75%{top:400px ;left:1200px;}
+				87.5%{top:100px ;left: 800px;}
+				100%{top:0px ;left: 400px;}
+			}
+			.moon{
+				/*border: 1px solid white;*/
+				position: absolute;
+				animation: moonmove 10s infinite linear;
+			}
+			@keyframes moonmove{
+				0%{top:0px ;left:40px;}
+				12.5%{top:11px ;left: 11px;}
+				25%{top:40px ;left:0px;}
+				37.5%{top:60px ;left: 11px;}
+				50%{top: 80px ;left:40px;}
+				62.5%{top:60px ;left: 70px;}
+				75%{top:40px ;right:90px;}
+				87.5%{top:10px ;left: 80px;}
+				100%{top:0px ;left: 40px;}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="sun">
+				<img src="img/sun.gif"/>
+				<div class="earth">
+				   <img src="img/earth.jpg" class="earth_p"/>
+				   <img src="img/moon.jpg" class="moon"/>
+			    </div>
+			</div>
+			
+		</div>
+	</body>
+</html>

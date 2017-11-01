@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		table{
+           border: 1px solid;
+           /*table标签下去掉间隙*/
+           border-collapse: collapse;
+		}
+		td,th{
+			border: 1px solid;
+
+		}
+		/*表格标签的属性
+		table标签：至少三层嵌套关系
+		table分为：thead,tbody,tfoot
+		tr：行
+		th：表头中的内容
+		td：单元格
+		th，td最好设计宽高
+		colspan:列合并
+		rowspan：行合并
+		写法：写在行间colspan／rowspan＝“数字”
+		数字代表合并的单元格数
+		被合并的单元格要删除，不然会跑偏
+		*/
+	</style>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="2">星期一</th>
+				<!-- <th>星期二</th> -->
+				<th>星期三</th>
+				<th>星期四</th>
+				<th>星期五</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>音乐</td>
+				<td rowspan="2">音乐</td>
+				<td>音乐</td>
+				<td>音乐</td>
+				<td>音乐</td>
+
+			</tr>
+			<tr>
+				<td>音乐</td>
+				<td>音乐</td>
+				<!-- <td>音乐</td> -->
+				<td>音乐</td>
+				<td>音乐</td>
+			</tr>
+			<tr>
+				<td>音乐</td>
+				<td>音乐</td>
+				<td>音乐</td>
+				<td>音乐</td>
+				<td>音乐</td>
+			</tr>
+			
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="5" style="text-align: center;">自习</td>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>

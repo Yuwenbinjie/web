@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝网</title>
+	<style>
+		/* 标签样式初始化 */
+        body,html{margin:0;padding:0;background:#fff;font-size:14px;font-family:Arial,Helvetica,'STHeiti','Microsoft YaHei','sans-serif'}
+        form,ul,li,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+        img{border:0;}
+        ul,li{list-style-type:none;}
+        a{color:#00007F;text-decoration:none;}
+        a:hover{text-decoration:none;}
+
+        .box{
+        	width:455px;
+            overflow: hidden;
+        	border:1px solid #f7c7c8;
+            margin:0100px auto;
+        }
+        .box_left{
+        	width:100px;
+        	/*height: 362px;*/
+        	/*border:1px solid #f7c7c8;*/
+        	float: left;
+        }
+        .hot{
+            background-color: #e44346;
+            color: white;
+            line-height: 24px;
+            padding:10px;
+            margin-top: -3px;
+        }
+        .hot a{
+        	color: white;
+        	padding: 3px 6px;
+        	background-color: #ea696b;
+        	font-size: 12px;
+        }
+        .hot a:hover{
+            color: orange;
+            background-color: white;
+        }
+
+        .box_mid{
+        	width:205px;
+        	/*height: 362px;*/
+        	/*border:1px solid #f7c7c8;*/
+        	float: left;
+        }
+        .xie_yellow{
+        	width:100px;
+        	height: 100px;
+        	background: url(img/pin.jpg) no-repeat 10px 10px;
+        	text-align: center;
+        	border-bottom: 1px solid #efefef;
+        }
+       
+        .xie_pink{
+        	width:100px;
+        	height: 100px;
+        	background: url(img/da.jpg) no-repeat 10px 10px;
+        	text-align: center;
+        	/*border: 1px solid #efefef;*/
+        }
+        .xie_yellow a,.xie_pink a{
+        	color: #4d4d4d;
+        	margin-top: 75px;
+        	display: inline-block;
+        }
+        .xie_yellow a:hover,.xie_pink a:hover{
+            color:orange;
+            background-color: white;
+        }
+        .wu{
+        	border-left: 1px solid #efefef;
+        }
+        .wu:hover{
+            opacity:0.7;
+            filter:alpha(opacity=70);
+        }
+        .good{
+        	width:205px;
+        	height: 160px;
+        	background: url(img/xiao.jpg) no-repeat 10px 10px;
+        	text-align: center;
+            border-top: 1px solid #efefef;
+            margin-top: -2px;
+        }
+        .good:hover{
+            background: url(img/xiao.jpg) no-repeat 10px 10px;
+            opacity:0.7;
+            filter:alpha(opacity=70);
+        }
+        
+        .red{
+            width: 180px;
+            height: 30px;
+            margin-top: 120px;
+            margin-left: 10px;
+            /*background-color: #f45258;*/
+            line-height: 30px;
+
+        }
+
+        .red p{
+            width: 60px;
+            height: 30px;
+            background-color: #f45258;
+            display: inline-block;
+            color: white;
+        }
+        .red a{
+            width: 120px;
+            height: 30px;
+            background-color: rgba(255,255,255,0.7);
+            display: inline-block;
+            color: #555555;
+        }
+        .red a:hover{
+            color: orange;
+            background-color: white;
+        }
+
+
+        .box_right{
+        	width:150px;
+        	/*height: 362px;*/
+        	/*border:1px solid #f7c7c8;*/
+        	float: left;
+        }
+        .guo{
+            border-left: 1px solid #efefef;
+        }
+        .guo:hover{
+            opacity:0.7;
+            filter:alpha(opacity=70);
+        }
+        .xie_blue{
+            width: 130px;
+            height: 40px;
+            border-top: 1px solid #efefef;
+            border-left: 1px solid #efefef;
+            padding: 18px 10px;
+            margin-top: -3px; 
+        }
+        .xie_blue p{
+            line-height: 20px;
+            color:#909090; 
+        }
+        .xie_blue img{
+            float: right;
+            margin-top: -10px;
+        }
+        .xie_blue a{
+            color: black;
+        }
+        .xie_blue a:hover{
+            color:orange;
+        }
+
+
+
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="box_left">
+			<img src="img/zhong.jpg" alt="">
+			<div class="hot">
+				<p>热门TOP</p>
+				<a href="">连衣裙 <img src="img/h.png" alt=""></a><br>	
+				<a href="">单鞋 </a>  <a href="" style="margin-left: 2px;"> 沙发</a><br>	
+				<a href="">真皮女包</a><br>	
+				<a href="">风衣</a><br>	
+				<a href="">按摩靠垫</a><br>	
+				<a href="">运动服</a><br>	
+				<a href="">系理想 <img src="img/h.png" alt=""></a><br>	
+				<a href="">牛仔裤</a><br>	
+				<a href="">电水壶</a>
+			</div>
+		</div>
+		<div class="box_mid">
+		<div style="float: left;">
+			<div class="xie_yellow"><a href="">品质优选</a></div>
+			<div class="xie_pink"><a href="">品质优选</a></div>
+        </div> 
+
+        <img src="img/wu.jpg" alt="" class="wu">
+
+        <div class="good">
+           <div class="red">
+               <p>好货不贵</p><a href="">小户型家具这样</a>
+           </div>
+        </div>
+		</div>
+
+		<div class="box_right">
+            <img src="img/guo.jpg" alt="" class="guo">   
+            <div class="xie_blue">
+                <div style="display: inline-block;">
+                   <a href=""><b>国货精品</b></a>
+                   <p>制造首选</p>
+                </div>
+                <img src="img/xie.jpg" alt="">
+
+            </div>   
+            <div class="xie_blue">
+                <div style="display: inline-block;">
+                   <a href=""><b>国货精品</b></a>
+                   <p>制造首选</p>
+                </div>
+                <img src="img/xie.jpg" alt="">
+
+            </div>  
+        </div>
+	</div>
+</body>
+</html>

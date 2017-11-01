@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box_out{
+			width: 600px;
+			height: 200px;
+		    border: 1px solid;
+			text-align: center;
+			margin: 0 auto;
+			padding-top: 100px;
+		}
+		.box_in{
+			width: 100px;
+			height: 100px;
+			/*border: 1px solid;*/
+			margin:0px auto;
+			position: relative;
+			border-radius: 50%;
+		}
+		.box_in div{
+			width: 20px;
+			height: 20px;
+			background: #6F6F6F;
+			border-radius: 50%;
+			position: absolute;
+			/*animation: huan 1s infinite alternate linear;*/
+			
+		}
+		
+		.div1{
+			top: 0px;
+			left: 40px;
+			animation: huan 1s infinite 0s alternate;
+			
+		}
+		.div2{
+			
+			top: 11px;
+			left: 11px;
+			animation: huan 1s infinite 0.2s alternate;
+			
+		}
+		.div3{
+			
+			top: 40px;
+			left: 0px;
+			animation: huan 1s infinite 0.4s alternate ;
+			
+		}
+		.div4{
+			
+			bottom: 11px;
+			left: 11px;
+			animation: huan 1s infinite 0.6s alternate ;
+			
+		}
+		.div5{
+			
+			bottom: 0px;
+			left: 40px;
+			animation: huan 1s infinite 0.8s alternate ;
+			
+		}
+		.div6{
+			
+			bottom: 11px;
+			right: 11px;
+			animation: huan 1s infinite 1s alternate ;
+			
+		}
+		.div7{
+			
+			top: 40px;
+			right: 0px;
+			animation: huan 1s infinite 1.2s alternate ;
+			
+		}
+		.div8{
+			
+			top: 11px;
+			right: 11px;
+			animation: huan 1s infinite 1.4s alternate ;
+			
+		}
+		@keyframes huan{
+			from{ transform: scale(1);}
+			to{ transform: scale(0.3); background: #A9A9A9;}
+		}
+		</style>
+	</head>
+	<body>
+		<div class="box_out">
+		<div class="box_in">
+			<div class="div1"></div>
+			<div class="div2"></div>
+			<div class="div3"></div>
+			<div class="div4"></div>
+			<div class="div5"></div>
+			<div class="div6"></div>
+			<div class="div7"></div>
+			<div class="div8"></div>
+		</div>
+		</div>
+	</body>
+</html>

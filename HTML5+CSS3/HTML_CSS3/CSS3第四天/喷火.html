@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background: black;
+			}
+			div{
+				width: 500px;
+				overflow: hidden;
+				border-top-right-radius: 50%;
+				border-bottom-right-radius: 50%;
+				transform: rotateZ(90deg);
+				transform-origin: left;
+				margin-top:-30px ;
+				margin-left: 300px;
+				animation: changewidth 2s infinite alternate;
+			}
+			@keyframes changewidth{
+				0%{width: 500px;}
+				100%{width: 40px;}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div>	
+		   <img src="img/huo3.png" width="500"/>
+		</div>
+	</body>
+</html>

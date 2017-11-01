@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title></title>
+	<style>
+	    *{margin: 0;padding: 0;}
+		.div1{
+			background-color:red;
+			height: 100px;
+			width: 200px;
+			margin-top: 100px;
+			/*添加一个相对定位*/
+			position: relative;/*非完全脱离文档流*/
+			top: 100px;
+			left: 100px;			
+		}
+		/*.div2{
+			background-color:yellow;
+			height: 100px;
+			width: 200px;
+		}*/
+	</style>
+</head>
+<body>
+<!-- position:relative相对定位；相对于自身位置的左上角进行改变.
+     自身的位置未发生改变，改变的只是相对位置，自身原始位置依然保留
+     控制偏移量：top/right/bottom/left
+ -->
+    <!-- <div class="div2"></div> -->
+    <div class="div1"></div>
+    
+</body>
+<script>
+	for (var i = 0; i <= 100; i++) {
+		document.write(i + "<br>");
+	}
+</script>
+</html>
+
+
+
+
+
+
+

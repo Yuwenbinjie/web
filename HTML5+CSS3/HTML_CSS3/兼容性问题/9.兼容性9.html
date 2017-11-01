@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				border: 1px solid;
+				float: left;
+			}
+			.box div{
+				width: 30px;
+				height: 100px;
+				background: red;
+				margin-left: 30px;
+				border: 5px solid blue;
+				float: left;
+				/*解决方法*/
+				display:inline-block;
+			}
+			/*margin-left:一行中最左侧的一个元素有双边距
+			 margin-left:一行中最右侧的一个元素有双边距*/
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+	</body>
+</html>

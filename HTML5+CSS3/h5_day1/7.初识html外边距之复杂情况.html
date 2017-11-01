@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>复杂外边距</title>
+		<style type="text/css">
+			.box1{
+				width:500px;
+				height:500px;
+				background-color: blue;
+				border:1px solid blue;
+				/*2.为子级提供参照*/
+			}
+			.box2{
+				width:200px;
+				height:200px;
+				background-color: hotpink;
+				margin-top: 150px;
+				
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="box1"> 
+		1.有字<!-- 否则margin属性无参考 -->
+			<div class="box2"></div>
+		</div>
+		<!-- 复杂情况多发生于标签嵌套使用，子集标签想要产生一定距离，当父级标签没有任何参照，所以子集标签将属性传到父级标签。
+		解决方法：
+        1.为父级添加border，但宽高要做相应调整；
+        2.为父级添加padding属性，但宽高要做相应调整；
+		 -->
+
+	</body>
+
+</html>

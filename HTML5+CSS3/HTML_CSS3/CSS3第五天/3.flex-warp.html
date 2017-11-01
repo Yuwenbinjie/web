@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.flex_container{
+				list-style: none;
+				margin-left: 200px;
+				padding: 0;
+				display: flex;
+			}
+			.flex_item{
+				background: tomato;
+				width: 50px;
+				text-align: center;
+				margin: 15px;
+			}
+			.nowarp{
+				flex-wrap: nowrap;
+			}
+			.warp{
+				flex-wrap: wrap;
+			}
+			.warp_reverse{
+				flex-wrap:wrap-reverse;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="flex_container nowarp">
+			<li class="flex_item">1</li>
+			<li class="flex_item">2</li>
+			<li class="flex_item">3</li>
+			<li class="flex_item">4</li>
+			<li class="flex_item">5</li>
+		</ul>
+		<ul class="flex_container warp">
+			<li class="flex_item">1</li>
+			<li class="flex_item">2</li>
+			<li class="flex_item">3</li>
+			<li class="flex_item">4</li>
+			<li class="flex_item">5</li>
+		</ul>
+		<ul class="flex_container warp_reverse">
+			<li class="flex_item">1</li>
+			<li class="flex_item">2</li>
+			<li class="flex_item">3</li>
+			<li class="flex_item">4</li>
+			<li class="flex_item">5</li>
+		</ul>
+	</body>
+</html>

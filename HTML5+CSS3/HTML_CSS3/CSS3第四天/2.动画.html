@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background: greenyellow;
+				/*动画名字*/
+				animation-name:changecolor;
+				/*动画持续时间*/
+				animation-duration: 5s;
+				/*动画结束后状态：停留在原地／返回初始位置*/
+				animation-fill-mode: forwards;
+				/*动画开始播放的延迟时间*/
+				animation-delay: 1s;
+				/*动画运行速度的曲线*/
+				animation-timing-function: ease;
+				/*动画是否返回播放*/
+				animation-direction:alternate-reverse ;
+				/*动画播放次数*/
+				animation-iteration-count: infinite;
+				/*控制动画*/
+				/*animation-play-state: paused;*/
+				
+			}
+			div:hover{
+				animation-play-state: running;
+			}
+			@keyframes changecolor{
+				from{background: greenyellow;}
+				to{background: red;}
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

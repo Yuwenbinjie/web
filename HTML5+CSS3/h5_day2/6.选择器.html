@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*标签选择器*/
+		div{
+			background-color: blue;
+		}
+		/*通配选择器*/
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		/*class类选择器*/
+		.div3{
+			background-color: red;
+		}
+		.div4{
+			color:white;
+		}
+		/*id选择器*/
+		#div5{
+			background-color: green;
+		}
+		/*父子选择器（只影响后代后一代）*/
+		div>p{
+			background-color: yellow;
+
+		}
+		/*后代选择器（影响包含所有）*/
+		div p{
+			background-color: grey;
+		}
+		/*群组选择器*/
+		div,p{background-color: pink;}
+	</style>
+</head>
+<body>
+    <p>xixi</p>
+	<div>haha</div>	
+	<div>hehe</div>
+	<div class="div3">hehe3</div>
+	<div class="div3 div4">hehe4</div>
+	<div id="div5">hehe5</div>
+	<!-- ID选择器的类名必须是唯一的 -->
+    <div>
+       <a href=""><p>后代</p></a>
+       <p>div里面的子代</p>
+    </div>
+
+
+</body>
+</html>

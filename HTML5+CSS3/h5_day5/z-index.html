@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			position: absolute;
+		}
+		.div1{
+			background-color: red;
+
+
+		}
+		.div2{
+			background-color: green;
+			top:100px;
+			left:100px;
+			/*background:rgba只将背景透明*/
+			background: rgba(212,212,0,0.5);
+		}
+		.div3{
+			background-color: blue;
+			top:200px;
+			left:200px;
+			/*是将整体内容全部透明
+            范围：0-1；0全透明，1不透明
+			*/
+			opacity:0.5;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="div1"></div>
+	<div class="div2">div2</div>
+	<div class="div3">div3</div>
+</body>
+</html>

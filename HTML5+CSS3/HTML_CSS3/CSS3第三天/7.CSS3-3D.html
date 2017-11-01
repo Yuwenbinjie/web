@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+        /*其实也可以把perspective的值简单的理解为人的眼睛到显示器的距离，
+        而translate就是3D物体距离源点的距离*/
+			div{
+				width: 200px;
+				height: 200px;
+				background: pink;
+				text-align: center;
+				font-size: 40px;
+				line-height: 200px;
+				margin:20px;
+				transition: all 3s;
+			}
+			.a:hover{
+				transform: rotateX(360deg);
+			}
+			.b:hover{
+				transform: rotateY(360deg);
+			}
+			.c:hover{
+				transform: rotateZ(360deg);
+			}
+			.d:hover{
+				transform: scaleX(2);
+			}
+			.e:hover{
+				transform: scaleY(0.5);
+			}
+			.f:hover{
+				transform: scale(2);
+			}
+			.warp{
+				background: red;
+				/*开启3D效果*/
+				transform-style:preserve-3d ;
+				/*perspective属性定义3D元素距视图的距离，以像素为单位，该属性允许改变3D元素，查看3D元素的视图当为元素定义perspective属性时，其子元素获取透明效果，而不是本身*/
+				perspective: 1000px;
+				/*perspective取值为none或不设置，就没有真3D空间。
+				perspective取值越小，3D效果就越明显，也就是你的眼睛越靠近真3D。
+				perspective的值无穷大，或值为0时与取值为none效果一样。*/
+
+
+			}
+			.g:hover{
+				transform: translateX(200px);
+			}
+			.h:hover{
+				transform: translateY(200px);
+			}
+			.i:hover{
+				transform: translateZ(200px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="a">rotateX</div>
+		<div class="b">rotateY</div>
+		<div class="c">rotateZ</div>
+		<div class="d">scaleX</div>
+		<div class="e">scaleY</div>
+		<div class="warp">
+		    <div class="f">scaleZ</div>
+		</div>
+		<div class="g">translateX</div>
+		<div class="h">translateY</div>
+		<div class="warp">
+			<div class="i">translateZ</div>
+		</div>
+		
+	</body>
+</html>

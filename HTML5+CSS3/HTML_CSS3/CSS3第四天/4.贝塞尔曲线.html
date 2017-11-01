@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			article{
+				width: 600px;
+				border: 1px solid;
+				
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+				border: 1px solid;
+				position: relative;
+				animation: move 5s infinite;				
+			}
+			/*
+			 "ease":".25,.1,.25,1",
+			 "linear":"0,0,1,1",
+			 "ease-in":".42,0,1,1",
+			 "ease-out":"0,0,.58,1",
+			 "ease-in-out":".42,0,.58,1"
+			 */
+			.div1{
+				animation-timing-function:cubic-bezier(0,0,1,1) ;
+			}
+			.div2{
+				animation-timing-function:cubic-bezier(.25,.1,.25,1) ;
+			}
+			.div3{
+				animation-timing-function:cubic-bezier(.42,0,1,1) ;
+			}
+			.div4{
+				animation-timing-function:cubic-bezier(0,0,.58,1) ;
+			}
+			.div5{
+				animation-timing-function:cubic-bezier(.42,0,.58,1) ;
+			}
+			@keyframes move{
+				from{left: 0;}
+				to{left: 500px;}
+			}
+		</style>
+	</head>
+	<body>
+		<article>
+			<div class="div1">linear</div>
+			<div class="div2">ease</div>
+			<div class="div3">ease-in</div>
+			<div class="div4">ease-out</div>
+			<div class="div5">ease-in-out</div>
+		</article>
+	</body>
+</html>

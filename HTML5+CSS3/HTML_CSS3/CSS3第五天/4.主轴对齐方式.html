@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			.flex_container{
+				list-style: none;
+				
+				display: flex;
+			}
+			.flex_item{
+				background: tomato;
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				padding: 5px;
+				margin: 5px;
+				font-size: 32px;
+			}
+			.flex_style{
+				/*靠左*/
+				justify-content: flex-start;
+				/*靠右*/
+				justify-content: flex-end;
+				/*居中*/
+				justify-content: center;
+				/*靠两边*/
+				justify-content: space-between;
+				/*间距相等*/
+				justify-content: space-around;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul class="flex_container flex_style">
+			<li class="flex_item">1</li>
+			<li class="flex_item">2</li>
+			<li class="flex_item">3</li>
+			<li class="flex_item">4</li>
+			<li class="flex_item">5</li>
+		</ul>
+	</body>
+</html>

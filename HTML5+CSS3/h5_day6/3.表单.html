@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    <!-- action:引号中的地址是数据提交的地址
+    method：提交方式
+    get：直接提交，value：会在提交地址后以字符串拼接方式显示
+    post：先把数据打包，然后传到地址，地址栏不会显示提交内容。
+     -->
+	<form action="http://www.baidu.com" method="get">
+		用户名：<input type="text" name="user" placeholder="请输入"><br>
+		密码：<input type="password" name="password"><br>
+		男：<input type="radio" name="ra">
+		女：<input type="radio" name="ra"><br>
+		兴趣爱好：
+		农药 <input type="checkbox" name="box1">
+		dota2 <input type="checkbox" name="box1">
+		shopping <input type="checkbox" name="box1"><br>
+		<input type="file"><br>
+		选择城市：<select name="" id="">
+		    <option value="">北京</option>
+			<option value="" selected="selected">山西</option>
+			<option value="">河北</option>
+			<option value="">辽宁</option>
+		</select><br>
+		留言板：<br>
+		<textarea name="" id="" cols="60" rows="10" style="resize: horizontal;">
+			调整上下高度：resize: vertical;
+			调整左右宽度：resize: horizontal;
+			调整宽高：resize: both;
+			不动：resize: none;
+		</textarea><br>
+		<input type="submit" value="提交">
+
+	</form>
+</body>
+</html>

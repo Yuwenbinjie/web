@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background: url(img/timg.jpeg) center center;
+			}
+			img{
+				width: 400px;
+				height: 400px;
+				margin-top: -2px;
+				margin-left: -4px;
+			}
+			.p1{
+				transform:rotateY(90deg);
+				transform-origin:right;
+			}
+			.p3{
+				transform:rotateY(-90deg);
+				transform-origin:left;
+			}
+			.p4{
+				transform: translateX(-800px) translateZ(400px);
+			}
+			.p5{
+				transform: translateX(400px) translateY(-400px) rotateX(90deg);
+				transform-origin:top ;
+
+			}
+			.p6{
+				transform: rotateX(90deg);
+				transform-origin: top;
+			}
+			.box{
+				width: 1700px;
+				transform-style:preserve-3d ;
+				animation:move 150s infinite alternate linear;
+				/*background: yellowgreen;*/
+			}
+			@keyframes move{
+				50%{
+					transform: rotateX(1000deg) rotateY(3600deg) rotateZ(2000deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<img src="img/p1.jpeg" class="p1"/>
+			<img src="img/p2.jpeg" class="p2"/>
+			<img src="img/p3.jpeg" class="p3"/>
+			<img src="img/p4.jpeg" class="p4"/>
+			<img src="img/p5.jpeg" class="p5"/>
+			<img src="img/p6.jpeg" class="p6"/>
+		</div>
+	</body>
+</html>

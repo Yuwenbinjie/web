@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		div{
+			padding:10px 20px;
+			font-size: 20px;
+			width:120px;
+			border:1px solid;
+			text-align: center;
+			border-radius:20px;
+		}
+		/*当鼠标悬停时，发生反应*/
+		div:hover{
+			background-color: lightblue;
+			color:white;
+
+		}
+		a{
+			color: black;
+			font-size:24px;
+			text-decoration: none;
+			margin-top: 50px;
+			display: inline-block;
+		}
+		/*love hate顺序*/
+		/*未作任何操作*/
+		a:link{color:orange;}
+		/*已经使用过*/
+		a:visited{color:green;}
+		/*鼠标停悬*/
+		a:hover{color:blue; text-decoration: underline;}
+		/*正在被使用*/
+		a:active{color:red;}
+	</style>
+</head>
+<body>
+	<div>百度一下</div>
+	<a href="http://www.baidu.com">百度</a>
+</body>
+</html>

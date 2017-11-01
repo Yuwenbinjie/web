@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 400px;
+				height: 400px;
+			}
+			.magic{
+				transform-style: preserve-3d;
+				animation: move 120s infinite;
+				border: 1px solid;
+			}
+			.a{
+				margin: 200px;
+				transform: translateZ(200px);
+				
+				
+			}
+			.b{
+				transform: rotateY(90deg);
+				transform-origin: right;
+				position: absolute;
+				top: 200px;
+				left: 0px;
+				
+			}
+			@keyframes move{
+				50%{
+					transform: rotateX(3600deg) rotateY(3600deg);
+				}
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="magic">
+		<img src="img/p1.jpg" class="a" />
+		<img src="img/10_03.png" class="b" />
+		</div>
+	</body>
+</html>

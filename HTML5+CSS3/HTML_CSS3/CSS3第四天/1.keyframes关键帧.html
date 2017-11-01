@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 200px;
+				width: 200px;
+				background: lightseagreen;
+				position: relative;
+				animation: move 5s infinite;
+			}
+			@keyframes move{
+				/*from{top: 0;left: 0;}
+				to{top: 0;left: 500px;}*/
+				0%{top: 0;left: 0;}
+				25%{top: 0;left: 500px;border-radius: 50%;background: yellowgreen;}
+				50%{top: 500px;left: 500px;}
+				75%{top: 500px;left: 0px;
+				background: deepskyblue;
+				border-top-left-radius: 150px ;
+				border-bottom-right-radius: 150px;
+				border-bottom-left-radius: 150px;}
+				100%{top: 0px;left: 0px;}
+				/*@keyframes:关键帧
+				 * move：动画名称
+				 * from：开始值（0%）
+				 * to：结束值（100%）
+				 * */
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

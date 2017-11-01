@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/* 标签样式初始化 */
+        body,html{margin:0;padding:0;background:#fff;font-size:14px;font-family:Arial,Helvetica,'STHeiti','Microsoft YaHei','sans-serif'}
+        form,ul,li,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+        img{border:0;}
+        ul,li{list-style-type:none;}
+        a{color:#00007F;text-decoration:none;}
+        a:hover{text-decoration:none;}
+		div{
+			border: 1px solid;
+			height:40px;
+			width: 100px;
+			padding: 20px;
+			background: green;
+			text-align: center;
+			margin:50px auto;
+			color: white;
+
+		}
+		p{
+			line-height: 40px;
+		}
+		div:hover{
+			background-color: lightgreen;
+			
+		}
+		div:hover .p1{
+			
+			color: black;
+		}
+	</style>
+</head>
+<body>
+    <div>
+    	<p class="p1">特殊情况</p>
+    	<p>特殊2</p>
+    </div>
+	<!-- 兄弟之间的margin，上下取最大，左右取和 -->
+	<div style="height: 100px; width: 100px; background-color: red; display: inline-block; margin-right: 20px;">
+	</div>
+	<div style="height: 100px; width: 100px; background-color: green; display: inline-block; margin-left: 30px;">
+	</div>
+
+	<div style="background-color: green;text-align: center;">
+		<span style=" background-color:  blue;line-height: 40px;">行高设置</span><br>
+		<span style=" background-color:  blue;line-height: 40px;">行高设置</span>
+	</div>
+</body>
+</html>

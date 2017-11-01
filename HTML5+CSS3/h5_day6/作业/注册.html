@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    body,html{margin:0;padding:0;background:#fff;font-size:16px;font-family:Arial,Helvetica,'STHeiti','Microsoft YaHei','sans-serif'}
+        form,ul,li,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+        img{border:0;}
+        ul,li{list-style-type:none;}
+        a{color:#00007F;text-decoration:none;}
+        a:hover{text-decoration:none;}
+		.box{
+			border: 1px solid;
+			width: 800px;
+			padding: 10px;
+			margin: 100px auto;
+		}
+		p{
+			margin:10px 0px;
+		}
+		input{
+			width: 300px;
+			height: 25px;
+			margin-right: 40px;
+		}
+		.title{
+			display: inline-block;
+			width: 100px;
+			/*border:1px solid;*/
+			line-height: 25px;
+			text-align: right;
+		}
+		.about{
+			display: inline-block;
+			width: 300px;
+			/*height: 200px;*/
+			/*border: 1px solid;*/
+			vertical-align: top;
+			font-size: 12px;
+		}
+		.xian{
+			border:1px dotted;
+		}
+		.red{
+			color: red;
+			
+			font-size: 25px;
+		}
+		.first_p input{
+            background: lightyellow;
+		}
+		.notice{
+			background: lightyellow;
+		} 
+		.save{
+			color: white;
+			background: green;
+			width: 50px;
+			height: 30px;
+		}
+
+	</style>
+</head>
+<body>
+    <div class="box">
+	<form action="" method="post">
+		<p class="first_p">
+		   <span class="title"><span class="red">*</span>昵称：</span>
+		   <input type="text">
+		   <span class="notice">4-20字符，支持中英文，数字，“_”或减号</span>
+		</p>
+
+		<p>
+		   <span class="title">真实姓名：</span>
+		   <input type="text">
+		   <select name="" id="all">
+		   	  <option value="所有人可见">所有人可见</option>
+		   	  <option value="仅自己可见">仅自己可见</option>
+		   	  <option value="仅自己可见">我关注的人可见</option>
+		   </select>
+		</p>
+
+		<p>
+		   <span class="title"><span class="red">*</span>所在地：</span>
+		   <select name="" id="sheng">
+		   	  <option value="">北京</option>
+		   	  <option value="">山西</option>
+		   </select>
+		   <select name="" id="shi">
+		   	  <option value="">朝阳区</option>
+		   	  <option value="">昌平区</option>
+		   </select>
+		</p>
+
+		<p>
+		   <span class="title">生日：</span>
+		   <select name="" id="year">
+		   	  <option value="">2017</option>
+		   	  <option value="">2016</option>
+		   </select>
+		   <select name="" id="month">
+		   	  <option value="">01</option>
+		   	  <option value="">02</option>
+		   </select>
+		   <select name="" id="day">
+		   	  <option value="">01</option>
+		   	  <option value="">02</option>
+		   </select>
+		   <select name="" id="limit">
+		   	  <option value="">保密</option>
+		   	  <option value="">公开</option>
+		   </select>
+		</p>
+
+		<p>
+		   <span class="title">微博地址：</span>
+		   <input type="text">
+		   <select name="" id="all">
+		   	  <option value="所有人可见">所有人可见</option>
+		   	  <option value="仅自己可见">仅自己可见</option>
+		   	  <option value="仅自己可见">我关注的人可见</option>
+		   </select>
+		</p>
+
+		<p>
+		   <span class="title">常用邮箱：</span>1403062739@qq.com
+		   <a href="">修改</a>
+		</p>
+
+		<p>
+		   <span class="title">QQ：</span>
+		   <input type="text">
+		   <select name="" id="all">
+		   	  <option value="所有人可见">所有人可见</option>
+		   	  <option value="仅自己可见">仅自己可见</option>
+		   	  <option value="仅自己可见" selected="selected">我关注的人可见</option>
+		   </select>
+		</p>
+
+		<p>
+		   <span class="title">EMS：</span>
+		   <input type="text">
+		   <select name="" id="all">
+		   	  <option value="所有人可见">所有人可见</option>
+		   	  <option value="仅自己可见">仅自己可见</option>
+		   	  <option value="仅自己可见" selected="selected">我关注的人可见</option>
+		   </select>
+		</p>
+
+		<div>
+		   <span class="title">简介：</span>
+		   <div class="about">
+		   <textarea name="" id="" cols="47" rows="10"></textarea>
+		   <p class="xian"></p>
+		   <p>以下信息，可作为通过客服取回账号的依据</p>
+		   </div> 
+		</div>
+
+		<p>
+		   <span class="title">证件类型：</span>身份证
+		</p>
+
+		<p>
+		   <span class="title">证件号码：</span>
+		   <input type="text">
+		</p>
+
+		<p>
+		   <span class="title"></span>
+		   <input type="submit" value="保存" class="save">
+		</p>
+
+
+
+	</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*紧临选择器*/
+			div+p{
+				color:red;
+			}
+			/*属性选择器*/
+			a[target=_blank]{
+				background: red;
+			}
+			a[target]{
+				color: yellow;
+			}
+			/*伪类选择器*/
+			h3:before{
+				content:url(img/p1.jpg);
+			}
+			h3:after{
+				content:url(img/p1.jpg) ;
+			}
+			/*重点：同一父级下的相同标签！！！！*/
+			.div1 p:nth-child(2n){
+				color: #0000FF;
+			}	
+			input:disabled{
+				height: 100px;
+			}		
+			input:enabled{
+				background: yellowgreen;
+			}
+		</style>
+	</head>
+	<body>
+		<div>this is div</div>
+		<p>this is p1</p>
+		<span>this is span</span>
+		<p>this is p2</p>
+		<!--target打开方式：
+			_blank:新窗口打开
+			_self：自己窗口打开
+		-->
+		<a href="http://www.baidu.com" target="_self">baidu</a>
+		<a href="http://www.baidu.com" target="_blank">baidu</a>
+		
+		<h3>i im block</h3>
+		<div class="div1">
+			<p>this is p1</p>
+			<p>this is p2</p>
+			<p>this is p3</p>
+			<p>this is p4</p>
+			<p>this is p5</p>
+		</div>
+		<input type="text" />
+		<!--禁用-->
+		<input type="text" / disabled="disabled">
+	</body>
+</html>

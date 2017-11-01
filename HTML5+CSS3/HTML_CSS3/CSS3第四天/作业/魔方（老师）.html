@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px; padding: 0px;
+			}
+			body{
+				background: url(img/timg2.jpeg) center center;
+			}
+			img{
+				width: 400px;
+				height: 400px;
+				margin-top: -2px;
+				margin-left: -2px;
+			}
+			.magic{
+				transform-style:preserve-3d ;
+				animation: move 160s alternate infinite linear;
+				width: 1700px;
+			}
+			@keyframes move{
+				50%{
+					transform: rotateY(3600deg) rotateX(1000deg);
+				}
+			}
+			.magic_1{
+				margin-left: 400px;
+				transform: translateZ(-200px);
+			}
+			.magic_2{
+				transform:rotateY(90deg) translateZ(-200px) ;
+			}
+			.magic_3{
+				transform: rotateY(90deg) translateZ(-1000px);
+			}
+			.magic_4{
+				transform: translateZ(200px) translateX(400px) translateY(-400px);
+			}
+			.magic_5{
+				transform: rotateX(90deg) translateZ(200px);
+			}
+			.magic_6{
+				transform: translateX(-400px) translateY(-600px) rotateX(90deg);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="magic">
+			<img src="img/p7.jpeg" alt="" class="magic_1" />
+			<img src="img/p8.jpeg" alt="" class="magic_2" />
+			<img src="img/p9.jpeg" alt="" class="magic_3" />
+			<img src="img/p10.jpeg" alt="" class="magic_4" />
+			<img src="img/p11.jpg" alt="" class="magic_5" />
+			<img src="img/p12.jpeg" alt="" class="magic_6" />
+		</div>
+	</body>
+</html>

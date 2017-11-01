@@ -1,0 +1,161 @@
+/* 标签样式初始化 */
+body,html{margin:0;padding:0;background:#fff;font-size:14px;font-family:Arial,Helvetica,'STHeiti','Microsoft YaHei','sans-serif'}
+form,ul,li,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+img{border:0;}
+ul,li{list-style-type:none;}
+a{color:#00007F;text-decoration:none;}
+a:hover{text-decoration:none;}
+
+.top{
+	padding:25px 0px 35px 0px;
+}
+.cool{
+	min-height: 10px;
+	width:960px;
+	margin:0 auto; 
+	/*border: 1px solid;*/
+}
+
+.cool-3{
+    width: 25%;
+    float: left;
+}
+.logo{
+    font-size: 20px;
+    color: rgb(241,78,66);
+    display: inline-block;
+}
+.logo_right{
+	font-size: 12px;
+	color: #999;
+	vertical-align: top;
+}
+.cool-9{
+    float: right;
+
+}
+.nav{
+	color: #999;
+	margin-left: 30px;
+}
+.nav:hover{
+	color: rgb(107,197,207);
+}
+
+.banner{
+	background-color: rgb(107,197,207);
+	padding: 100px 0px;
+	/*overflow: hidden;*/
+}
+
+.typegraphic{
+	font-size: 400px;
+	color: white;
+	float: left;
+	margin-top: -182px;
+	letter-spacing: -20px;
+	margin-left: -120px;
+	margin-right: 40px;
+}
+.slogan{
+	font-size: 36px;
+	color: #fff;
+}
+.introduction{
+	color: #177c8a;
+	margin-top: 20px;
+}
+.call{
+	font-size: 18px;
+	color: #fff;
+	padding: 10px 20px;
+	border: 1px solid white;
+	margin-top: 30px;
+	border-radius: 10px;
+	display: inline-block;
+}
+.call:hover{
+	background-color: rgba(255,255,255,0.2);
+}
+.poemtitle{
+	margin-top: 30px;
+	color: #f14e42;
+	font-size: 24px;
+	margin-bottom: 30px;
+}
+
+.poemcontent{
+	color: #6f6f70;
+	line-height: 25px;
+	display: inline-block;
+	text-align: left;
+
+}
+
+.contentblock{
+	text-align: center;
+	padding:60px 0px;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.photo{
+	height: 260px;
+	width: 200px;
+	float: left;
+	margin:-50px 60px 0px;
+}
+
+.visiontitle{
+	color: #f14e42;
+	text-align: left;
+	font-size: 24px;
+	padding-bottom: 30px;
+}
+.visioncontent{
+	color: #6f6f70;
+	text-align: left;
+	line-height: 25px;
+	padding-bottom: 25px;
+}
+.contacttitle{
+	color:#6f6f70;
+	font-size: 25px; 
+}
+.email{
+	font-size: 18px;
+	background-color: rgb(107,197,210);
+	padding:10px 20px;
+	color: white;
+	border-radius: 5px;
+	margin:20px 0px;
+	display: inline-block;
+}
+
+.email:hover{
+	background-color:lightblue;
+}
+
+.footer{
+	padding:30px 0px;
+	background-color: #f3f3f3;
+	color: #e3e3e3;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,374 @@
+body,html{margin:0;padding:0;background:#fff;font-size:14px;font-family:Arial,Helvetica,'STHeiti','Microsoft YaHei','sans-serif'}
+form,ul,li,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+img{border:0;}
+ul,li{list-style-type:none;}
+a{color:#00007F;text-decoration:none;}
+a:hover{text-decoration:none;}
+
+.box{
+	width: 100%;
+	/*height: 5000px;*/
+	/*border: 1px solid;*/
+	position: relative;
+}
+.home{
+	height: 760px;
+	background: url("../img/home1.jpg") no-repeat;
+}
+.home_top{
+	width: 1000px;
+	height: 75px;
+	margin: 0 auto;
+	/*border: 1px solid;*/
+	overflow: hidden;
+	
+}
+.home_top>img{
+	float: left;
+	margin-top: 15px;
+	
+}
+.adv{
+	display: inline-block;
+	margin-left: 30px;
+}
+.adv a{
+	color: white;
+	font-size: 20px;
+	padding: 27px 18px;
+	display: inline-block;
+	/*background: deepskyblue;*/
+	margin-left: 20px;
+}
+.adv a:hover{
+	background: deepskyblue;
+	
+}
+.top_right{
+	float: right;
+	margin-top: 15px;
+}
+.register{
+	width: 96px;
+	height: 40px;
+	background: url(../img/register.png) left -244px no-repeat;
+	/*border: 1px solid;*/
+	display: inline-block;
+}
+.register:hover{
+	background: url(../img/register.png) left -284px no-repeat;
+	
+}
+.login{
+	display: inline-block;
+	line-height: 25px;
+	margin-left: 20px;
+}
+.login p{
+	display: flex;
+	justify-content: space-between;
+	
+}
+.login a{
+	color: white;	
+}
+.login a:hover{
+	color: deepskyblue;	
+}
+.online:hover{
+	text-decoration: underline;
+}
+.home_main{
+	width: 1400px;
+	/*border: 1px solid ;*/
+	height: 680px;
+	margin: 0 auto;
+	position: relative;
+	/*overflow: hidden;*/
+}
+.home_main_left{
+	width: 470px;
+	text-align: center;
+	/*border: 1px solid ;*/
+	margin-top: 120px;
+}
+.home_main_left img{
+	margin-top: 30px;
+}
+.home_p{
+	position: absolute;
+	bottom: -60px;
+	right: 80px;
+}
+.home_p2{
+	position: absolute;
+	bottom: -10px;
+	right: -30px;
+}
+.home_main1{
+	width: 1400px;
+	/*border: 1px solid;*/
+	height: 680px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+.home_main2{
+	width: 1400px;
+	/*border: 1px solid ;*/
+	height: 680px;
+	position:absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	/*background: deepskyblue;*/
+	opacity: 0;
+	background: rgb(47,155,233);
+}
+.yuan{
+	/*border: 1px solid;*/
+	position: absolute;
+	top: 710px;
+	left: 45%;	
+	z-index: 10;
+	display: inline-block;
+	background: url(../img/yuan2.png)no-repeat;
+	width: 12px;
+	height: 12px;
+}
+
+.yuan:hover{
+	background: url(../img/yuan1.png)2px 2px no-repeat;
+	
+}
+.yuan:hover~.home{
+	background: rgb(47,155,233);
+}
+.yuan:hover~.home>.home_main>.home_main2{
+	opacity: 1;
+}
+.iam{
+	height: 280px;
+	/*border: 1px solid;*/
+	overflow: hidden;
+	text-align: center;
+}
+.bj1{
+	height: 600px;
+	/*background-image: url(../img/bj1.jpg);
+	background-attachment: fixed;*/
+	background: url(../img/bj1.jpg) fixed center center no-repeat;
+	
+}
+.bj2{
+	height: 600px;
+	background: url(../img/bj2.jpg) fixed center center no-repeat;
+	
+}
+.bj3{
+	height: 600px;
+	background: url(../img/bj3.jpg) fixed center center no-repeat;
+	
+}
+.cool{
+	width: 1000px;
+	margin: 0 auto;
+}
+.communicate1{
+	position: relative;
+	height: 585px;
+	/*border: 1px solid;*/
+}
+.shou{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	
+}
+.shou2{
+	position: absolute;
+	top: 130px;
+	right: 0px;
+	
+}
+.com_right{
+	/*width:500px;*/
+	float: right;
+	text-align: right;
+	line-height: 40px;
+	font-size: 18px;
+	color: #777;
+	margin-top: 100px;
+}
+.com_left{
+	/*width:500px;*/
+	float: left;
+	text-align: left;
+	line-height: 40px;
+	font-size: 18px;
+	color: #777;
+	margin-top: 100px;
+}
+.blue{
+	color:rgb(113,212,749);
+}
+.call1{
+	margin-right: 15px;
+	margin-top: 40px;
+}
+.group{
+	height: 80px;
+	/*width: 350px;*/
+	/*border: 1px solid;*/
+	position: relative;
+}
+.group span{
+	width:110px;
+	display: inline-block;
+	/*border: 1px solid;*/
+	
+	font-size: 15px;
+}
+.bian{
+	width: 120px;
+	height: 90px;
+	border-right: 1px solid #999;
+	border-left: 1px solid #999;
+	position: absolute;
+	top: -60px;
+	right: 85px;
+}
+.bian2{
+	width: 120px;
+	height: 90px;
+	border-right: 1px solid #999;
+	border-left: 1px solid #999;
+	position: absolute;
+	top: -60px;
+	left: 85px;
+}
+.three{
+	width: 500px;
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	top: 360px;
+	left: 100px;
+}
+.foot_box{
+
+	background: rgb(42,42,42);
+	border: 1px solid rgb(42,42,42);
+	color: #666;
+}
+.foot{
+	margin-top:50px ;
+	overflow: hidden;
+}
+.foot_left{
+	float: left;
+}
+.foot_right{
+	float: right;
+}
+.hot_zi{
+	margin-bottom: 40px;
+}
+.hot{
+	display: inline-block;
+	width:70px;
+	height: 80px;
+	text-align: center;
+	margin-right: 50px;
+	color: #888;
+}
+.hot1 div{
+	height: 48px;
+	/*border: 1px solid white;*/
+	background: url(../img/foot.png)-2px 0px;
+}
+.hot2 div{
+	height: 48px;
+	/*border: 1px solid white;*/
+	background: url(../img/foot.png)-112px 0px;
+}
+.hot3 div{
+	height: 48px;
+	/*border: 1px solid white;*/
+	background: url(../img/foot.png)-222px 0px;
+}
+.hot4 div{
+	height: 48px;
+	/*border: 1px solid white;*/
+	background: url(../img/foot.png)-330px 0px;
+}
+.hot1:hover div{
+	background: url(../img/foot.png)-2px 50px;
+}
+.hot1:hover p{
+	color: rgb(45,182,244);
+}
+.hot2:hover div{
+	background: url(../img/foot.png)-112px 50px;
+}
+.hot2:hover p{
+	color: rgb(45,182,244);
+}
+.hot3:hover div{
+	background: url(../img/foot.png)-222px 50px;
+}
+.hot3:hover p{
+	color: rgb(45,182,244);
+}
+.hot4:hover div{
+	background: url(../img/foot.png)-330px 50px;
+}
+.hot4:hover p{
+	color: rgb(45,182,244);
+}
+.hot p{
+	margin-top: 20px;
+}
+.foot_right{
+	float: right;
+}
+.foot_right ul{
+	float: left;
+	margin-left: 80px;
+	line-height: 25px;
+}
+.foot_right ul a{
+	color: #888;
+	font-size: 12px;
+}
+.foot_right ul a:hover{
+	color:white;
+}
+.xian{
+	border-top: 1px solid #666;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	
+}
+.foot_bottom{
+	text-align: center;
+	line-height: 25px;
+	font-size: 12px;
+	margin-bottom: 80px;
+}
+@media only screen and (max-width:1400px ) {
+	.bj1{
+		background: url(../img/bjx1.jpg) fixed center center no-repeat;
+        /*background-size: cover;*/
+        /*width: 100%;*/
+	}
+	.bj2{
+		background:url(../img/bjx2.jpg)fixed center center no-repeat;
+		
+	}
+	.bj3{
+		background:url(../img/bjx3.jpg)fixed center center no-repeat;
+		/*background-size:cover ;*/
+		
+	}
+}
