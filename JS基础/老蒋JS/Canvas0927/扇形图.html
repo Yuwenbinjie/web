@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#canvas{
+			border: 1px solid;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500"></canvas>
+</body>
+<script>
+	var canvas = document.querySelector("#canvas");
+	var str = '[{"name":"1月","value":100,"color":"green"},{"name":"2月","value":160,"color":"orange"},{"name":"3月","value":120,"color":"yellow"},{"name":"6月","value":60,"color":"greenyellow"},{"name":"7月","value":180,"color":"pink"}]';
+	var arr = JSON.parse(str);
+	    var yuan = new Yuan({
+     	arr:arr,
+        canvas:canvas,
+     	r:200,
+     })
+
+     
+    function Yuan(obj){
+        this.canvas=obj.canvas;
+    	this.context = this.canvas.getContext("2d");
+    	this.shanScale=function(){
+    		var sum = 0;
+    		for(var i=0;i<arr.length;i++){
+    			sum += arr[i].value;
+    			console.log(arr[i].color)
+    		}
+    		this.scale = 360/sum;
+    	}
+    	this.draw=function(begin_deg,end_deg,color){
+    		var deg = Math.PI/180;
+            var x=this.canvas.width/2;
+			var y=this.canvas.height/2;
+			this.context.beginPath();
+			this.context.moveTo(x,y);//设置一个起始点
+			this.context.arc(x,y,obj.r,begin_deg*deg,end_deg*deg);
+			this.context.fillStyle=color;
+			this.context.stroke();
+			this.context.fill();
+			
+    	}
+
+        this.beginDraw=function(){
+            this.shanScale();
+            var lastValue = 0;
+            for(var i=0;i<obj.arr.length;i++){
+                this.draw(lastValue,obj.arr[i].value*this.scale+lastValue,obj.arr[i].color);
+                lastValue+=obj.arr[i].value*this.scale;
+            }
+        }
+        this.beginDraw();
+        
+    }
+
+
+</script>
+</html>

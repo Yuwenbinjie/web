@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+        *{
+        	margin: 0;
+        	padding: 0;
+        }
+		#cansee{
+			width: 1000px;
+			height: 600px;
+			margin: 0 auto;
+			/*border: 1px solid;*/
+			position: relative;
+			overflow: hidden;
+		}
+		#imgs{
+			width: 4000px;
+			height: 600px;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			transition: all 1s;
+			/*opacity: 0;*/
+
+		}
+		img{
+			width: 1000px;
+			height: 600px;
+			float: left;
+		}
+		#btn{
+			clear: both;
+			width: 720px;
+			/*border: 1px solid;*/
+			margin: 0 auto;
+			overflow: hidden;
+			
+		}
+		#btn ul li{
+			float: left;
+			width: 100px;
+			height: 30px;
+			background: #ccc;
+			list-style: none;
+			text-align: center;
+			line-height: 30px;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+   
+	    <div id="cansee">
+		   <div id="imgs">
+			  <img src="img/p1.jpeg" alt="">
+			  <img src="img/p2.jpeg" alt="">
+			  <img src="img/p3.jpeg" alt="">
+			  <img src="img/p4.jpeg" alt="">
+		   </div> 
+	    </div>
+
+	    <div id="btn">
+	    	<ul>
+	    		<li id="shang">上一页</li>
+	    		<li>1</li>
+	    		<li>2</li>
+	    		<li>3</li>
+	    		<li>4</li>
+	    		<li id="xia">下一页</li>	
+	    	</ul>
+	    </div>
+
+	<script src="js/tween.js"></script>
+	<script>
+	change();
+	function change()
+	{
+		var imgs=document.getElementById('imgs');
+		var shang=document.getElementById('shang');
+		var xia=document.getElementById('xia');
+		var btn=document.getElementById('btn');
+		var nLi=btn.getElementsByTagName('li');
+	
+		var t=0,
+		b=0,
+		c=-4000,
+		d=4;
+
+		init();
+        //初始化函数
+        function init()
+        {
+           run();
+		   lr();
+		   num();
+        }
+
+        //执行动画自动轮播
+		function run()
+		{
+           if(t>=4) t=0;
+           imgs.style.left=Tween.Linear(t,b,c,d)+'px';
+           if(t<d)
+           {
+           	t++;
+           	setTimeout(run,1500);
+           }
+		}
+
+		//上下页切换
+		function lr()
+		{
+		shang.onclick=function()
+		{
+            t-=1;
+            if(t<=-1) t=3;
+            imgs.style.left=Tween.Linear(t,b,c,d)+'px';
+		}
+		xia.onclick=function()
+		{
+            t+=1;
+            if(t>=4) t=0;
+            imgs.style.left=Tween.Linear(t,b,c,d)+'px';
+		}
+	    }
+
+
+		//根据数字切换
+		function num()
+		{
+            for(var i=1;i<nLi.length-1;i++)
+            {
+            	nLi[i].onclick=(function(index){
+                    return function(){
+                        t=index-1;
+                        imgs.style.left=Tween.Linear(t,b,c,d)+'px';
+                    }
+            	})(i)
+            }
+		}
+	}
+        
+	</script>
+	    
+	
+</body>
+</html>

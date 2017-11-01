@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,html{margin:0;padding:0;background:#fff;font-size:14px;font-family:Arial,Helvetica,'STHeiti','Microsoft YaHei','sans-serif'}
+        form,ul,li,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+        img{border:0;}
+        ul,li{list-style-type:none;}
+        a{color:#00007F;text-decoration:none;}
+        a:hover{text-decoration:none;}
+
+        #wrap{
+        	position: relative;
+        	width: 400px;
+        	height: 400px;
+        	border:1px solid black;
+        	margin: 0 auto;
+        }
+
+        #time{
+           float: left;
+        }
+        #score{
+        	float: right;
+        }
+
+        #main{
+        	clear:both;
+        	height: 400px;
+        	line-height: 400px;
+        	text-align: center;
+        	font-size: 180px;
+        }
+        #tips{
+        	text-align: center;
+        	margin: 0 auto;
+        }
+        #list{
+        	width: 100%;
+        }
+        #list li{
+        	float: left;
+        	width: 20%;
+        	font-size: 30px;
+        	text-align: center;
+        }
+	</style>
+</head>
+<body>
+<div id="wrap">
+    <div id="time">剩余时间：10</div>
+    <div id="score">完成：0</div>	
+    <div id="main">红</div>
+    <div id="tips">根据字的上面颜色，选择下面正确的字</div>
+    <ul id="list">
+    	<li>红</li>
+    	<li>蓝</li>
+    	<li>黄</li>
+    	<li>绿</li>
+    	<li>黑</li>
+    </ul>
+    
+</div>
+
+<script>
+/*需要解决的问题
+1.处理倒计时
+2.处理分数
+3.处理大字，文字颜色随机
+4.处理小字的点击事件
+5.处理小字的文字和颜色随机
+6.时间归零后，点击事件失效*/
+
+/*需要用到的方法：
+1.定时器；
+2.if 分支；
+3.onclick；
+4.random；
+5.数组；
+6.for循环；
+7.函数；
+8.innerHTML；*/
+
+/*解题三步：
+1.写结构；
+2.写样式；
+3.分析需求，写JS；*/
+
+
+    //使用数组承载文字和颜色
+	var fonts=['黄','红','蓝','绿','黑'];
+	var colors=['yellow','red','blue','green','black'];
+
+	var oMain=document.getElementById('main');
+	var oList=document.getElementById('list');
+	var oListchil=oList.getElementsByTagName('li');
+	var oTime=document.getElementById('time');
+	var oScore=document.getElementById('score');
+	var realText='';
+    createBigText();
+    createSmallText();
+    //处理大字
+	function createBigText()
+	{
+		var font=fonts[rand(0,fonts.length)];
+		//将随机得到的文字赋值给oMain
+		oMain.innerHTML=font;//innerHTML:代表标签里的具体内容
+
+		//大字的颜色
+		var cRand=rand(0,colors.length);
+		var color=colors[cRand];
+		realText=fonts[cRand];
+
+		//将获取到的颜色赋值给大字
+		oMain.style.color=color;
+	}
+
+    // 处理小字
+	function createSmallText()
+	{
+		//对文字重新排序
+		var nFonts=fonts.slice(0);
+		nFonts.sort(function(){
+			return Math.random()-0.5;//乱序
+		})
+		// console.log(nFonts);
+
+		// 对颜色重新排序
+		var nColors=colors.slice(0);
+        nColors.sort(function(){
+			return Math.random()-0.5;//乱序
+		})
+
+		for(var i=0;i<nFonts.length;i++)
+		{
+			var nFont=nFonts[i];
+			var nColor=nColors[i];
+			//将nFont的文字进行重新排序
+            oListchil[i].innerHTML=nFont;
+            oListchil[i].style.color=nColor;
+		}
+	}
+    
+    //为小字添加点击事件
+    var isClick=true;
+    var bool=true;
+    var score=0;
+    for(var i=0;i<oListchil.length;i++)
+    {
+    	oListchil[i].onclick=function()
+    	{
+    		bool=false;
+    		if(isClick)
+    		{
+    		if(this.innerHTML==realText)
+    		{
+    			//条件成立
+    			score++;
+    			oScore.innerHTML='完成：'+score;
+    			createBigText();
+                createSmallText();
+    		}
+    	    }
+    	}
+    }  
+    //倒计时
+    var time=10;
+    var timer=setInterval(function(){
+    if(!bool)
+    {
+    	time--;
+    	if(time==0)
+    	{
+    		clearInterval(timer);
+    		isClick=false;
+    		alert('总分：'+score);
+    	}
+    	oTime.innerHTML='剩余时间'+time;}
+    },1000)
+    
+	//处理随机数
+	function rand(min,max)
+	{
+       return parseInt(Math.random()*(max-min)+min);
+	}
+	// console.log(rand(2,11));
+
+</script>
+	
+</body>
+</html>

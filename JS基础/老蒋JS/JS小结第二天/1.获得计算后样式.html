@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div{
+			float: right;/*不能与定位同时使用*/
+			width: 200px;
+			transition: all 1s;
+			border: 1px solid;
+			background-color: red;
+			height: 50px;
+			/*position: absolute;
+			top: 0;
+			left: 0;*/
+			transform: scale(2);
+		}
+	</style>
+</head>
+<body>
+	<div id="div"></div>
+</body>
+<script>	
+var oDiv = document.getElementById('div');
+//获取计算后的font-size
+/*console.log(getComputedStyle(oDiv,null));
+var sFs = getComputedStyle(oDiv,null).getPropertyValue('font-size');//推荐使用
+//或者
+var sFs= getComputedStyle(oDiv,null).fontSize; //不推荐使用
+console.log(sFs);*/
+
+/*var o=getComputedStyle(oDiv,null);
+//使用驼峰命名法
+console.log(o.float);
+console.log(o.width);
+console.log(o.transition);
+console.log(o.height);
+console.log(o.border);
+console.log(o.position);
+console.log(o.top);
+console.log(o.left);
+console.log(o.backgroundColor);
+console.log(o.transform);
+
+//使用－命名法
+console.log(o.getPropertyValue('float'));
+console.log(o.getPropertyValue('width'));
+console.log(o.getPropertyValue('transition'));
+console.log(o.getPropertyValue('height'));
+console.log(o.getPropertyValue('position'));
+console.log(o.getPropertyValue('border'));
+console.log(o.getPropertyValue('top'));
+console.log(o.getPropertyValue('left'));
+console.log(o.getPropertyValue('background-color'));
+console.log(o.getPropertyValue('transform'));*/
+
+
+//IE兼容 var m=oDiv.currentStyle.样式名
+
+//两者兼容方式
+var thediv=getCssStyle(oDiv,"float");
+
+function getCssStyle(obj,css)
+{
+   if(obj.currentStyle)
+   {
+   	return obj.currentStyle[css];
+   }
+   else
+   {
+   	return getComputedStyle(obj,null).getPropertyValue(css);
+   }
+}
+console.log(thediv);
+</script>
+</html>

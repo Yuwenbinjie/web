@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#infor{
+			width: 600px;
+			
+			background: rgb(244,244,243);
+			margin: 0 auto;
+			padding: 20px;
+			overflow: hidden;
+			border: 1px solid #ccc;
+		}
+		#infor p input{
+			vertical-align: top;
+			
+		}
+		#iname{
+			width: 540px;
+			height: 30px;
+		}
+		#content{
+			width: 540px;
+			height: 200px;
+		}
+		#btn{
+			float: right;
+			padding: 10px 20px;
+			font-size: 16px;
+			margin-right: 7px;
+		}
+		#display{
+			width: 640px;
+			margin: 0 auto;
+			position: relative;
+		}
+		#title{
+			font-size: 20px;
+			font-weight: bold;
+		}
+		#list{
+			width: 100%;
+			list-style: none;
+			padding: 0px;
+			margin: 0px;
+			position: absolute;
+			top: 0px;
+
+		}
+		#list li{
+	
+			padding:5px 20px;
+		}
+		#list li a{
+			float: right;
+			text-decoration: none;
+		}
+		#li1{
+			height: 20px;
+			line-height: 20px;
+			background: #ccc;
+		}
+		#li2{
+			height: 50px;
+			line-height: 50px;
+			background: rgb(244,244,243);
+		}
+
+	</style>
+</head>
+<body>
+	<div id="infor">
+		<p>姓名：<input type="text" id="iname"></p>
+		<p>内容：<input type="text" id="content"></p>
+		<button id="btn">提交</button>
+	</div>
+	<div id="display">
+		<p id="title">显示留言</p>
+		<div id="main">
+			<ul id="list">
+				
+			</ul>
+		</div>
+	</div>
+    <script src='tween.js'></script>
+	<script>
+		var iname=document.getElementById('iname');
+		var content=document.getElementById('content');
+		var list=document.getElementById('list');
+		var lis=list.getElementsByTagName('li');
+		var btn=document.getElementById('btn');
+		
+		var timer;
+		bind();
+		//绑定事件
+		function bind()
+		{
+			
+
+			btn.onclick=function()
+			{	
+
+                var li1=document.createElement('li');
+                li1.innerHTML=iname.value;
+                li1.id='li1';
+                list.insertBefore(li1,lis[0]);
+
+                var li2=document.createElement('li');
+                li2.innerHTML=content.value+"<a href='#''>删除</a>";
+                li2.id='li2';
+                list.insertBefore(li2,lis[1]);
+                var abtn=li2.getElementsByTagName('a');
+                abtn[0].onclick=function()
+                {
+                	
+                	var t=0;
+	                var b=50;  
+	                var c=-50;
+	                var d=30;
+
+	                clearInterval(timer);
+
+	                timer=setInterval(function()
+	                {
+	                   t++;
+	                   if(t>=d)
+	                   {
+	                   	list.removeChild(li1);
+                	    list.removeChild(li2);
+	                   	clearInterval(timer);
+	                   }
+	                   li2.style.height=Tween.Bounce.easeOut(t,b,c,d)+'px';
+	                },30)	
+                }
+
+                // list.style.top=0;
+                var t=0;
+                var b=0;  
+                var c=li2.offsetHeight;
+                var d=30;
+
+                clearInterval(timer);
+
+                timer=setInterval(function()
+                {
+                   t++;
+                   if(t>=d)
+                   {
+                   	clearInterval(timer);
+                   }
+                   li2.style.height=Tween.Bounce.easeOut(t,b,c,d)+'px';
+                },30)	
+
+                
+               
+
+
+
+               
+			}
+		}
+	</script>
+</body>
+</html>

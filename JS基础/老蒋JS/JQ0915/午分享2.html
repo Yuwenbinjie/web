@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box1{
+			width: 100px;
+			height: 100px;
+			background: lightblue;
+			position: absolute;
+		}
+		#box2{
+			width: 100px;
+			height: 100px;
+			background: lightgreen;
+			position: absolute;
+			left: 500px;
+			top: 100px
+		}
+	</style>
+</head>
+<body>
+	<div id="box1"></div>
+	<div id="box2"></div>
+</body>
+<script>
+	var a = document.getElementById('box1');
+	var b = document.getElementById('box2');
+	move(a);
+	move(b);
+	function move(a)
+	{
+		a.onmousedown=function(ev){
+			var e = ev || window.event;
+			beforeX = ev.clientX;
+			beforeY = ev.clientY;
+			startY = a.offsetTop;
+			startX = a.offsetLeft;
+
+			document.onmousemove=function(ev){
+				var e = ev | window.event;
+				endX = ev.clientX - beforeX+startX;
+				endY = ev.clientY - beforeY+startY;
+				a.style.left = endX+'px';
+				a.style.top=endY+'px';
+				var leftmin = a.offsetLeft - b.offsetWidth;
+				var leftmax = a.offsetLeft + a.offsetWidth;
+				var topmin = a.offsetTop - b.offsetHeight;
+				var topmax = a.offsetTop + a.offsetHeight;
+
+	if(b.offsetLeft>leftmin&&b.offsetLeft<leftmax&&b.offsetTop>topmin&&b.offsetTop<topmax)
+	{
+		console.log('碰到了')
+	}
+			}
+			document.onmouseup=function(){
+				document.onmousemove=null;
+			}
+	    }
+	}
+
+</script>
+</html>

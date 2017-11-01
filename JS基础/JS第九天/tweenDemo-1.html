@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		#box{
+			height: 100px;
+			width: 100px;
+			position: absolute;
+			left: 0;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+    <div id="box"></div>
+
+	<script src="js/tween.js"></script>
+	<script>
+		var box=document.getElementById('box');
+		var timer=null;
+
+		var t=0,//是时间轴里开始的位置，t的变化相当于时间的变化，一般情况均匀变化，每次变化都增加一个步长，当t从0开始递增／减，到d时，运动结束
+		b=0,//是begin缩写，位置轴里开始的地方
+		c=1000,//c是change，代表变化的时间，也是播放的快慢，或是动画效果的运动幅度；(t~d时间段内的位移量)
+		d=100;//时间结束位置，d的设置比较灵活，只要符合t是从0向d递增（或递减）就可以，d跟步长配合使用来设置持续时间，例如d设置为100，如果设置步长为1，那么从0到100就有100步，即代表100次来完成此行程，步数越多持续时间越长
+
+        //执行动画
+		function run()
+		{
+           box.style.left=Tween.Quad.easeOut(t,b,c,d)+'px';
+           if(t<d)
+           {
+           	t++;
+           	setTimeout(run,100);
+           }
+		}
+        run();
+
+	</script>
+</body>
+</html>

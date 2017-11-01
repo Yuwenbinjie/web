@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#canvas{
+			border: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<!-- 宽度和高度只在行间样式写 -->
+	<canvas id="canvas" width="300" height="300">
+		您的浏览器不支持H5，请升级浏览器
+	</canvas>
+</body>
+<script>
+	// 1.获取canvas
+	var canvas = document.getElementById("canvas");
+	// 2.获取绘制环境，上下文（前端语言都有）
+	var context = canvas.getContext("2d");
+	// 3.开始绘制
+	context.beginPath();
+	// 4.移动到起始点
+	context.moveTo(30,70);
+	// 5.移动到下一个点
+	context.lineTo(95,190);
+	// 6.绘制样式设置
+    context.strokeStyle="red";//颜色
+    context.lineWidth="5";//线宽
+    context.stroke();//绘制线
+	// 6.结束绘制
+	context.closePath();
+</script>
+</html>

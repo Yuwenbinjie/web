@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="list">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+	<button id="btn">按钮</button>
+</body>
+<script>
+	var list=document.getElementById('list');
+	var lis=document.getElementsByTagName('li');
+	var btn=document.getElementById('btn');
+    console.log(list.childElementCount);
+    //childElementCount:只包含元素的个数 不包括换行和空格等其他节点
+	//这一组属性IE9以下不兼容(ie8不能用这个)
+    console.log(list.childElementCount);
+
+    //children
+    //只获取所有的子元素,IE9以下会包含注释节点
+    console.log(list.children);
+
+    //children 返回所有的子节点(10多种)
+    console.log(list.childNodes);
+
+    //firstElementChild 获取第一个子元素,不包含其他节点 (ie9以下不兼容)
+    console.log(list.firstElementChild);
+
+    //lastElementChild 获取第一个子元素,不包含其他(文本 (text))节点 (ie9以下不兼容)
+    console.log(list.lastElementChild);
+
+    //获取当前节点的上一个元素节点，IE9以下不兼容
+    console.log(lis[1].previousElementSibling);
+    console.log(lis[1].nextElementSibling);
+
+
+    btn.focus();//代表btn获得焦点
+    // btn.blur();//代表btn失去焦点
+    console.log(document.activeElement);//代表了页面中获取焦点的元素
+    
+    console.log(list.innerHTML);//包含所有子元素
+    console.log(list.outerHTML);//包含自身及所有子元素
+
+
+
+</script>
+
+</html>

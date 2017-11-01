@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    body,html{margin:0;padding:0;background:#000;font-size:14px;font-family:Arial,Helvetica,'STHeiti','Microsoft YaHei','sans-serif'}
+        form,ul,li,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+        img{border:0;}
+        ul,li{list-style-type:none;}
+        a{color:#00007F;text-decoration:none;}
+        a:hover{text-decoration:none;}
+		#oUl li{
+			float: left;
+		}
+		#oUl{
+			height: 600px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			transition:all 1s;
+
+		}
+		.imgs{
+			width: 1000px;
+			height: 600px;
+			/*opacity: 0;*/
+
+		}
+		#cansee{
+			width: 1000px;
+			height: 600px;
+			border: 1px solid;
+			overflow: hidden;
+			margin: 100px auto;
+			position: relative;
+		}
+		#btn_left{
+
+			position: absolute;
+			top: 280px;
+			left: 10px;
+			z-index: 10;
+		}
+		#btn_right{
+
+			position: absolute;
+			top: 280px;
+			right: 10px;
+			z-index: 10;
+		}
+		#oUl2{
+			position: absolute;
+			bottom: 10px;
+			left: 460px;
+			z-index: 20;
+		}
+		#oUl2 li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            margin: 10px;
+            font:white;
+		}
+	</style>
+</head>
+<body>
+<div id="cansee">
+	<ul id="oUl">
+		<li><img src="img/p1.jpeg" class="imgs"></li>
+		<li><img src="img/p2.jpeg" class="imgs"></li>
+		<li><img src="img/p3.jpeg" class="imgs"></li>
+		<li><img src="img/p4.jpeg" class="imgs"></li>	
+	</ul>
+	<img src="img/button_left.png" alt="" id="btn_left">
+	<img src="img/button_right.png" alt="" id="btn_right">
+	<ul id="oUl2">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+
+<script>
+	var oUl=document.getElementById('oUl');
+	var oImg=document.getElementsByClassName('imgs');
+	var cansee=document.getElementById('cansee');
+	var btn_left=document.getElementById('btn_left');
+	var btn_right=document.getElementById('btn_right');
+	var oUl2=document.getElementById('oUl2');
+	var dian=oUl2.getElementsByTagName('li');
+
+
+
+	var index=0;
+	var iTimer;
+	oUl.style.width=oImg[0].width*oImg.length+'px';
+	it();
+	dian[0].style.background='grey';
+
+	function it(){
+        iTimer=setInterval(function(){
+        index++;
+        if(index>oImg.length-1) index=0;
+		//获取img标签宽度 width
+		oUl.style.left=index*-oImg[0].width+'px';
+		changecolor(index);
+
+	},2000)}
+
+	cansee.onmouseover=function(){
+		clearInterval(iTimer);
+	}
+	cansee.onmouseout=function(){
+		it();
+	}
+    
+    /*左右按钮*/
+    btn_left.onclick=function()
+    {
+    	
+		index--;
+        if(index<0) index=oImg.length-1;
+		//获取img标签宽度 width
+		oUl.style.left=index*-oImg[0].width+'px';
+		changecolor(index);
+    }
+    
+    btn_right.onclick=function()
+    {
+    	
+        index++;
+        if(index>oImg.length-1) index=0;
+		//获取img标签宽度 width
+		oUl.style.left=index*-oImg[0].width+'px';
+		changecolor(index);
+	}
+    /*点击切换效果*/
+    for(var i=0;i<dian.length;i++)
+    {
+    	dian[i].onclick=function(a)
+    	{
+    		return function(){
+    		changecolor(a);
+            oUl.style.left=index*-oImg[0].width+'px';
+            //alert(this.innerHTML);
+            }
+            
+    	}(i)
+    }
+
+    function changecolor(a){
+    	for(var k=0;k<dian.length;k++)
+    		{
+    			if(k!=a) dian[k].style.background='white';
+    		}
+    	index=a;
+		dian[a].style.background='grey';
+    }
+
+</script>
+</body>
+</html>

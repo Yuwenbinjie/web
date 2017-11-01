@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p id='page' index='2'>
+	    <span id="icon"></span>
+	    <i id="font" title="aa">bb</i>
+	</p>
+</body>
+<script>
+	var page=document.getElementById('page');
+	var icon=document.getElementById('icon');
+	var font=document.getElementById('font');
+
+	var obj={id:'theid'};
+	console.log(obj.id);
+
+	console.log(page.id);//获取和设置元素id
+	page.id='page1';
+
+	console.log(font.title);
+	font.title='cc';
+
+    // getAttribute
+	console.log(page.getAttribute('id'));
+	console.log(page.getAttribute('index'));
+
+	 // setAttribute 第一个参数：属性名；第二个参数：属性值
+	page.setAttribute('the','the00');
+
+	 // removeAttribute
+	page.removeAttribute('the');
+
+	//creatElemente
+	var em=document.createElement('em');//创建标签
+	page.appendChild(em);//向父级添加该元素
+
+	
+</script>
+</html>

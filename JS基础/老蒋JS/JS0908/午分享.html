@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 60%;
+			margin: 100px auto;
+			text-align: center;
+		}
+		button{
+			width: 50px;
+			height: 20px;
+			margin-left: 20px;
+			background: lightblue;
+		}
+	</style>
+</head>
+<body>
+<div id="box">
+	<button></button>
+	<button></button>
+	<button></button>
+	<button></button>
+	<button></button>
+</div>
+	
+</body>
+<script>
+var btn = document.querySelectorAll('button');
+for(var i=0;i<btn.length;i++){
+	btn[i].index = i;
+	btn[i].onclick=function(){
+		
+		this.innerHTML = this.index; 
+		// console.log(this.index);
+		
+	}
+}
+/*	var date = new Date();
+	var d1 = new Date('2017 September 9');
+	var d2 = new Date(2017,8,10,11,30);
+	var d3 = new Date(1500000000);
+	console.log(d3);
+
+	var leftTime = d2.getTime() - date.getTime();
+	var day = Math.floor(leftTime/(1000*60*60*24));
+	var hour = Math.floor((leftTime-day*1000*60*60*24)/(1000*60*60))
+	console.log(day,hour);
+
+	var x;
+	var day = new Date().getDay();
+	switch(day){
+		case 0:
+			x = "星期天";
+			break;
+		case 1:
+			x = "星期一";
+			break;
+		case 2:
+			x = "星期二";
+			break;
+		case 3:
+			x = "星期三";
+			break;
+		case 4:
+			x = "星期四";
+			break;
+		case 5:
+			x = "星期五";
+			break;
+		case 6:
+			x = "星期六";
+			break;
+		default:break;
+	}
+	console.log(x);*/
+
+
+</script>
+</html>

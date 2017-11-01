@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//量词规则一:+
+	var reg = /ih+/ig;//+修饰的是紧挨着的前一个字符，前一个字符最少一个，最多n个
+	var str = 'nihihhhhaoh';
+	var value = str.replace(reg,"M");
+	console.log(value);
+
+	//量词规则二：.  任意字符
+	var reg = /ad.l/ig;
+	var str = "d23adflosd32adz";
+	var value = str.replace(reg,"M");
+	console.log(value);
+
+
+	//练习
+	var reg = /d.+/ig;
+	var str = "d23adflosd32adz";
+	var value = str.replace(reg,"M");
+	console.log(value);
+
+	//量词规则三:*   代表前边的字符存在0个或者多个
+    var reg = /d*/ig;
+	var str = "d23adflosddadz";
+	var value = str.replace(reg,"M");
+	console.log(value)
+
+	//量词规则四:?   代表一个或0个
+	var reg = /d?/ig;
+	var str = "d23adflosddadz";
+	var value = str.replace(reg,"M");
+	console.log(value)
+
+	//量词规则五:{}   {2}长度必须为前面的数字，范围
+	var reg = /d{1,4}/ig;//长度最少一个，最多4个
+	var reg = /d{2,}/ig;//长度最少2个，最多n个
+	var str = "d23adflosdddadz";
+	var value = str.replace(reg,"M");
+	console.log(value)
+
+	/*量词总结：
+	量词是修饰前面字符个数的，可以代表前面字符重复了多少次
+	量词有：*,?,{},+*/
+</script>
+</html>

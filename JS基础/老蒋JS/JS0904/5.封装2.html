@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 400px;
+			height: 700px;
+			background: lightgreen;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	
+</body>
+<script src="leftmove.js"></script>
+<script>
+var box = document.querySelector('#box');
+//写一个函数，既可以添加事件，又可以根据上下移动进行自己修改
+    mouseWheel(box,function(){
+			box.style.background = 'blue';
+		},function(){
+			box.style.background = 'red';
+		});
+</script>
+</html>

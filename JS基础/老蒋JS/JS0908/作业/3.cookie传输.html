@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 300px;
+			padding: 10px;
+			border: 1px solid #ccc;
+			text-align: center;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="box">
+	    <div id="tittle">注册页面</div>
+		姓名：<input type="text" id="name"><br>
+		密码：<input type="text" id="pwd"><br>
+		<button id="btn">注册</button>
+	</div>
+</body>
+<script>
+	var box = document.querySelector('#box');
+	var tittle = document.querySelector('#tittle');
+	var sname = document.querySelector('#name');
+	var pwd = document.querySelector('#pwd');
+	var btn = document.querySelector('#btn');
+    
+    btn.onclick=function(){
+	    	var namevel = sname.value;
+	    	var pwdvel = pwd.value;
+	    	setCookie('name',123,1);
+		setCookie('pwd',123,10);
+		location.href = "./login.html";
+		console.log(getCookie('name'));
+		console.log(getCookie('pwd'));
+		console.log(pwdvel);
+		console.log(namevel);
+    }
+
+	function setCookie(cname,cvalue,exdays)
+	{
+	  var d = new Date();
+	  d.setTime(d.getTime()+(exdays*24*60*60*1000));
+	  var expires = "expires="+d.toGMTString();
+	  document.cookie = cname + "=" + cvalue + "; " + expires;
+	}
+
+	function getCookie(cname)
+	{
+	  var name = cname + "=";
+	  var ca = document.cookie.split(';');
+	  for(var i=0;i<ca.length;i++)
+	  {
+	    var c = ca[i].trim();
+	    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+	  }
+	  return "";
+	}
+</script>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var box=document.getElementById('box');
+	box.onmousedown=function(ev)
+	{
+		var e = ev || window.event;
+        //事件冒泡和取消默认事件
+		var currentX=e.clientX;
+		var currentY=e.clientY;
+		var offX=this.offsetLeft;
+		var offY=this.offsetTop;
+		document.onmousemove=function(n)
+		{
+	        var endX=n.clientX-currentX;
+	        var endY=n.clientY-currentY;
+
+	        box.style.left=endX+offX+'px';
+	        box.style.top=endY+offY+'px';
+			
+		}
+		document.onmouseup=function()
+		{
+			document.onmousemove=null;
+		}
+	}
+	/*box.onmousedown=function(obj)
+	{
+        //事件冒泡和取消默认事件
+		var currentX=obj.clientX;
+		var currentY=obj.clientY;
+		document.onmousemove=function(n)
+		{
+	        var endX=n.clientX;
+	        var endY=n.clientY;
+	        // console.log(endX);
+	        // console.log(endY);
+	        box.style.left=endX+'px';
+	        box.style.top=endY+'px';
+			
+		}
+		document.onmouseup=function()
+		{
+			document.onmousemove=null;
+		}
+	}
+*/
+	
+</script>
+</html>

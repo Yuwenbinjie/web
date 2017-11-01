@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var reg = /m/;
+	var str = "stringi";
+	
+	//search,match,replace
+	var n = str.search('ing');
+	console.log(n)
+	var n = str.match(/i/g);//g代表全局搜索
+	console.log(n)
+	var n = str.replace(/i/g,'ong');
+	console.log(n)
+</script>
+</html>

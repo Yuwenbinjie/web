@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#canvas{
+			border: 1px solid;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="400" height="400"></canvas>
+</body>
+<script>
+	var canvas = document.querySelector("#canvas");
+	var context = canvas.getContext("2d");
+	context.beginPath();
+    var text = "hello word";
+	context.font="40px STKaiti";
+	var gradient = context.createLinearGradient(100,0,300,0);
+	gradient.addColorStop("0","blue");
+	gradient.addColorStop("0.5","green");
+	gradient.addColorStop("1","red");
+    
+    //设置风格
+    // context.strokeStyle="blue";
+	context.strokeStyle = gradient;
+	context.strokeText(text,100,100);
+	context.closePath();
+</script>
+</html>

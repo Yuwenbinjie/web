@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Car(color,num,name){
+		console.log(this)
+		this.color = color;
+		this.num = num;
+		this.name = name;
+	}
+	var c1 = new Car("red",1223,"奔驰");
+	var c2 = new Car("green",12,"宝马");
+	console.log(c1,c2)
+</script>
+</html>

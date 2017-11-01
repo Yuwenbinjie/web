@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#wrap{
+			width: 800px;
+			border: 1px solid;
+			margin: 0 auto;
+		}
+		.row{
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+		.preLable{
+			width: 50px;
+			height: 20px;
+			font-size: 16px;
+			font-weight: bold;
+			float: left;
+			line-height: 38px;
+			margin-right: 20px;
+			text-align: right;
+		}
+		.input{
+			float: left;
+			width: 480px;
+			height: 18px;
+			border: 0.5px solid lightgray;
+			padding: 10px;
+
+		}
+		.enter{
+			margin: 0;
+			padding: 0;
+			width: 480px;
+			border: none;
+			outline: none;
+			font-size: 16px;
+		}
+		.userError{
+			color: red;
+		}
+		.hint{
+			font-size: 12px;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="row">
+			<div class="preLable">用户名</div>
+			<div class="input">
+				<input type="text" class="enter">
+			</div>
+			<div class="hint">
+				设置后不可更改<br>
+				中英文均可,最长14个英文或7个汉字
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="preLable">手机号</div>
+			<div class="input">
+				<input type="text" class="enter">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="preLable">验证码</div>
+			<div class="input">
+				<input type="text" class="enter">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="preLable">密码</div>
+			<div class="input">
+				<input type="text" class="enter">
+			</div>
+		</div>
+		
+			
+	</div>
+	
+</body>
+<script>
+	var rowAll = document.querySelectorAll(".row");
+	var firstInput = rowAll[0].querySelector(".enter");
+
+	firstInput.onchange = function()
+	{
+		//判断内容是否超出长度
+		var length = this.value.length;
+		// console.log(length);
+		if(length > 14){
+			//获得输入框的父标签，并修改样式
+			this.parentNode.style.borderColor = 'red';
+			var end = rowAll[0].querySelector(".hint");
+			end.style.display = "none";
+			var span = document.createElement('span');
+			span.innerHTML = "用户名不能超过14个字符";
+			span.className = "userError";
+			rowAll[0].appendChild(span);
+
+		}
+	}
+
+	var secondInput = rowAll[1].querySelector(".enter");
+	secondInput.oninput = function()
+	{
+		//如果长度超过11位，截取0～10.重新赋值给输入框
+		if(this.value.length > 11){
+			var str = this.value.substring(0,11);
+			this.value = str;
+		}
+	}
+	secondInput.onchange = function()
+	{
+		var v = checkNumber(this.value);
+		if(v){
+			console.log('都是数字');
+		}
+	}
+
+	function checkNumber(theObj) {
+        var reg = /^[0-9]+?[0-9]*$/;
+        if (reg.test(theObj)) {
+            return true;
+        }
+        return false;
+    }
+</script>
+</html>

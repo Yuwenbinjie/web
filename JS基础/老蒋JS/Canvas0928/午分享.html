@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul li{
+			list-style: none;
+			width: 60px;
+			height: 30px;
+			border: 1px solid red;
+			text-align: center;
+		}
+		#wrap div{
+			width: 400px;
+			height: 300px;
+			border: 1px solid red;
+			font-size: 30px;
+			display: none;
+		}
+		.fill{
+			background: red;
+		}
+		.filldiv{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul>
+			<li rel="t1" class="selectActive">a</li>
+			<li rel="t2">b</li>
+			<li rel="t3">c</li>
+		</ul>
+		<div rel="t1">aaaaa</div>
+		<div rel="t2">bbbbb</div>
+		<div rel="t3">ccccc</div>
+	</div>
+	
+</body>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="tabs.js"></script>
+<script>
+	/*var li = document.querySelectorAll("li");
+	var div = document.querySelectorAll("div");
+	for(var i=0;i<li.length;i++){
+		li[i].onclick=function(){
+			for(var j=0;j<li.length;j++){
+				if(this==li[j]){
+					this.className="fill";
+					div[j].className="filldiv";
+				}else{
+					li[j].className="";
+					div[j].className="";
+				}
+			}
+		}
+	}*/
+
+	tabs_takes.init("wrap");
+</script>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 1000px;
+			height: 500px;
+			border: 1px solid;
+			margin: 0 auto;
+			position: relative;
+		}
+		#qiu{
+			width: 50px;
+			height: 50px;
+			background: red;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			/*border: 1px solid red;*/
+		}
+		#jishu{
+			width: 200px;
+			height: 50px;
+			/*border: 1px solid;*/
+			margin: 200px auto;
+			font-size: 30px;
+			text-align: center;
+		}
+		#btn{
+			width: 500px;
+			margin: 10px auto;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="qiu"></div>
+		<div id="jishu"></div>
+	</div>
+	<div id="btn">
+		<input type="text" placeholder="请输入圈数" id="count">
+		<input type="text" placeholder="请输入速度" id="speed">
+		<button id="shun">顺时针</button>
+		<button id="ni">逆时针</button>
+	</div>
+	<script>
+		var box=document.getElementById('box');
+		var qiu=document.getElementById('qiu');
+		var jishu=document.getElementById('jishu');
+		var shun=document.getElementById('shun');
+		var ni=document.getElementById('ni');
+		var speed=document.getElementById('speed');
+		var oCount=document.getElementById('count');
+		var x=0;
+		var y=0;
+		var i=0;
+		var j=0;
+		var maxWidth=box.clientWidth-qiu.clientWidth;//最大运动宽度
+		var maxHeight=box.clientHeight-qiu.clientHeight;//最大运动宽度
+        init();
+
+		//顺逆按钮点击事件
+        function init()
+        {  
+
+        shun.onclick=function()
+        {    
+        	var v=parseInt(speed.value);
+            var count=parseInt(oCount.value)+1;
+
+        	if (speed.value=="")  alert("请重新输入速度");
+        	if (count.value=="")  alert("请重新输入圈数");
+        	if(speed.value!=""&&count.value!="")
+        	{
+               shunFn(v,count);
+        	}
+        }
+
+        ni.onclick=function()
+        {    
+        	var v=parseInt(speed.value);
+            var count=parseInt(oCount.value)+1;
+
+        	if (speed.value=="")  alert("请重新输入速度");
+        	if (count.value=="")  alert("请重新输入圈数");
+        	if(speed.value!=""&&count.value!="")
+        	{
+               niFn(v,count);
+        	}
+        	
+        }
+        }
+
+        //顺时针转动
+		function shunFn(v,count)
+		{
+		var timer=setInterval(function(){
+			
+            
+			if(x>=maxWidth&&y==0)
+			{
+				x=maxWidth;
+				i=0;
+				j=1;
+			}
+			if(y>=maxHeight&&x==maxWidth)
+			{
+				y=maxHeight;
+				i=-1;
+				j=0;
+			}
+			if(x<=0&&y==maxHeight)
+			{
+				x=0;
+				i=0;
+				j=-1;
+			}
+			if(y<=0&&x==0)
+			{
+                y=0;
+				i=1;
+				j=0;
+				count--;
+			}
+			x+=v*i;
+			y+=v*j;
+			qiu.style.left=x+'px';
+			qiu.style.top=y+'px';
+			if(count==0) clearInterval(timer);
+            jishu.innerHTML='还剩'+count+'圈';
+		},30)
+	    }
+
+        //逆时针转动
+	    function niFn(v,count)
+		{
+		var timer=setInterval(function(){
+			if(x>=maxWidth&&y<=0)
+			{
+				i=-1;
+				j=0;
+			}
+			if(y>=maxHeight&&x>=maxWidth)
+			{
+				i=0;
+				j=-1;
+			}
+			if(x<=0&&y>=maxHeight)
+			{
+				i=1;
+				j=0;
+			}
+			if(y<=0&&x<=0)
+			{
+				i=0;
+				j=1;
+				count--;
+			}
+			x+=v*i;
+			y+=v*j;
+			qiu.style.left=x+'px';
+			qiu.style.top=y+'px';
+			if(count==0) clearInterval(timer);
+            jishu.innerHTML='还剩'+count+'圈';
+		},30)
+	    }
+	</script>
+</body>
+</html>

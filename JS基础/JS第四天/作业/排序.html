@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arry=[2,4,4,9,5,6,9,2,6];
+		var arry2=[];
+		var arry3=[];
+
+		for(var i=0;i<arry.length;i++)
+		{
+			for(var j=i+1;j<arry.length;j++)
+			{
+				if(arry[i]==arry[j]) 
+				{
+					arry2.push(i,j);	
+				}
+
+			}
+
+
+
+		}
+		for(var m=0;m<arry.length;m++)
+		{
+			for(var n=0;n<arry2.length;n++)
+			{
+				if(m==arry2[n]) /*arry3[(arry.length-1)/2]=arry[m]*/continue;
+				if(m!=arry2[n]) /*arry3[(arry.length-1)/2]=arry[m]*/alert(m);
+				
+			}
+			
+		}
+
+					
+		console.log(arry2);
+	</script>
+</body>
+</html>

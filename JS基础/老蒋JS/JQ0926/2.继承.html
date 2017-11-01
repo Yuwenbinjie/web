@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function People(name,age,sex){
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+	}
+	function Student(name,age,sex,grade){
+		this.grade = grade;
+		People.call(this,name,age,sex);
+	}
+	function CollegeStudent(name,age,sex,grade,hobby){
+		this.hobby = hobby;
+		Student.call(this,name,age,sex,grade);
+	}
+	var s1 = new CollegeStudent("张三",18,"男",99,"唱歌");
+	//instenceof为true代表是其继承来的,js中的继承为假继承
+	var value = s1 instanceof CollegeStudent;
+	console.log(value);
+	console.log(s1);
+</script>
+</html>

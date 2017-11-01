@@ -1,0 +1,52 @@
+/<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 1000px;
+			height: 500px;
+			border: 1px solid;
+			margin: 0 auto;
+			position: relative;
+			/*background: yellowgreen;*/
+		}
+		#qiu{
+			width: 50px;
+			height: 50px;
+			background: blue;
+			transition: all 0.05s;
+			position: absolute;
+			top:0px;
+			left:0px;
+			
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+	   <div id="qiu"></div>
+	</div>
+	<script>
+		var qiu=document.getElementById('qiu');
+		var y=0;
+		var x=0;
+		var i=1;
+		var j=1;
+		
+		setInterval(function(){
+			if(y==0){i=1;}
+		    if(y==450){i=-1;}
+		    if(x==0){j=1;}
+		    if(x==950){j=-1;}
+			
+			  y+=(10*i);
+			  x+=(5*j);
+			  qiu.style.top=y+'px';
+              qiu.style.left=x+'px';
+		},50)
+        
+	</script>
+</body>
+</html>

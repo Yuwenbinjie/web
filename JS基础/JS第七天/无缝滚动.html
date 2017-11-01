@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding:0;}
+		#wrap{
+			position: relative;
+			width: 600px;
+			height: 400px;
+			border: 1px solid;
+			overflow: hidden;
+			margin:0 auto;
+		}
+		#roll{
+            
+			position: absolute;
+			left: 0;
+			/*transition: all 0.03s linear;*/
+
+		}
+		#roll img{
+			float: left;
+			width: 600px;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id='roll'>
+			<img src="img/p1.jpeg" alt="">
+			<img src="img/p2.jpeg" alt="">
+			<img src="img/p3.jpeg" alt="">
+			<img src="img/p4.jpeg" alt="">
+		</div>
+	</div>
+	<script>
+		var wrap=document.getElementById('wrap');
+		var roll=document.getElementById('roll');
+		var imgs=document.getElementsByTagName('img');
+        var x=0;
+        var timer;      
+        roll.innerHTML+=roll.innerHTML;
+
+        var width=imgs[0].width*imgs.length;//.width返回的是number类型
+        roll.style.width=width+'px';
+        
+        init();
+        //页面初始化     
+        function init()
+        {
+        	it();//开启定时器
+        	bind();
+        }
+        
+
+        //自动滚动定时器
+        function it(){
+		timer=setInterval(function(){
+			move();
+		},30)
+	    }
+        
+        //执行滚动
+        function move(){
+           x+=3;
+           if(x>width/2)
+           {
+           	x=0;
+           }
+           roll.style.left=-x+'px';
+        }
+
+
+        function bind(){
+	    wrap.onmouseover=function()
+	    {
+	    	clearInterval(timer);
+	    }
+	    wrap.onmouseout=function()
+	    {
+	    	it();
+	    }
+	    }
+	</script>
+</body>
+</html>

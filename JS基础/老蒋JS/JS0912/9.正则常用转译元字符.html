@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var reg = /[0-9]/ig;
+	// \d:[0-9];
+	// \D:非数字;
+	// \w:[0-9a-zA-Z_];
+	// \W:非数字，字母，下划线;
+	// \s:空格或者tab
+	// \S:非空格或者tab
+	// [^\u4e00-\u9fa5]:[^]^如果在[]内写，代表对[]内容取反
+	var reg = /\d/ig;
+	var str = "23fd23kj";
+	var value = reg.test(str);
+	console.log(value)
+
+	var reg = /[^\u4e00-\u9fa50-9]/ig;
+	var str = "23撒fd2史蒂夫3kj";
+	var value = str.replace(reg,'');
+	console.log(value)
+</script>
+</html>

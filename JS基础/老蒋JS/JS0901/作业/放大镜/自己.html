@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    #wrap{
+	    	overflow: hidden;
+	    	margin-left: 100px;
+	    	/*border: 1px solid;*/
+	    }
+		.small{
+			width: 400px;
+			height: 400px;
+			background: url(img/min.png) no-repeat;
+			position: relative;
+			background-size: 100% 100%;
+			float: left;
+		}
+		.big{
+			display: none;
+			width: 400px;
+			height: 400px;
+			background: url(img/max.png) no-repeat;
+			background-size: 1600px 1600px;
+			float: left;
+		}
+		.mengban{
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: white;
+			display: none;
+			width: 100px;
+			height: 100px;
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="small">
+			<div class="mengban"></div>
+		</div>
+		<div class="big"></div>
+	</div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	$(".small").mouseover(function(){
+		$(".mengban").show();
+		$(".big").show();
+		$(".small").mousemove(function(ev){
+			console.log($(this).offset())
+            var x = ev.clientX - $(".mengban").width()/2 - $(this).offset().left;//position().left是相对于父级定位
+            var y = ev.clientY - $(".mengban").height()/2 - $(this).offset().top;
+            
+            if(x<0){
+            	x=0;
+            }
+            if(x>$(this).width()-$(".mengban").width()){
+            	x=$(this).width()-$(".mengban").width();
+            }
+            if(y<0){
+            	y=0;
+            }
+            if(y>$(this).height()-$(".mengban").height()){
+            	y=$(this).height()-$(".mengban").height();
+            }
+            $(".mengban").css({
+            	left:x,
+            	top:y,
+            })
+
+            var scale = $(".big").width()/$(".mengban").width();
+            var bigX = -x * scale;
+            var bigY = -y * scale;
+            $(".big").css({
+            	backgroundPosition:bigX+"px "+bigY+"px",
+            })
+		})
+	})
+	$(".small").mouseout(function(){
+		$(".big").hide();
+		$(".mengban").hide();
+	})
+</script>
+</html>

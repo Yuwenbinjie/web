@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#wrap{
+			width: 500px;
+			margin: 0 auto;
+		}
+		#wrap img{
+			width: 500px;
+			height: 300px;
+			display: inline-block;
+			background:url(images/loading.gif) center center; 
+			border: 1px solid;
+		}
+		#a{
+			width: 50px;
+			height: 50px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<!-- <div id="a"></div> -->
+		<img src="images/blank.gif" alt="" data-echo="images/big-1.jpg">
+		<img src="images/blank.gif" alt="" data-echo="images/big-2.jpg">
+		<img src="images/blank.gif" alt="" data-echo="images/big-3.jpg">
+		<img src="images/blank.gif" alt="" data-echo="images/big-4.jpg">
+		<img src="images/blank.gif" alt="" data-echo="images/big-5.jpg">
+		<img src="images/blank.gif" alt="" data-echo="images/big-6.jpg">
+		<img src="images/blank.gif" alt="" data-echo="images/big-7.jpg">
+	</div>
+</body>
+<script src="echo.js"></script>
+<script>
+	// var ele = document.querySelector("#a");
+	// console.log(ele.getBoundingClientRect())
+	Echo.init({
+		offset:400,
+		throttle:1000,
+	})
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+
+<script>
+	function move(myobj){
+       console.log(myobj.sname);
+       console.log(myobj.ssex);
+       myobj.fn();
+	}
+	var obj = {
+		sname:"宇文彬杰",
+		ssex:"男",
+		sage:19,
+		fn:function(){
+			console.log(123);
+		}
+	}
+	move(obj);
+</script>
+
+</html>

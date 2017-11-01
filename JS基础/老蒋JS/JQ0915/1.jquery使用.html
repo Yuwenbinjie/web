@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style></style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<!-- <script src="jquery.js"></script> -->
+<!-- CDN引入方式 -->
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	console.log(window)
+	//在window中存在两个属性$和jquery（$是jquery的别名），可通过两个属性直接使用jquery里面的函数
+    // 1.获得标签,获得一个jquery对象，本质上是一个数组
+/*    var m = $('#box');
+    console.log(m);
+    m.css({
+    	width:'100px',
+    	height:'100px',
+    	background:'red'
+    })*/
+    $('#box').css({
+    	width:'100px',
+    	height:'100px',
+    	background:'red'
+    })
+</script>
+</html>

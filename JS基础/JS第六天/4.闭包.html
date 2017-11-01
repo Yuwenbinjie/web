@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul{
+			background-color: grey;
+			margin:0 auto;
+			text-align: center;
+			padding-right: 10px;
+		}
+		li{
+			background: orange;
+			padding:10px 30px;
+			display:inline-block;
+			margin-left:10px;
+			margin-bottom: 30px;
+			border:1px solid;
+		}
+	</style>
+</head>
+<body>
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ul>
+	<script>
+		var aLi=document.getElementsByTagName('li');
+		/*for(var i=0;i<aLi.length;i++)
+		{
+			aLi[i].onclick=function(){
+				console.log(i);
+			}
+		}*/
+        for(var i=0;i<aLi.length;i++)
+		{
+			aLi[i].onclick=(function(index){
+				return function()
+				{
+                   console.log(index);
+				}
+				
+			})(i)
+		}
+
+		/*分析：第一步：执行外层函数把i这个实参传进来，代替所有形参；
+		       第二步：返回值是一个函数
+		       第三步：500年以后，点击aLi，把返回值里的函数添加到点击事件。
+
+		  闭包：闭包可以实现将值存储起来*/
+
+
+		//oonclick事件运行机制，再不点击相应变量之前不执行onclick后面的function
+		/*题目分析：先执行5次循环，i++，给aLi［i］分别添加onclick，但不执行后面的function，i最终变成5，100年后点击aLi，此时执行onclick后面的function，把function 添加到onclick事件里（function相当于写在了for循环外面）*/
+
+        
+        //变量作用域的特性：出了该变量的域就失去作用，如何让变量的值保存起来？
+		/*function init()
+		{
+			var age=20;
+			function displayAge()
+			{
+				console.log(age);
+			}
+			displayAge();
+		}
+		init();*/
+        
+
+        // 使用闭包使变量持久化，
+
+		function close()
+		{
+			var age=20;
+			function displayAge()
+			{
+				console.log(age);
+			}
+			return displayAge;
+		}
+		var myfun=close();
+        myfun();
+        myfun();
+        myfun();
+
+        /*闭包条件：
+        1.一个函数嵌套另一个函数，被嵌套的函数访问了父级的变量；
+        2.要将内部函数作为返回值给父级函数
+
+        闭包作用：
+        1.防止变量名冲突；
+        2.变量持久化；
+        3.闭包可以成为外层函数内部与外部的一个桥梁*/
+
+
+        // 实例1
+        function makeAdder()
+        {
+        	return function(y)
+        	{
+        		alert(y);
+
+        	}
+        }
+        var adder=makeAdder();
+        adder(5);
+	</script>
+</body>
+</html>

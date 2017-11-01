@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 1000px;
+			height: 500px;
+			margin: 0 auto;
+		}
+		#content{
+			height: 400px;
+			background: url(img/bj.png) 0 0;
+			background-size: 100% 100%;
+			position: relative;
+		}
+		#hero{
+			height: 50px;
+			width: 50px;
+			background: url(img/hero2.jpg) ;
+			background-size: 100% 100%;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
+		#land{
+			height: 100px;
+			background: url(img/qiang.png);
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="content">
+			<div id="hero"></div>
+		</div>
+		<div id="land"></div>
+	</div>
+</body>
+<script>
+	var myHero = new Hero({
+		id:"#hero",
+		moveFn:function(){
+			border(this.element,document.querySelector("#content"));
+		}
+	})
+	function Hero(obj){
+		this.element = document.querySelector(obj.id);
+		this.direction="right";
+		this.beginY = this.element.offsetTop;
+		this.jumpCount=0;
+		this.move=function(){
+			this.stop();
+			var nowX = this.element.offsetLeft;
+			var i = this.direction=="right"?1:-1;
+			var temp = this;
+			this.timer=setInterval(function(){
+				nowX+=i;
+				temp.element.style.left = nowX+"px";
+				if(obj.moveFn){
+					obj.moveFn.call(temp);
+				}
+			},1)
+		}
+		this.stop=function(){
+			clearInterval(this.timer);
+		}
+		this.jump=function(){
+			this.jumpCount++;
+			if(this.jumpCount>2){
+				return ;
+			}
+			clearInterval(this.jumpTimer)
+			var beginY = this.element.offsetTop;
+			var nowY = this.element.offsetTop;
+			var j=-1;
+			var temp = this;
+			this.jumpTimer=setInterval(function(){
+				nowY+=j;
+				if(Math.abs(nowY-beginY)>=100){
+					j=1;
+				}
+				if(nowY==temp.beginY&&j>0){
+					clearInterval(temp.jumpTimer);
+					temp.jumpCount=0;
+				}
+				temp.element.style.top = nowY+"px";
+			})
+		}
+	}
+
+	keyevent();
+	function keyevent(){
+		window.onkeydown=function(ev){
+			var e = ev || window.event;
+			console.log(e.keyCode)
+			switch(e.keyCode){
+				case 65:
+				     myHero.direction="left";
+				     myHero.move();
+				     break;
+				case 68:
+				     myHero.direction="right";
+				     myHero.move();
+				     break;
+				case 32:
+				     myHero.jump();
+				     break;
+			}
+		}
+		window.onkeyup=function(ev){
+			var e = ev || window.event;
+			switch(e.keyCode){
+				case 65:
+				case 68:
+				     myHero.stop();
+				     break;
+			}
+		}
+	}
+
+	function border(son,father){
+		if(son.offsetLeft<=0){
+			son.style.left=0;
+		}
+		if(son.offsetLeft>=father.offsetWidth/2){
+			son.style.left= father.offsetWidth/2 + "px";
+			changeBack(father);
+		}
+	}
+
+	function changeBack(element){
+		var arr=get(element,"backgroundPosition");
+		var a = Number(arr.split("px")[0]);
+		console.log(arr)
+		a-=1;
+		console.log(a)
+		element.style.backgroundPosition =  a + "px  0px";
+	}
+
+	function get(element,key){
+		if(element.currentStyle){
+			return element.currentStyle[key];
+		}else{
+			return getComputedStyle(element,null)[key];
+		}
+	}
+</script>
+</html>

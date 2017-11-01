@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//常用的创建对象的方法
+	/*var obj = {
+		name:"hello",
+		arr:[],
+		fn:function(){
+			console.log(this)
+		}
+	}
+	obj.fn();*/
+
+	//构造函数创建对象
+	function People(name,age,sex){
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+		this.move = function(){
+
+		}
+	}
+    var p = new People("张三",18,"男");
+    var p1 = new People("lisi",18,"女");
+    p1.name = "赵四";
+    console.log(p1.name,p.name)
+</script>
+</html>

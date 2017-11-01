@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	    //1.四个数取最大值
+		var a=2,b=5,c=1,d=4;
+		var m=a;
+		if(b>m) m=b;
+		if(c>m) m=c;
+		if(d>m) m=d;
+		console.log(m);
+         
+
+
+        //2.取20～70之间的随机整数
+		var random=parseInt(Math.random()*50+20);
+		alert(random);
+
+
+
+        //3.用for打印出1～100之间不是7的倍数并且个位和十位都不是7
+		for(var i=1;i<=100;i++)
+		{
+			if(i%7==0||i%10==7||parseInt(i/10)==7) continue;
+			console.log(i);
+		}
+        
+
+        //5.结果为：
+		var rel='5'===5;
+		console.log(rel);
+        
+        
+        //6.已知a是一个随机整数，用判断的方法，输出四舍五入之后的结果（不用Math.round）
+		var random=Math.random()*100;
+		var m=parseInt(random*10)%10;
+		var round=0;
+		if(m<5) round=Math.floor(random);
+		else round=Math.ceil(random);
+		alert(round);
+	</script>
+</body>
+</html>

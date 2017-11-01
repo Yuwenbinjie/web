@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr=['a','d','d','e','e','f','aa','f','a'];
+        arr.sort();
+        // console.log(arr);
+        var res=[arr[0]];
+        var res2=[arr[0]];
+        var res3=[arr[0]];
+
+        for(var i=1;i<arr.length;i++)
+        {
+        	if(arr[i]!=res[res.length-1])
+        	{
+        		res.push(arr[i]);
+        		res2.push(arr[i]);
+        		res3.push(arr[i]);
+        	}
+        	else
+        	{
+        		res.splice(res.length-1,1)
+        	}
+        }
+
+        for(var i=0;i<res2.length;i++)
+        {
+        	if(res[0]==res2[i])
+        	{
+        		res2.splice(i,1);
+        		res3.splice(i,1);
+        		res2.push(res[0]);
+        	}
+        }
+
+        // res3.reverse();
+        for(var i=res3.length-1;i>=0;i--)
+        {
+        	res2.push(res3[i]);
+        }
+        console.log(res);
+        console.log(res2);
+        console.log(res3);
+	</script>
+</body>
+</html>

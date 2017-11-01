@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    *{
+	    	margin: 0;
+	    	padding: 0;
+	    }
+	    ul,li{
+	    	margin: 0;
+	    	padding: 0;
+	    	list-style: none;
+	    }
+		#box{
+			width: 500px;
+			height: 620px;
+			background: yellowgreen;
+			margin: 0 auto;
+			border: 1px solid;
+			position: relative;
+			
+		}
+		.lie{
+			width: 100px;
+			height: 600px;
+			margin: 10px;
+			background: lightblue;
+			position: relative;
+			display: inline-block;
+
+		}
+		.kuaiBot{
+            width: 98px;
+            height: 38px;
+            background: grey;
+            border: 1px solid;
+            position: absolute;
+            text-align: center;
+            bottom: 0px;
+		}
+		.kuaiTop{
+            width: 98px;
+            height: 38px;
+            background: #ccc;
+            border: 1px solid;
+            position: absolute;
+            top: 0px;
+		}
+		#count{
+			padding: 10px;
+			font-size: 50px;
+			position: absolute;
+			bottom: -100px;
+			left: 200px;
+			border: 1px solid; 
+			box-shadow: inset 0 0 10px #111;
+		}
+	</style>
+</head>
+<body>
+    <audio src="haha.mp3" controls="controls"  style="margin: 0 auto;display: block;"></audio>
+	<ul id="box">
+
+	    <li class="lie">
+	    	<div class="kuaiBot">Q</div>
+	    </li>
+	    <li class="lie">
+	    	<div class="kuaiBot">W</div>
+	    </li>
+	    <li class="lie">
+	    	<div class="kuaiBot">E</div>
+	    </li>
+	    <li class="lie">
+	    	<div class="kuaiBot">R</div>
+	    </li>
+		<div id="count">0分</div>
+	</ul>
+</body>
+<script>
+    var box = document.querySelector('#box');
+    var kuaiBot = document.querySelectorAll('.kuaiBot');
+    var lie = document.querySelectorAll('.lie');
+    var count = document.querySelector('#count');
+    var code = 0;
+    
+    function rand(){
+    	return parseInt(Math.random()*4);
+    }
+
+    setInterval(function(){
+    var y = 0;
+    var div = document.createElement('div');
+    var r = rand();	
+	lie[r].appendChild(div);
+	div.className = 'kuaiTop';
+    console.log(lie[r].clientHeight);
+
+
+    var timer = setInterval(function(){
+        y++;
+        // console.log(div);
+        div.style.top = y +'px';
+        if(y>=lie[r].clientHeight){
+        	lie[r].removeChild(div);
+        	clearInterval(timer);
+        }
+
+        window.onkeydown=function(e){
+        	console.log(e.keyCode);
+        	
+        	if(e.keyCode==81){
+        	    click(0);	
+        	}
+
+        	if(e.keyCode==87){
+        	    click(1);
+        	}
+
+        	if(e.keyCode==69){
+        	    click(2);
+        	}
+
+        	if(e.keyCode==82){
+        	    click(3);
+        	}
+        }
+        
+        function click(num){
+        	    kuaiBot[num].style.background = "#111";
+        	    if(r==num){
+        	    	if(y>=lie[r].clientHeight - kuaiBot[r].offsetHeight*2){
+			        	lie[r].removeChild(div);
+			        	clearInterval(timer);
+			        	code++;
+			        	count.innerHTML = code +"分";
+                    }
+        	    }
+        	    window.onkeyup = function(){
+        	        kuaiBot[num].style.background = "grey";
+                }
+        }
+		// console.log(kuaiBot.offsetTop)
+    },1)
+    },1000)
+    
+	
+
+</script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*函数：具有一定功能的代码段。
+		函数的组成部分：关键字function  函数名（）｛要执行的语句｝
+		声明函数／定义函数*/
+		function myfunction()
+		{
+			alert('call me function');
+		}
+		// 函数调用
+		myfunction();
+
+
+
+		//函数的四种形式
+
+		//1.无参数，无返回值
+		function buywater()
+		{
+			alert('谁去买水');
+		}
+
+		//2.返回值：return的结果就是函数的返回值
+		function buywater2()
+		{
+		    return '买水';
+		}
+        var a=buywater2();
+        console.log(a);
+
+
+        //3.有参数，无返回值
+        function buyrice(obj)
+        {
+        	console.log('我给'+obj+'买饭')
+        }
+        buyrice('我');
+
+        //3.有参数，有返回值
+        function buyrice2(obj)
+        {
+        	return ('我给'+obj+'买饭');
+        }
+        var b=buyrice2('你');
+        console.log(b);
+
+
+        //练习：使用函数求出两个数的最大值
+        function maxtwo(a,b){
+           return a>b?a:b;
+        }
+        var maxnum=maxtwo(5,6);
+        console.log(maxnum);
+
+
+        //使用函数，求三个数最大值
+        function max(a,b,c)
+        {
+        	/*var t=a;
+        	if(b>a) t=b;
+        	if(c>b) t=c;
+        	return c;*/
+        	var max1=maxtwo(a,b);
+        	return max1>c?max1:c;
+        }
+        var maxnum=max(2,4,5);
+        console.log(maxnum);
+
+
+
+        function self1(obj)
+        {
+        	obj++;
+        	self1(obj);
+        	return obj;
+        }
+        console.log(self1(1));
+
+        /*参数有两个：
+        实参：实际参数，也是代表具体的值
+        形参：形式参数，可以理解为变量*/
+
+        /*return：
+        第一个作用：返回需要的值；
+        第二个作用：中止代码；*/
+
+	</script>
+</body>
+</html>

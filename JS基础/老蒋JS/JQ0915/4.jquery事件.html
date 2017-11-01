@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div id="box"></div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	$(function($){
+       $("#box").on('click.a',function(){
+       	console.log(123);
+       })
+       $("#box").on('click.b',function(){
+       	console.log(456);
+       })
+       $("#box").off("click.a");//移除事件.a为命名空间
+	});
+</script>
+</html>

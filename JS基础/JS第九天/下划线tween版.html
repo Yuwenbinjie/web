@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航滚动（tween版）</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		.nav{
+			position: relative;
+			width: 400px;
+			margin:50px auto 0;
+		}
+		.nav ul{
+			list-style: none;
+			position: relative;
+			overflow: hidden;
+		}
+		.nav ul li{
+			float:left;
+		}
+		.nav ul li a{
+			display: block;
+			width: 80px;
+			font-size: 16px;
+			text-align: center;
+			color: black;
+			text-decoration: none;
+		}
+		#slider{
+			position: absolute;
+			top: 20px;
+			width: 80px;
+			height: 2px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<ul>
+			<li><a href="＃">按钮1</a></li>
+			<li><a href="＃">按钮2</a></li>
+			<li><a href="＃">按钮3</a></li>
+			<li><a href="＃">按钮4</a></li>
+			<li><a href="＃">按钮5</a></li>
+		</ul>
+		<div id="slider"></div>
+	</div>
+	<script src='js/tween.js'></script>
+	<script>
+	scroll();
+	function scroll()
+	 {
+		var navList=document.getElementsByTagName('a');
+		var slider=document.getElementById('slider');
+		var activeIndex=0;
+		var navTimer=null;
+		init();
+
+		//鼠标事件之后，选中的项执行函数
+		function selected(index)
+		{
+                     
+           var end=index*slider.offsetWidth;  
+           var t=0;
+		   var b=slider.offsetLeft;
+		   var c=end-b;
+		   var d=20;
+           clearInterval(navTimer);
+           navTimer=setInterval(function()
+           {
+           	  t++;
+           	  if(t>=d)
+           	  {  	
+           	  	clearInterval(navTimer);
+           	  	navTimer=null;
+           	  }
+
+           	
+              slider.style.left=Tween.Cubic.easeOut(t,b,c,d)+'px';
+              
+           },30)
+           activeIndex=index;
+
+		}
+
+		//经过事件绑定
+		function bind()
+		{
+			for(var i=0;i<navList.length;i++)
+			{
+				(function(i)
+				{
+					navList[i].onmouseover=function()
+					{
+						selected(i);
+
+					}
+					
+				})(i)
+			}
+		}
+        
+        //初始化函数
+		function init()
+		{
+			bind();
+		}
+	}
+	</script>
+</body>
+</html>

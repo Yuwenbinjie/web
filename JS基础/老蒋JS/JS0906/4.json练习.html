@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    #boxout{
+	    	margin: 0 auto;
+	    	width: 1600px;
+	    	padding: 10px;
+	    	/*text-align: center;*/
+	    	/*background: red;*/
+
+	    }
+	    .box{
+	    	margin: 10px;
+	    	display: inline-block;
+	    	width: 300px;
+	    }
+		.imgs{
+			width: 300px;
+			height: 300px;
+		}
+		.info{
+			width: 278px;
+			margin-top: -4px;
+			border: 1px solid #ccc;
+			padding: 10px;
+			overflow: hidden;
+		}
+		.money{
+			color:orange;
+			font-size: 18px;
+			font-weight: bold;
+			float: left;
+		}
+		.sales{
+			color:grey;
+			font-size: 16px;
+			float: right;
+		}
+		.name{
+			clear: both;
+			color:#111;
+			font-size: 14px;
+			
+		}
+		.shop{
+			color:red;
+			font-size: 16px;
+			float: right;
+		}
+		#pageUl{
+			width: 1800px;
+			list-style: none;
+			overflow: hidden;
+			/*background: red;*/
+			text-align: center;
+
+		}
+		.pageLi{
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			border: 1px solid;
+			text-align: center;
+			margin: 10px;
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+    <div id="boxout">
+    	<!-- <div id="box">
+	    <img src="img/1.jpg" class="imgs">
+		<div id="info">
+			<div id="money">$222.00</div>
+			<div id="sales">12人付款</div>
+			<div id="name">小狗狗大甩卖</div>
+			<div id="shop">宠物店</div>
+		</div>
+	    </div> -->
+    </div>
+    <div id="pageUl">
+    	<!-- <span class="pageLi">1</span>
+    	<span class="pageLi">2</span>
+    	<span class="pageLi">3</span>
+    	<span class="pageLi">4</span> -->
+    </div>
+	
+</body>
+<script>
+    var boxout = document.querySelector('#boxout');
+
+	var str = '[{"img":"img/1.jpg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店1"},{"img":"img/2.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店2"},{"img":"img/3.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店3"},{"img":"img/4.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店4"},{"img":"img/5.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店5"},{"img":"img/6.jpg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店6"},{"img":"img/11.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店7"},{"img":"img/7.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店8"},{"img":"img/8.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店9"},{"img":"img/9.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店10"},{"img":"img/1.jpg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店11"},{"img":"img/12.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店12"},{"img":"img/13.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店13"},{"img":"img/15.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店14"},{"img":"img/14.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"gg宠物店15"},{"img":"img/15.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"gg宠物店16"},{"img":"img/1.jpg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店1"},{"img":"img/2.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店2"},{"img":"img/3.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店3"},{"img":"img/4.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店4"},{"img":"img/5.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店5"},{"img":"img/6.jpg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店6"},{"img":"img/11.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店7"},{"img":"img/7.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店8"},{"img":"img/8.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店9"},{"img":"img/9.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店10"},{"img":"img/1.jpg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店11"},{"img":"img/12.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店12"},{"img":"img/13.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店13"},{"img":"img/15.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店14"},{"img":"img/14.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"gg宠物店15"},{"img":"img/15.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"gg宠物店16"}]';
+	var arr = JSON.parse(str);
+	var r = rand(2,10);//当前页面元素个数
+    var pageCount = Math.ceil(arr.length/r);//页数
+    
+    //创建页码按钮
+    for(var i=0;i<pageCount;i++){
+    	createLi(i,r,arr);
+    }
+    
+    //创建内容
+	for(var i=0;i<r;i++){
+			var obj = arr[i];
+			create(obj);
+	    }
+
+	function createLi(p,r,arr){
+		var li = createElement('span',pageUl,'pageLi');
+		var pagenum = p+1;
+		li.innerHTML = pagenum;
+		li.onclick=function(){
+			boxout.innerHTML = ' ';
+			var lastPage = r*pagenum;
+			if(lastPage>=arr.length){
+				lastPage=arr.length;
+			}
+			// console.log(lastPage,arr.length);
+			for(var i=r*p;i<lastPage;i++){
+				var obj = arr[i];
+				create(obj);
+		    }
+		}
+	}
+
+	//判断点击页数的颜色
+	var pageLi = document.querySelectorAll('.pageLi');
+	
+    
+	function create(arr){
+		var box = createElement("div",boxout,'box');
+
+		var img = createElement("img",box,'imgs');
+		img.src = arr.img;
+
+		var info = createElement("div",box,'info');
+		var money = createElement("div",info,'money');
+		money.innerHTML = '$'+arr.money;
+		var sales = createElement("div",info,'sales');
+		sales.innerHTML = '已有'+arr.sales+'人购买';
+		var name = createElement("div",info,'name');
+		name.innerHTML = arr.name;
+		var shop = createElement("div",info,'shop');
+		shop.innerHTML = arr.shop;	
+	}
+
+	//生成元素
+	function createElement(obj,parent,classn){
+		var div = document.createElement(obj);
+		parent.appendChild(div);
+		div.className = classn;
+		return div;
+	}
+
+	//产生随机数
+	function rand(min,max){
+		var r = parseInt(Math.random()*(max-min)+min);
+		return r;
+	}
+</script>
+</html>

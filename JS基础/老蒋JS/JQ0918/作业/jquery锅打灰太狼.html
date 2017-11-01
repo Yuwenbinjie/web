@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+			#gameWrap{
+			width: 320px;
+			height: 480px;
+			background: url(img/game_bg.jpg);
+			box-shadow: 0 0 10px #333;
+			position: relative;
+			margin: 160px;
+		}
+		#score{
+			height: 45px;
+			line-height: 45px;
+			padding-left: 80px;
+			color: #fff;
+			font-size: 18px;
+			text-shadow: 0 0 2px #000;
+		}
+		#progress{
+			width: 180px;
+			height: 16px;
+			position: absolute;
+			left: 63px;
+			top: 66px;
+			background:url(img/progress.png) 0 0 no-repeat;
+			background-size: 180px 16px;
+			border-radius: 15px;
+		}
+		#wolfs{
+			position: absolute;
+			left: 0;
+			top: 108px;
+		}
+		.grayWolf{
+			background: url(img/grayWolf.png) no-repeat;
+			background-position: 0px bottom;
+		}
+		.redWolf{
+			background: url(img/redWolf.png) no-repeat;
+			background-position: 0px bottom;
+		}
+		#wolfs div{
+			width: 108px;
+			height: 101px;
+			position: absolute;
+			left: 18px;
+			top: 52px;
+		}
+		#menu,#gameover{
+			position: absolute;
+			left: 0;
+			right: 0;
+			/*width: 100%;*/
+			bottom: 32%;
+			text-align: center;
+			font-size: 24px;
+			font-weight: bold;
+			color: #f60;
+			text-shadow: 0 0 5px #ff0;
+		}
+		#menu p{
+			cursor: pointer;
+		}
+		#gameover{
+			width: 100%;
+			height: 100%;
+			padding-top: 60%;
+			box-sizing: border-box;
+			bottom: 0;
+			z-index: 2;
+			background: rgba(0,0,0,0.3);
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="gameWrap">
+		<div id="score">0</div>
+		<div id="progress"></div>
+		<div id="wolfs">
+			<!-- <div class="grayWolf"></div>
+			<div class="redWolf"></div> -->
+		</div>
+		<div id="menu">
+			<p id="start">开始游戏</p>
+			<p id="info">游戏说明</p>
+		</div>
+		<div id="gameover">
+			<p>游戏结束</p>
+		</div>
+	</div>
+	
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    var pos = [
+		{x: 18,y: 52},
+		{x: 98,y: 8},
+		{x: 186,y: 35},
+		{x: 15,y: 114},
+		{x: 104,y: 84},
+		{x: 200,y: 104},
+		{x: 32,y: 186},
+		{x: 120,y: 166},
+		{x: 208,y: 188}
+	];
+	var grade = 0;
+
+	$("#start").click(function(){
+		$("#menu").hide();
+		var gametimer = setInterval(function(){
+			createWolf();
+		},2000);
+		protime(gametimer);    
+	})
+
+    //进度条
+    function protime(gametimer){
+    	var proWidth=180;
+        var timerPro=setInterval(function()
+        {
+
+          proWidth-=1;
+          $("#progress").css({width:proWidth});
+          if(proWidth<0)
+          {
+          	clearInterval(gametimer);
+          	clearInterval(timerPro);
+          	$("#gameover").show();
+          	alert('时间结束！您的得分是：'+$("#score").text()+'再接再厉！');
+          }
+          
+        },200)
+    }
+
+
+	//创建狼
+	function createWolf(){
+		var wolf = $("<div>");
+        var name = rand(0,1);
+        if(name){
+        	wolf.addClass("grayWolf");
+        }else{
+        	wolf.addClass("redWolf");
+        }
+        
+        $("#wolfs").append(wolf);
+        //随机坑位
+        var r = rand(0,pos.length-1);
+        var posx = pos[r].x;
+        var posy = pos[r].y;
+        wolf.css({left:posx,top:posy});
+        //灰太狼上下移动
+        var x = 0;
+        var n = 1;
+        var begintimer = setInterval(function(){
+        	if(x==5){
+        		n=-1;
+        	}
+        	x+=n;
+        	wolf.css({backgroundPosition:-108*x});
+        	if(x<0){
+        		clearInterval(begintimer);
+        		$(wolf).remove();
+        	}
+
+        },100)
+        var lock = true;
+        //打击灰太狼
+        wolf.click(function(){
+            if(lock){
+            	hitWolf(this,begintimer);
+            	lock = false;
+            }
+        	
+        });
+	}
+	//打击灰太狼
+	function hitWolf(wolf,begintimer){
+		clearInterval(begintimer);
+		var w = $(wolf);
+		var i = 5;
+		// console.log(w.attr("class"));
+		//计算分数
+		if(w.attr("class")=='grayWolf'){
+            grade += 10;
+		}else if(w.attr("class")=='redWolf'){
+			grade-=10;
+		}
+        $("#score").text(grade+"分");
+
+        //打击动画
+		var hittimer = setInterval(function(){
+			i++;
+			w.css({backgroundPosition:-108*i});
+			if(i==10){
+				w.remove();
+			}
+		},100)
+
+	}
+    //随机数
+    function rand(min,max){
+    	var r = Math.floor(Math.random()*(max-min+1)+min);
+    	return r;
+    }
+</script>
+</html>

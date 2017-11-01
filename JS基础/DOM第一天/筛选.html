@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.dis{
+			/*border: 1px solid;*/
+			width: 100px;
+			float: left;
+			height: 30px;
+			text-align: center;
+			margin-top: 30px;
+		}
+	</style>
+</head>
+<body>
+    <div id="area">
+    	<dt>地区</dt>
+		<dd>东城</dd>
+		<dd>西城</dd>
+		<dd>朝阳</dd>
+		<dd>昌平</dd>
+    </div>
+
+    <div id="work">
+    	<dt>职位</dt>
+		<dd>美工设计</dd>
+		<dd>前端工程师</dd>
+		<dd>后台开发</dd>
+    </div>
+
+    <div id="money">
+    	<dt>薪资</dt>
+		<dd>4000</dd>
+		<dd>5000</dd>
+		<dd>6000</dd>
+    </div>
+	
+
+	
+	
+
+	<div id="disarea" class="dis"></div>
+	<div id="diswork" class="dis"></div>
+	<div id="dismoney" class="dis"></div>
+	
+<script>
+	var area=document.getElementById('area');
+	var work=document.getElementById('work');
+	var money=document.getElementById('money');
+
+	var disarea=document.getElementById('disarea');
+	var diswork=document.getElementById('diswork');
+	var dismoney=document.getElementById('dismoney');
+
+	var ddarea=area.getElementsByTagName('dd');
+	var ddwork=work.getElementsByTagName('dd');
+	var ddmoney=money.getElementsByTagName('dd');
+
+	for(var i=0;i<ddarea.length;i++)
+	{
+		ddarea[i].onclick=(function(index){
+            return function()
+            {
+               disarea.innerHTML=ddarea[index].innerHTML;
+            }
+		})(i)
+	}
+
+	for(var i=0;i<ddwork.length;i++)
+	{
+		ddwork[i].onclick=(function(index){
+            return function()
+            {
+               diswork.innerHTML=ddwork[index].innerHTML;
+            }
+		})(i)
+	}
+
+	for(var i=0;i<ddmoney.length;i++)
+	{
+		ddmoney[i].onclick=(function(index){
+            return function()
+            {
+               dismoney.innerHTML=ddmoney[index].innerHTML;
+            }
+		})(i)
+	}
+</script>
+		
+	
+</body>
+</html>

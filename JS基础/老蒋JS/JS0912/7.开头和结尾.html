@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//以什么开头
+	//^:
+	var reg = /^mk/ig;
+	var str = 'mnjhuim';
+	var value = reg.test(str);
+	console.log(value)
+
+	var reg = /^(http|ftp)/ig;//每次调用正则函数，都会从当前位置开始查询
+	var str = 'ftp://www';
+	var value = reg.test(str);
+	var value1 = reg.test(str);//从上面结尾的":"开始查询
+	console.log(value)
+	console.log(value1)
+
+	//以什么结尾
+	//$:
+	var reg = /mk$/ig;
+	var str = 'mnjhuimk';
+	var value = reg.test(str);
+	console.log(value)
+
+	//以http开头，以com结尾，中间字符串6个，
+	var reg = /^http.{6}com$/;
+	var str = 'http:/www.com';
+	var value = reg.test(str);
+	console.log(value)
+</script>
+</html>

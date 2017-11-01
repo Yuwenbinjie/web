@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+		#x{
+           width: 100px;
+           height: 100px;
+           background: pink;
+           position: absolute;
+           left: 0;
+           top: 0;
+		}
+		#y{
+           width: 100px;
+           height: 100px;
+           background: yellowgreen;
+           position: absolute;
+           left:  500px;
+           top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="x"></div>
+	<div id="y"></div>
+</body>
+<script>
+	var x=document.getElementById('x');
+	var y=document.getElementById('y');
+
+	// var m=peng(x,y);
+	// console.log(m);
+	function peng(x,y,fn,errorFn)
+	{
+		var minx=y.offsetLeft-x.offsetWidth;
+		var maxx=y.offsetLeft+y.offsetWidth;
+		var miny=y.offsetTop-x.offsetHeight;
+		var maxy=y.offsetTop+y.offsetHeight;
+
+		if(x.offsetLeft>=minx&&x.offsetLeft<=maxx&&x.offsetTop>=miny&&x.offsetTop<=maxy){
+			if(fn){//判断函数的形参是否存在
+				fn();
+			}
+			return;
+		}
+		if(errorFn)
+		{
+			errorFn();
+		}
+		
+	}
+    /*peng(x,y);//不传函数的情况*/
+    peng(x,y,function(){
+		alert('碰撞成功！');
+	},function(){
+		console.log('没有碰到')
+	})
+	
+	/*peng(x,y,function(value){
+		if(value){
+			alert('碰撞成功！');
+		}else{
+			console.log('没有碰到')
+		}	
+	})*/
+</script>
+</html>

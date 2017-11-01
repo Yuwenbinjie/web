@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style media="screen">
+        #wrap{
+            width: 200px;
+            height: 300px;
+            /*border: 10px solid red;*/
+            position: relative;
+            overflow: hidden;
+        }
+        #wrap::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #content{
+            width: 170px;
+            float: left;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #line{
+            float: right;
+            width: 30px;
+            height: 100%;
+            background: gray;
+            position: relative;
+        }
+        #stone{
+            width: 100%;
+            height: 40px;
+            border-radius: 20px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="content">岭南邵州东北二十余里处，有一座无名山谷，山谷四面环山，就连唯一的出口，那条狭窄的谷道里面，也有一座矮山挡道，要翻过矮山，才会豁然开朗，发现其中别有天地。
+
+    大唐咸亨三年，忽然有十一姓共计百余人，在当地官府的安排下来到这个隐蔽的山谷，铲草平院，伐木作屋，数rì间便建成了一个小村庄，取名为桃源村。
+
+    因山村地势隐蔽，故而桃源村与其它山民少有接触，但是因为常有樵夫和猎户从这里经过，渐渐的，对这个四面环山的小村便也略微有了一些了解。
+
+    这里的村民同当地普通山民不太一样，这个村子的居民大多文质彬彬，知书达礼，虽然他们一样的耕田织布、桑下种瓜，但是常能听到村子里传出琅琅的读书声，甚至抚琴吹笙的音乐声。
+
+    初时，山民皆以为奇，时有议论，不过天长时久，也就见怪不怪了。
+
+    十一年后，大唐永淳二年的某一天。
+
+    正值chūn末，谷中郁郁葱葱，一片苍翠，几亩山田，掩映在野草杂棘之间。山谷中错落着几十户人家，竹篱的小院、原木的屋檐，全都掩映在一片苍翠之中，偶露一角，如诗如画。
+
+    一个背着竹篓的少女正带着一个十岁不到的顽童，向村外的矮山坡上走去。少女翠sè短衫，藕sè长裤，一身山里人的短打扮，脸颊黎黑，带着常在田间劳作形成的一抹酡红，可是从里到外都透着一股子灵气儿，绝非普通的山野村姑可比。
+
+    这姑娘正是十四五岁蓓蕾初开的年纪，身段儿颀长苗条，细细的腰杆儿挺拔柔韧，走动间犹如一管柔韧的青竹迎风摇曳。那明亮的双眸，又直又挺的鼻梁，红嘟嘟的小嘴儿，模样甚是俊俏。
+
+    少女身边走着一个仈jiǔ岁的小顽童，看起来应该是她的弟弟。因为这顽童虽与一般山里孩子一样肤sè黝黑，却没有山里孩子那种虎头虎脑的墩实样儿，相形之下，他的身材显得单薄了许多，一张鹅蛋脸与那少女有六七分肖似，眉毛清秀，眼睛大大、下巴尖尖。
+        </div>
+        <div id="line">
+            <div id="stone"></div>
+        </div>
+
+    </div>
+</body>
+<script type="text/javascript">
+    var stone = document.querySelector("#stone");
+    var line = document.querySelector("#line");
+    var content = document.querySelector("#content");
+    var wrap = document.querySelector("#wrap");
+
+    function scale() {
+        var cHeight = content.offsetHeight - wrap.offsetHeight;
+        var lHeight = line.offsetHeight - stone.offsetHeight;
+        var s = cHeight / lHeight;
+        return s;
+    }
+    
+    stone.onmousedown = function (ev) {
+        var e = ev || window.event;
+        var beforeY = e.clientY;
+        var offT = stone.offsetTop;
+
+        
+        document.onmousemove = function (ev) {
+            var e = ev || window.event;
+            var endY = e.clientY - beforeY + offT;
+            stone.style.top = endY  + "px";
+
+            if(stone.offsetTop < 0) {
+                stone.style.top = 0+'px';
+            } if(stone.offsetTop > line.offsetHeight - stone.offsetHeight) {
+                stone.style.top = line.offsetHeight - stone.offsetHeight + "px";
+            }
+
+            // 修改文字的
+            var bili = scale();
+            var value = bili * stone.offsetTop;
+            content.style.top = -value + "px";
+        }
+
+        document.onmouseup = function () {
+            document.onmousemove = null;
+        }
+    }
+
+    
+</script>
+</html>

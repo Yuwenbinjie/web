@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		margin: 0;
+			padding: 0;
+	}
+		#box{
+			width: 200px;
+			margin: 20px auto;
+			text-align: center;
+		}
+		ul li{
+			border:1px solid;
+			height: 40px;
+			line-height: 40px;
+			list-style: none;
+
+		}
+		#tittle{
+			border:1px solid;
+			height: 70px;
+			line-height: 70px;
+		}
+        ul{
+        	display: none;
+        }
+        .active{
+        	background: lightblue;
+        }
+	</style>
+</head>
+<body>
+	<div id='box'>
+	    <div id='tittle'></div>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</div>
+</body>
+<script>
+	var box = document.querySelector('#box');
+	var tittle = document.querySelector('#tittle');
+	var ul = document.querySelectorAll('ul')[0];
+	var li = document.querySelectorAll('li');
+    var lock = true;
+
+    tittle.onclick=function(){
+    	if(lock==true){
+    		ul.style.display = 'block';
+    		tittle.innerHTML = '隐藏';
+    		click();
+    		lock=false;
+        }else{
+       	    ul.style.display = 'none';
+    		tittle.innerHTML = '展开';
+       	    lock=true;	
+        }
+    }
+
+    function click(){
+    	for(var i=0;i<li.length;i++){
+    		li[i].lock = true;
+    		li[i].onclick=function(){
+    			if (this.lock == true) {
+    				this.className='active';
+    				this.lock = false;
+    			} else {
+    				this.className='';
+    				this.lock = true;
+    			}
+    			
+    		}
+    	}
+    }
+</script>
+</html>

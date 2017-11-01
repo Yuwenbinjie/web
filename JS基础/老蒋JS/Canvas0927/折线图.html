@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#canvas{
+			border: 1px solid;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="400"></canvas>
+</body>
+<script>
+	var canvas = document.querySelector("#canvas");
+	var context = canvas.getContext("2d");
+
+	var arr = [100,150,240,30,200];
+	var arr1 = arr.slice(0);
+
+	for(var i=0;i<arr1.length-1;i++){
+		if(arr1[i]>arr1[i+1]){
+			var t = arr1[i];
+			arr1[i]=arr1[i+1];
+			arr1[i+1]=t;
+		}
+	}
+	var max = arr1[arr1.length-1];
+	console.log(arr)
+	var scale = 300/max;
+	var count = arr.length;
+	var countX = 400/count;
+	console.log(count)
+	for(var i=0;i<count-1;i++){
+		var x1=(i+1)*countX+50;
+		var x2=(i+2)*countX+50;
+		var y1=350-arr[i]*scale;
+		var y2=350-arr[i+1]*scale;
+		console.log(x1,y1,x2,y2)
+		hua(x1,y1,x2,y2);
+	}
+
+	function hua(mx,my,lx,ly){
+		context.beginPath();
+		context.moveTo(mx,my);
+		context.lineTo(lx,ly);
+		context.strokeStyle="blue";
+		context.stroke();
+		context.closePath();
+	}
+	
+	hua(50,50,50,350);//y轴
+	hua(50,350,450,350);//x轴
+</script>
+</html>

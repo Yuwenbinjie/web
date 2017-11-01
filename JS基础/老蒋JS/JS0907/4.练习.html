@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <style>
+	#headTop{
+			width: 750px;
+			background: rgb(27,28,31);
+			text-align: center;
+			margin: 0 auto;
+			padding-bottom: 20px;
+		}
+		#head{
+			width: 700px;
+			text-align: center;
+			/*background: #111;*/
+			margin: 0 auto;
+		}
+		.adv{
+			width: 120px;
+			height: 50px;
+			text-align: center;
+			display: inline-block;
+			color: grey;
+			line-height: 50px;
+		}
+		#boxOut{
+			width: 700px;
+			border: 1px solid grey;
+			margin: 0 auto;
+			/*background: #ccc;*/
+		}
+		.box{
+			width: 310px;
+			/*background: #999;*/
+			display: inline-block;
+			vertical-align: top;
+			margin: 20px 10px;
+			color:#999;
+
+		}
+		.imgs{
+			width: 100%;
+			height: 150px;
+		}
+	</style>
+</head>
+<body>
+	<div id="headTop">
+	<div id="head">
+		<!-- 	<div class="adv">首页</div>
+		<div class="adv">首页</div>
+		<div class="adv">首页</div>
+		<div class="adv">首页</div> -->
+	</div>
+	
+
+
+		<div id="boxOut">
+			<!-- <div class="box">
+			    <img src="img/1.jpg" class="imgs">
+				<div class="state">进行中</div>
+				<div class="pTitle">看见很快恢复的</div>
+			</div>
+			<div class="box">
+			    <img src="img/1.jpg" class="imgs">
+				<div class="state">进行中</div>
+				<div class="pTitle">看见很快恢复的</div>
+			</div>
+			<div class="box">
+			    <img src="img/1.jpg" class="imgs">
+				<div class="state">进行中</div>
+				<div class="pTitle">看见很快恢复的</div>
+			</div>
+			<div class="box">
+			    <img src="img/1.jpg" class="imgs">
+				<div class="state">进行中</div>
+				<div class="pTitle">看见很快恢复的</div>
+			</div> -->
+		</div>
+		
+	</div>
+</body>
+<script>
+	var str = '[{"title":"官方活动","content":[{"img":"img/p1.jpg","state":1,"title":"新战衣推出"},{"img":"img/p2.jpg","state":2,"title":"神秘商店"},{"img":"img/p3.jpg","state":2,"title":"多重好礼推出"},{"img":"img/p4.jpg","state":2,"title":"破宁之战推出"}]},{"title":"赛事活动","content":[{"img":"img/p5.jpg","state":1,"title":"新战衣推出"},{"img":"img/p6.jpg","state":2,"title":"神秘商店"},{"img":"img/p7.jpg","state":2,"title":"多重好礼推出"},{"img":"img/p8.jpg","state":2,"title":"破宁之战推出"}]},{"title":"推广活动","content":[{"img":"img/p9.jpg","state":1,"title":"新战衣推出"},{"img":"img/p10.jpg","state":2,"title":"神秘商店"},{"img":"img/p11.jpg","state":2,"title":"多重好礼推出"},{"img":"img/p12.jpg","state":2,"title":"破宁之战推出"}]},{"title":"商城特选","content":[{"img":"img/p13.jpg","state":1,"title":"新战衣推出<br>dota2最新推出破宁之战，更多礼品等你来拿,dota2最新推出破宁之战，更多礼品等你来拿,dota2最新推出破宁之战，更多礼品等你来拿,dota2最新推出破宁之战，更多礼品等你来拿,dota2最新推出破宁之战，更多礼品等你来拿"},{"img":"img/p14.jpg","state":2,"title":"神秘商店"}]}]';
+
+	var headTop = document.querySelector('#headTop');
+	var boxOut = document.querySelector('#boxOut');
+	var head = document.querySelector('#head');
+    var arr = JSON.parse(str);
+	create(boxOut,arr,0);
+   
+    for(var i=0;i<arr.length;i++){
+    	
+    	var adv = createElement("div",head,"adv");
+    	adv.innerHTML = arr[i].title;
+
+    	//自定义属性将i传入
+    	adv.index = i;
+    	adv.onmouseover = function(){
+            var index = this.index;
+    		create(boxOut,arr,index);
+    	}
+
+    	//自定义属性将数组传入
+    	/*adv.content = arr[i].content;
+    	adv.onclick = function(){
+    		boxOut.innerHTML = '';
+    		var con = this.content;
+            console.log(con);
+    		for(var j=0;j<con.length;j++){
+	    		var obj = con[j];
+	    	    var box = createElement("div",boxOut,"box");
+	    	    var imgs = createElement("img",box,"imgs");
+	    	    imgs.src = obj.img;
+	    	    // var states = createElement("div",box,"state");
+	    	    // states.innerHTML = obj.state;
+	    	     var pTitle = createElement("div",box,"pTitle");
+	    	    pTitle.innerHTML = obj.title;
+    	    }
+    	}*/
+
+
+        //闭包传值
+    	/*(function(i){
+    		adv.onclick = function(){
+    		boxOut.innerHTML = '';
+    		var con = arr[i].content;
+            console.log(con);
+    		for(var j=0;j<con.length;j++){
+	    		var obj = con[j];
+	    	    var box = createElement("div",boxOut,"box");
+	    	    var imgs = createElement("img",box,"imgs");
+	    	    imgs.src = obj.img;
+	    	    // var states = createElement("div",box,"state");
+	    	    // states.innerHTML = obj.state;
+	    	     var pTitle = createElement("div",box,"pTitle");
+	    	    pTitle.innerHTML = obj.title;
+    	    }
+    	}
+    	})(i)*/
+    }
+    //创建页面元素	
+    function create(boxOut,arr,index){
+	    boxOut.innerHTML = '';
+		var con = arr[index].content;
+        console.log(con);
+		for(var j=0;j<con.length;j++){
+    		var obj = con[j];
+    	    var box = createElement("div",boxOut,"box");
+    	    var imgs = createElement("img",box,"imgs");
+    	    imgs.src = obj.img;
+    	    var pTitle = createElement("div",box,"pTitle");
+    	    pTitle.innerHTML = obj.title;
+	    }
+    }
+    	
+    
+    function createElement(ele,father,classn){
+    	var div = document.createElement(ele);
+    	father.appendChild(div);
+    	div.className = classn;
+    	return div;
+    }
+</script>
+</html>

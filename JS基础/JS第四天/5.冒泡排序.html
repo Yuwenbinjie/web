@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	    var array=[12,34,45,6,7,33];
+		var t=0;
+		for(var l=array.length;l>0;l--)
+		{
+		     for(var i=0;i<l-1;i++)
+		     {
+			     if(array[i]>array[i+1])
+			     {
+                    t=array[i];
+                    array[i]=array[i+1];
+                    array[i+1]=t;
+			     }
+		     }
+
+	    }
+	    console.log(array);
+	</script>
+</body>
+</html>

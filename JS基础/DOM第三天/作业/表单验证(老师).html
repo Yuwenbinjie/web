@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.sp{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<span>*</span><span>姓名</span><input type="text" placeholder="请输入姓名" class="thename must"><br>	
+	<span>*</span><span>年龄</span><input type="text" placeholder="请输入年龄" class="theage must"><br>
+	<div class="agepar">
+		<span>*</span><span>性别</span><label><input type="radio" name="sex" class="sex must">男</label><label><input type="radio" name="sex" class="sex must">女</label><span class="sp">此项为必填</span>
+	</div>
+	<span>地址</span><label><input type="text" placeholder="请输入地址" class="adress"><br>
+	<span>*</span><span>邮箱</span><label><input type="text" placeholder="请输入邮箱" class="email must"><br>
+	<input type="button" value="提交" class="but">
+    
+
+    <script>
+    	var thename=document.querySelector('.thename');
+    	var theage=document.querySelector('.theage');
+    	var sex=document.querySelectorAll('.agepar .sex');
+    	var adress=document.querySelector('.adress');
+    	var email=document.querySelector('.email');
+    	var but=document.querySelector('.but');
+    	var sp=document.querySelector('.agepar .sp');
+    	var iBtn;
+
+    	but.onclick=function()
+    	{
+    	   iBtn=true;
+           butval(thename);
+           butval(theage);
+           butval(email);
+           rad(sex);
+           if(iBtn)
+           {
+           	alert('登录成功！');
+           }
+    	}
+
+    	//判断value
+    	function butval(obj)
+    	{
+    		var pla=obj.placeholder;
+    		console.log(pla);
+           if(obj.value=='')
+           {
+           	obj.placeholder='此项为必填';
+           	iBtn=false;
+           }
+           
+           obj.onclick=function()
+           {
+           	obj.placeholder=pla;
+           }
+
+    	}
+
+    	//判断radio
+    	function rad(obj)
+    	{
+    		var num=0;
+    		for(var i=0;i<obj.length;i++)
+    		{
+    			if(obj[i].checked==true)
+    			{
+               
+    				num++;
+    			}
+    		}
+    		if(num==0)
+    		{
+    			sp.style.display='block';
+    			iBtn=false;
+    			// sp.show();
+    			// sp.hide();
+    		}
+    		else
+    		{
+    			sp.style.display='none';
+    		}
+    	}
+    </script>
+</body>
+</html>

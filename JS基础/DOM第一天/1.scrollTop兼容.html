@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body style="height: 2000px;width:2000px;">
+<script>
+	//获取滚动的距离,scrollTop为内容的滚动高度
+	var inElemScrollTop=document.body.scrollTop;
+	console.log(inElemScrollTop);
+
+	var distance=300;
+	document.body.scrollTop=distance+'px';
+	console.log(distance);
+    
+    //当用户滚动带滚动条的元素中的内容时，在该元素上触发
+    window.onscroll=function()
+    {
+    	//chrome及标准浏览器支持
+    	var t=document.body.scrollTop;
+    	console.log(t);
+
+        //其他浏览器支持
+    	var t2=document.documentElement.scrollTop;
+    	console.log(t2);
+
+    	//兼容写法
+    	var t3 = document.documentElement.scrollTop || document.body.scrollTop;
+    	var t4 = document.documentElement.scrollTop + document.body.scrollTop;
+    	console.log(t3);
+    	console.log(t4);
+    }
+</script>	
+</body>
+</html>

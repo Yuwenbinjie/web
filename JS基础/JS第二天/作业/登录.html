@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	账号：<input type="text" id="num" ><br>
+	密码：<input type="text" id="psd">
+	<button id="login">登录</button>
+    <script>
+    	var login=document.getElementById('login');
+    	login.onclick=function()
+    	{
+    	    var num=document.getElementById('num');
+    	    var psd=document.getElementById('psd');
+    	    if(num.value=='yuwenbinjie'&&psd.value==123)
+    	    {
+                document.write('<div style="background:red;width:200px;height:100px;margin:0 auto;text-align: center;font-size: 20px;line-height: 100px;">登录成功</div>');
+    	    }
+
+    	    else if(num.value!='yuwenbinjie')
+    	    {
+    	    	num.value='账号错误！';
+    	    	if(psd.value!=123)
+    	        {
+    	    	   psd.value='密码错误！';
+    	        }
+    	    }
+    	    else if(psd.value!=123)
+    	    {
+    	    	psd.value='密码错误！';
+    	    }
+
+    	}
+    </script>
+</body>
+</html>

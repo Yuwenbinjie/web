@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<body>
+    <div id="boxout"></div>
+    <div id="pageUl"></div>
+	
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	var str = '[{"img":"img/1.jpeg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店12"},{"img":"img/22.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店2"},{"img":"img/3.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店3"},{"img":"img/4.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店4"},{"img":"img/25.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店5"},{"img":"img/6.jpeg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店6"},{"img":"img/11.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店7"},{"img":"img/17.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店8"},{"img":"img/18.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店9"},{"img":"img/9.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店10"},{"img":"img/11.jpeg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店11"},{"img":"img/12.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店12"},{"img":"img/13.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店13"},{"img":"img/15.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店14"},{"img":"img/14.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"gg宠物店15"},{"img":"img/15.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"gg宠物店26"},{"img":"img/11.jpeg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店1"},{"img":"img/2.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店2"},{"img":"img/3.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店3"},{"img":"img/14.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店4"},{"img":"img/5.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店5"},{"img":"img/6.jpeg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店6"},{"img":"img/21.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店7"},{"img":"img/17.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店8"},{"img":"img/8.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店9"},{"img":"img/9.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店10"},{"img":"img/1.jpeg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店11"},{"img":"img/12.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店12"},{"img":"img/13.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店13"},{"img":"img/15.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店14"},{"img":"img/24.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"gg宠物店15"},{"img":"img/15.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"gg宠物店16"}]';
+	var obj = JSON.parse(str);
+	var r = 10;
+	var pageCount = obj.length/r;
+	$("#boxout").css({
+		width:"1600px",
+		margin:"0 auto",
+	});
+	$("#pageUl").css({
+		width:"600px",
+		margin:"0 auto",
+		textAlign:"center",
+	});
+
+	for(var i=0;i<pageCount;i++){
+		var pageLi = $("<span>");
+		$("#pageUl").append(pageLi);
+		pageLi.css({
+			border:"1px solid",
+			padding:"5px",
+		})
+		pageLi.text(i+1);
+
+		pageLi.click(function(){
+			var m = $(this).text();
+			$("#boxout").text("");
+			create(m);
+		})
+	}
+    
+    create(1);
+	function create(m){
+		// console.log(m)
+		var minl = (m-1)*r;
+		var maxl = m*r;
+		console.log(obj.length)
+		if(maxl>=obj.length){
+			maxl=obj.length;
+		}
+		for(var i=minl;i<maxl;i++){
+			var box = $("<div>");
+			$("#boxout").append(box);
+			box.css({
+				margin: "5px",
+		    	display: "inline-block",
+		    	width: "300px",
+		    	border:"1px solid",
+
+			})
+			
+			var img = $("<img>");
+			$(box).append(img);
+			img.css({
+				height:"300px",
+		    	width: "300px",
+			})
+			img.attr({"src":obj[i].img});
+	        
+
+	        var sname = $("<div>");
+			$(box).append(sname);
+			sname.text(obj[i].name);
+		}
+	}
+	</script>
+	</html>

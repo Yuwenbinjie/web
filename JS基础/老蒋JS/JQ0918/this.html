@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			/*color: white;*/
+		}
+		.box1{
+			background: pink;
+		}
+		.box2{
+			background: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box2">1</div>
+	<div class="box2">2</div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	// $(".box1").click(function(){
+	// 	console.log($(this).text());
+	// })
+
+	var box2 = document.getElementsByClassName("box2");
+	// box2.onclick = function(){
+	// 	console.log(this);
+	// }
+	// function add(){
+	// 	console.log(this);
+	// }
+	// add();
+	 for(var i=0;i<box2.length;i++)
+          {
+                (function(i){
+                  box2[i].onclick=function()
+                {
+                  console.log(this)  
+                }
+              })(i) //onclick外面的自执行 不点不会运行 不用加return 保存值
+          }
+</script>
+</html>

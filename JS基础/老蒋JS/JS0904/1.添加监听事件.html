@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#btn{
+			width: 100px;
+			height: 50px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">123</button>
+</body>
+<script>
+/*总结：JS添加事件和解绑事件：addEventListener()与removeEventListener()
+有两层div元素，而且都设定有click事件，一般来说，如果我在内层蓝色的元素上click不只会触发蓝色元素的click事件，还会同时触发红色元素的click事件，而useCapture这个参数就是在控制这时候两个click事件的先后顺序。如果是false，那就会使用bubbling(冒泡)模式，他是从内而外的流程，所以会先执行蓝色元素的click事件再执行红色元素的click事件，如果是true，那就是capture(捕获)模式，和bubbling(冒泡)模式相反是由外而内，会先执行红色元素的click事件才执行蓝色元素的click事件。
+
+一：相同事件绑定和解除，需要使用共用函数；
+
+二：共用函数不能带参数；*/
+
+    //句柄 现代浏览器添加事件监听方法
+	var btn = document.getElementById('btn');
+	function click1()
+	{
+		console.log(123);
+		console.log(this);
+	}
+	function click2()
+	{
+		console.log(456);
+	}
+	/*btn.addEventListener('mousedown',click1,false);
+	btn.addEventListener('mouseup',click2,false);//调用函数名
+	btn.addEventListener('mouseover',function()//使用匿名函数
+	{
+		console.log(this);
+		console.log(789);
+	},false);
+
+    btn.removeEventListener('mouseup',click2,false);//移除函数不能为匿名函数*/
+
+    //IE浏览器添加事件监听方法
+    btn.attachEvent('onmousedown',click1,false);
+    btn.detachEvent('onmousedown',click1,false);
+</script>
+</html>

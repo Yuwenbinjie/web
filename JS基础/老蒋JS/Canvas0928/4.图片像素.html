@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="canvas" width="400" height="400" style="border: 1px solid"></canvas>
+</body>
+<script>
+	var canvas = document.querySelector("#canvas");
+	var context = canvas.getContext("2d");
+	
+	var img = new Image();
+	img.src = "timg.jpeg";
+	img.onload=function(){
+		context.beginPath();
+	    context.drawImage(img,0,0,canvas.width,canvas.height);
+	    var imgData = context.getImageData(20,20,1,1);
+	    for (var i=0;i<imgData.data.length;i+=4)
+		  {
+		  imgData.data[i]=255-imgData.data[i];
+		  imgData.data[i+1]=255-imgData.data[i+1];
+		  imgData.data[i+2]=255-imgData.data[i+2];
+		  imgData.data[i+3]=255;
+		  }
+		context.putImageData(imgData,0,0);
+	    console.log(imgData);
+	    context.closePath();
+	}
+	
+</script>
+</html>

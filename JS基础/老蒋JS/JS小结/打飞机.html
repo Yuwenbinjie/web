@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#a{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 0;
+			left: 300px;
+		}
+		#b{
+			width: 100px;
+			height: 100px;
+			background: blue;
+			position: absolute;
+			top: 0px;
+			left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="a"></div>
+	<div id="b"></div>
+</body>
+<script type="text/javascript">
+	var a=document.getElementById('a');
+	var b=document.getElementById('b');
+    console.log(judge(a,b));
+    function judge(a,b)
+    {
+    	var bx=b.offsetLeft;
+	    var by=b.offsetTop;
+	   
+	    var minx=a.offsetLeft-b.offsetWidth;
+	    var maxx=a.offsetLeft+a.offsetWidth;
+	    var miny=a.offsetTop-b.offsetHeight;
+	    var maxy=a.offsetTop+a.offsetHeight;
+
+	    if(bx>=minx&&bx<=maxx&&by>=miny&&by<=maxy)
+	    {
+	    	return true;
+	    }
+	    return false;
+    }
+
+
+</script>
+</html>

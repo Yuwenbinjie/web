@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="swiper-3.4.2.min.css">
+	<style>
+		.swiper-container{
+			width: 600px;
+			height: 300px;
+			text-align: center;
+			font-size: 50px;
+			background: lightgreen;
+		}
+		.swiper-slide{
+
+		}
+	</style>
+</head>
+<body>
+	<div class="swiper-container">
+	    <div class="swiper-wrapper">
+	        <div class="swiper-slide">Slide 1</div>
+	        <div class="swiper-slide">Slide 2</div>
+	        <div class="swiper-slide">Slide 3</div>
+	    </div>
+	</div>
+	<button id="btn">按钮</button>
+</body>
+<script type="text/javascript" src="swiper-3.4.2.min.js"></script>
+<script>
+	var swiper = new Swiper(".swiper-container",{
+		autoplay:5000,
+		speed:1000,
+		touchRatio :2,
+		loop:true,
+		// preventClicks : false,
+		// direction : 'vertical',
+		// mousewheelControl : true,
+		// onInit: function(swiper){
+	 //      //alert(swiper.activeIndex);提示Swiper的当前索引
+	 //      console.log("初始化完成")
+	 //    },
+	 //    onTouchStart: function(swiper,even){
+	 //      alert('事件触发了;');
+	 //    },
+     //    onSlideChangeStart: function(swiper){
+	    //   console.log(swiper.activeIndex);
+	    // }
+	})
+	var btn = document.querySelector("#btn");
+	btn.onclick=function(){
+		console.log(swiper.activeIndex); 
+		console.log(swiper.realIndex); 
+	}
+</script>
+</html>

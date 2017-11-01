@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var box=document.getElementById('box');
+	move({
+		odiv:box,
+	})
+	function move(obj){
+		obj.odiv.onmousedown=function(ev)
+		{
+			var e = ev || window.event;
+	        //事件冒泡和取消默认事件
+			var currentX=e.clientX;
+			var currentY=e.clientY;
+			var offX=this.offsetLeft;
+			var offY=this.offsetTop;
+			document.onmousemove=function(n)
+			{
+		        var endX=n.clientX-currentX;
+		        var endY=n.clientY-currentY;
+
+		        obj.odiv.style.left=endX+offX+'px';
+		        obj.odiv.style.top=endY+offY+'px';
+				
+			}
+			document.onmouseup=function()
+			{
+				document.onmousemove=null;
+			}
+		}
+	}
+	
+
+	
+</script>
+</html>

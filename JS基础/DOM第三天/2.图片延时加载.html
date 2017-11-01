@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+      <style>
+            *{
+                  margin:0px;
+                  padding: 0px;
+            }
+            ul{
+                  list-style: none;
+                  width: 500px;
+                  margin:0 auto;
+            }
+            ul li{
+                  position: relative;
+                  width: 100%;
+                  height: 1000px;
+
+            }
+            ul li img{
+                  position: absolute;
+                  width: 500px;
+                  height: 500px;
+                  bottom: 0;
+            }
+      </style>
+</head>
+<body>
+
+      <ul>
+            <li>
+                  <img src="img/img01.jpg" >
+            </li>
+            <li>
+                  <img src="img/img02.jpg" >
+            </li>
+            <li>
+                  <img src="img/img03.jpg" >
+            </li>
+            <li>
+                  <img src="img/img04.jpg" >
+            </li>
+      </ul>
+      
+</body>
+<script>
+            var imgs=document.getElementsByTagName('img');
+            var bodyHeight=document.documentElement.clientHeight;//可视高度
+            var bodyScroll=document.body.scrollTop||document.documentElement.scrollTop;
+
+            for(var i=0;i<imgs.length;i++)
+            {
+                  // var srcVal=imgs[i].src;
+                  var srcVal=imgs[i].getAttribute('src');
+                  imgs[i].setAttribute("_src",srcVal);
+                  imgs[i].setAttribute("src","");
+                  
+                  /*console.log(imgs[i].offsetTop);//offsettop指该元素到他的第一个有定位的属性的父级的距离，如果每一层父级都没有定位，那么获取到body的距离
+
+                  console.log(imgs[i].offsetParent.offsetParent)//获取该元素第一个有定位属性的父级，如果他的每一层父级都没有定位，那么获取body标签*/
+                  
+                  console.log(getTop(imgs[i]));
+                  console.log(bodyHeight+bodyScroll);
+                  if(getTop(imgs[i])<=bodyHeight+bodyScroll)//当条件成立时，说明img标签已经进入可视区
+                  {
+                        imgs[i].src=imgs[i].getAttribute('_src');
+                        
+                  }
+
+            }
+
+            //绑定滚动事件
+            window.onscroll=function()
+            {
+                  var bodyScroll=document.body.scrollTop||document.documentElement.scrollTop;
+
+                  for(var i=0;i<imgs.length;i++)
+                  {
+                        console.log(getTop(imgs[i]));
+                        console.log(bodyHeight+bodyScroll);
+                        if(getTop(imgs[i])<=bodyHeight+bodyScroll)//当条件成立时，说明img标签已经进入可视区
+                        {
+                              imgs[i].src=imgs[i].getAttribute('_src');
+                              
+                        }
+                  }
+
+            }
+
+            
+
+            //获取绝对offsetTop
+            function getTop(obj)
+            {
+                  var iTop=0;
+                  while(obj)
+                  {
+                        iTop+=obj.offsetTop;
+                        obj=obj.offsetParent;
+                  }
+                  return iTop;
+            }
+		
+		
+</script>
+
+</html>

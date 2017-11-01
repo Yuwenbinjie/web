@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.box{
+		width: 1500px;
+		height: 600px;
+		/*background: red;*/
+		margin:100px auto;
+		position: relative;
+		overflow: hidden;
+	}
+	.imgs{
+		width: 4500px;
+		
+		transition:all 1s ease;
+	}
+	.imgs img{
+	    width: 1500px;
+	}
+	
+	</style>
+</head>
+<body>
+	<div class="box" id="box">
+		<div class="imgs" id="imgs"><img src="img/bjx1.jpg" alt=""><img src="img/bjx2.jpg" alt=""><img src="img/bjx3.jpg" alt=""></div>
+	</div>
+	<script>
+		
+		var x=0;
+		var timer1;
+		var imgs=document.getElementById('imgs');
+		var box=document.getElementById('box');
+		function move()
+		{
+            x-=1500;
+		    if(x==-4500) x=0;
+		    imgs.style="margin-left:"+x+"px";
+		}
+
+		function begin()
+		{
+			timer1=setInterval(function()
+		    { 
+		    	move();	
+		    },2000)
+		}
+
+		function stop()
+		{
+			clearInterval(timer1);
+			
+		}
+        begin();
+        box.onmouseover=stop;
+        box.onmouseout=begin;
+	</script>
+</body>
+</html>

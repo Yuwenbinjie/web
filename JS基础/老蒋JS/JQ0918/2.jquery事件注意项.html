@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	//----------------------------- this指向 -----------------------------------
+ //    var func = function(a,b){
+	//     console.log(this); 
+	//     console.log(a + ' ' + b)
+	// };
+
+	// var self = 'test';
+	// func(1,2);   // this 是 window 对象, 因为此时调用函数的是window对象
+	// func.call(self,1,2);  // this是 字符串  'test'
+	// func.apply(self,[1,2]); // this是 字符串  'test'
+	
+	// js不是面向对象的语言,跟java比, 在实现面向对象上,语法上面是会有些奇怪。
+	// 如果是以 func() 的方式调用函数, 则this的值取决于调用函数的是在哪个对象。
+	// 在设置回调函数时，如果没有传this参数， 就是 func()的调用方式，一般的写法应该是用另外一个变量来保存this的值, 通常变量名为self。
+
+
+
+
+
+
+	//--------------------------------------------------------------------------
+
+	// $("#box").click(function(){
+	// 	console.log(this);//click函数与on函数内部this为它标签本身
+	// 	$(this).css({
+	// 		background:"green",
+	// 	})
+	// });
+	// $("#box").off("click");
+
+	//2.事件对象
+	$("#box").on("click",function(ev){
+		console.log(ev.clientX);
+	})
+
+	//date属性将事件函数传入形参
+    var obj = {name:"张三"};
+    $("#box").click(obj,function(ev){
+		console.log(ev.data.name);
+	})
+
+	// 3.给jquery添加额外属性
+	var a = $("#box");//$("")－－－－相当于创建了一个新的对象
+	a.index = 2;
+	console.log(a.index);
+
+	/*var arr = $(".a");
+	for(var i=0;i<arr.length;i++){
+		var m = arr[i];
+		m.index = i;
+		$(m).click(function(){
+			console.log(this.index)//标签的index属性
+		})
+	}*/
+    //向div内部最后添加
+	$("#box").append("<p>1</p>");
+	$("<p>2</p>").appendTo("#box");
+	//向div外部最后添加
+	$("#box").prepend("<p>3</p>");
+	$("<p>4</p>").prependTo("#box");
+    //向div外部后添加
+	$("#box").after("<p>5</p>");
+	$("<p>6</p>").insertAfter("#box");
+	//向div外部前添加
+	$("#box").before("<p>7</p>");
+	$("<p>8</p>").insertBefore("#box");
+	//将标签包起来
+	$("div").wrap("<div></div>")
+	//移除元素的父元素
+	$("p").unwrap()
+	//用一个生成的div将所有段落包裹起来
+	$("p").wrapAll("<div></div>")
+</script>
+</html>

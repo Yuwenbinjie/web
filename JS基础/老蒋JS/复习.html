@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var box = document.querySelector("#box");
+	//添加事件监听
+    // box.addEventListener("click",function(){
+    // 	console.log(123)
+    // })
+    // box.addEventListener("mouseover",function(){
+    // 	console.log(456)
+    // })
+ //    add(box,"click",function(){
+ //    	console.log(123)
+ //    })
+	// function add(div,event,fn){
+	// 	if(div.addEventListener){
+	// 		div.addEventListener(event,fn,false);
+	// 	}else{
+	// 		div.attachEvent("on"+event,fn);
+	// 	}
+
+	// }
+
+
+	//取消事件冒泡
+	box.onclick=function(ev){
+       var e = ev || window.event;
+       if(e.stopPropagation){
+       	 e.stopPropagation();//IE
+       }else{
+       	 e.cancelBubble=true;//非IE
+       }
+	}
+
+
+	//取消默认事件
+	document.body.oncontextmenu=function(ev){
+		var e = ev || window.event;
+		e.preventDefault();//非IE
+		return false;//IE
+	}
+
+	//原生ajax封装函数
+	function ajax(url,fn){
+		var r = new XMLHttpRequest();
+		r.open("get",url);
+		r.send();
+		r.onreadystatechange=function(){
+			if(this.readyState == 4&& this.states == 200){
+				if(fn){
+					fn(this.responseText);
+				}
+			}
+		}
+	}
+    
+
+    // 写出计算后样式
+    function getStyle(element,key){
+    	if(element.currentStyle){
+    		return element.currentStyle[key];
+    	}else{
+    		return getComputedStyle(element,null).getPropertyValue(key);
+    	}
+    }
+
+
+
+
+
+
+</script>
+</html>

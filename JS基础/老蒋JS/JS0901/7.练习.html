@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box1{
+			width:100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			left: 0;
+		}
+		#box2{
+			width:100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			left: 0;
+			top: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box1"></div>
+	<div id="box2"></div>
+</body>
+<script src="leftmove.js"></script>
+<script>
+	var box1 = document.getElementById('box1');
+	var box2 = document.getElementById('box2');
+
+	box1.onclick = function(){
+		move(this,function(){
+			box1.style.background='green';
+		});
+	}
+
+	box2.onclick = function(){
+		move(this,function(){
+			box2.style.background='blue';
+		});
+	}
+</script>
+</html>

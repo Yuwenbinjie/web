@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		.btn_mod{
+			width: 400px;
+			margin: 20px auto 0;
+			overflow: hidden;
+			padding-left: 10px;
+			position: relative;
+		}
+		.img_mod{
+			width: 400px;
+			margin: 20px auto 0;
+			overflow: hidden;
+		}
+
+		.btn_mod div,.btn_mod li{
+			float: left;
+			width: 60px;
+			height: 30px;
+			margin-right: 6px;
+			line-height: 30px;
+			text-align: center;
+			font-size: 14px;
+			font-weight: bold;
+			color: #666;
+			background: #ccc;
+			outline: none;
+			cursor: pointer;
+			/*手指形状*/
+			list-style: none;
+		}
+		.btn_mod .active{
+			background: #999;
+		}
+		.img_mod{
+			position: relative;
+		}
+		.img_mod .scroll{
+			position: absolute;
+			left: 0;
+			top: 0;
+			overflow: hidden;
+		}
+		.img_mod .scroll img{
+			float: left;
+			width: 400px;
+			height: 400px;
+		}
+		.img_mod .scroll,.img_mod{
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+	<div class="btn_mod">
+		<div class="prev">上一页</div>
+		<ul class="btn_list">
+			<li class="active">1</li>
+			<li >2</li>
+			<li >3</li>
+			<li >4</li>
+		</ul>
+		<div class="next">下一页</div>
+
+	</div>
+
+	<div class="img_mod">
+		<div class="scroll">
+			<img src="img/bjx1.jpg" alt="">
+			<img src="img/bjx2.jpg" alt="">
+			<img src="img/p4.jpeg" alt="">
+			<img src="img/bjx3.jpg" alt="">
+		</div>
+	</div>
+
+	<script src="js/tween.js"></script>
+	<script>
+    imgScroll();
+	function imgScroll()
+	{
+		
+		var btnMod=document.querySelector(".btn_mod");
+		//querySelector获取任意一个标签，通过class，id，标签名，获取某一个
+		//querySelectorAll获取任意一个或者几个，通过class，id，标签名，得到的是某个数组
+		// console.log(btnMod);
+		var imgMod=document.querySelector(".img_mod");
+		var scrollMod=imgMod.querySelector(".scroll");
+		var imgs=imgMod.querySelectorAll("img");
+		var btns=document.querySelectorAll(".btn_list li");
+		var width=imgMod.offsetWidth;
+		var maxLength=imgs.length;
+		var scrollTimer=null;
+		var autoTimer=null;
+		var activeIndex=0;//代表可视区里图片的索引
+		init();
+        
+         scrollMod.style.width=width*imgs.length+'px';
+
+         
+         //事件绑定
+        function bind()
+        {
+        	var next=document.querySelector('.next');
+        	var prev=document.querySelector('.prev');
+
+        	autoplay();
+
+        	scrollMod.onmouseover=function()
+        	{
+        		clearInterval(autoTimer);
+        	}
+        	scrollMod.onmouseout=function()
+        	{
+        		autoplay();
+        	}
+        	btnMod.onmouseover=function()
+        	{
+        		clearInterval(autoTimer);
+        	}
+        	btnMod.onmouseout=function()
+        	{
+        		autoplay();
+        	}
+
+
+        	next.onclick=function()
+        	{
+        		nextFn();
+        	}
+
+
+        	prev.onclick=function()
+        	{
+        		prevFn();
+        	}
+
+
+        	for(var i=0;i<btns.length;i++)
+        	{
+        		(function(i){
+        		btns[i].onclick=function()
+        		{       			 
+        			swichTo(i);
+        		}       			
+        		})(i) 	    
+        	}
+        	
+
+        }
+
+
+
+        //自动播放
+        function autoplay()
+        {
+        	// var index=activeIndex;
+        	clearInterval(autoTimer);
+            autoTimer=setInterval(function()
+            {
+            	/*index++;
+            	if(index>maxLength-1) index=0;
+            	swichTo(index);*/
+            	nextFn();
+            },2000)
+        }
+
+
+
+		//切换到指定索引的位置
+        function swichTo(index)
+        {
+        	var t=0;//时间轴从这里开始
+        	var b=scrollMod.offsetLeft;//位置轴里开始的位置，这里指的是初始left值
+        	var end=-index*width;
+        	
+            var c=end-b;//变化量＝目标值－初始值
+            var d=40;
+            clearInterval(scrollTimer);
+
+            scrollTimer=setInterval(function()
+            {
+            	t++;
+            	if(t>=d)
+            	{
+            		clearInterval(scrollTimer);
+            		scrollTimer=null;
+            		return;
+            	}
+               scrollMod.style.left=Tween.Cubic.easeOut(t,b,c,d)+'px';
+            },30)
+            activeIndex=index;
+
+        }
+
+       
+
+        //下一页切换
+        function nextFn()
+        {
+        	var index=activeIndex+1;//可视区图片的索引＋1
+        	index=index>maxLength-1?0:index;
+        	swichTo(index);
+        }
+        //上页切换
+        function prevFn()
+        {
+        	var index=activeIndex-1;//可视区图片的索引＋1
+        	index=index<0?maxLength-1:index;
+        	swichTo(index);
+        }
+
+        //初始化
+        function init()
+         {
+    	    bind();
+         }
+
+    }
+
+    //函数调用顺序（封装函数永远写在后面）
+   /* 1.封装每一个功能函数
+    2.封装初始化函数
+    3.在初始化函数里调用每一个功能函数
+    4.调用初始化函数
+    5.把所有上述语句封装在一个整体函数里
+    6.调用这个整体函数*/
+
+	</script>
+</body>
+</html>

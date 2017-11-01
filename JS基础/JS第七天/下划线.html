@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#button{
+           margin: 0 auto;
+           border: 1px solid white;
+           overflow: hidden;
+           width: 500px;
+           height: 60px;
+           padding:0px;
+           position: relative;
+		}
+		#button li{
+			width: 100px;
+			height: 50px;
+			background: lightyellow;
+			float: left;
+			list-style: none;
+			/*border: 1px solid;*/
+			text-align: center;
+			line-height: 50px;
+			/*opacity: 0;*/
+		}
+		#xian{
+			width: 96px;
+			border: 2px solid red;
+			clear: both;
+			position: absolute;
+			top: 50px;
+			left: 0px;
+			transition: all 1s ;
+		}
+	</style>
+</head>
+<body>
+	<ul id="button">
+		<li>按钮1</li>
+		<li>按钮2</li>
+		<li>按钮3</li>
+		<li>按钮4</li>
+		<li>按钮5</li>
+		<div id="xian"></div>
+	</ul>
+
+	<script>
+		var btn=document.getElementById('button');
+		var nLi=btn.getElementsByTagName('li');
+		var xian=document.getElementById('xian');
+        var x=0;
+		
+           for(var i=0;i<nLi.length;i++)
+           {
+           	nLi[i].onmouseover=(function(index){
+               return function()
+               { 
+                  x=100*index;
+                  xian.style.left=x+'px';
+               }
+           	})(i)
+           }
+		
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    开奖彩票：<input type="text" id="award">
+    <button id="look">查看号码</button><br>
+    我的彩票：<input type="text" id="my">
+    <button id="button">随机一注</button>
+	<script>
+	    var num_zhong=[];
+	    for(var i=0;i<6;i++)
+	    {
+	    	num_zhong[i]=Math.floor(Math.random()*33+1);
+	    	if(num_zhong[i]<10) num_zhong[i]='0'+num_zhong[i];
+	    	
+	    }
+	    num_zhong[i]=Math.floor(Math.random()*16+1);
+	    if(num_zhong[i]<10) num_zhong[i]='0'+num_zhong[i];
+
+
+	    var button=document.getElementById('button');
+	    button.onclick=function(){
+	    	var num=[];
+	    	var count=0;
+	        for(var j=0;j<6;j++)
+	        {
+	    	    num[j]=Math.floor(Math.random()*33+1);
+	    	    if(num[j]<10) num[j]='0'+num[j];
+	 
+	    	    if(num[j]==num_zhong[j]) count++;
+	        }
+	            num[j]=Math.floor(Math.random()*16+1);
+	    	    if(num[j]<10) num[j]='0'+num[j];
+	    	    
+
+	    	// 结果判断
+	        if(num[j]==num_zhong[j]) {alert("三等奖！再接再厉！");}
+	        if(count==6) {alert("二等奖！一步之遥！");}
+	        if(count==6&&num[j]==num_zhong[j]) {alert("一等奖！鸿运当头！");}
+	        if(count!=6&&num[j]!=num_zhong[j]) {alert("谢谢参与！");}
+
+
+	        var my=document.getElementById('my'); 
+	        my.value=num;
+
+	    }
+
+	    var look=document.getElementById('look');
+	    look.onclick=function(){
+            award.value=num_zhong;
+	    }
+
+
+		
+	</script>
+</body>
+</html>

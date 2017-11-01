@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function People(){
+		this.name = "haha";
+		this.sex = "nan"
+	}
+	function Student(score){
+		this.score = score;
+	}
+	/*Student.prototype={//给__proto__添加属性
+		move:function(){//一般不设置属性值，写函数
+            console.log(this);
+		}
+
+	}*/
+	Student.prototype = new People();
+	var s = new Student(99);
+	/*s.name = "李四"
+	s.move();*/
+	console.log(s)
+</script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="inp">
+</body>
+<script>
+	var inp = document.querySelector('#inp');
+	
+	inp.oninput=function(ev){
+		var e = ev || window.event;
+		var reg = /\d/;
+		this.value=this.value.replace(reg,'');
+		
+	}
+	
+</script>
+</html>

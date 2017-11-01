@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航滚动</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.nav{
+			position: relative;
+			width: 400px;
+			margin:50px auto 0;
+
+		}
+		.nav ul{
+			list-style: none;
+			position: relative;
+			overflow: hidden;
+		}
+		.nav ul li{
+			float: left;
+		}
+		.nav a{
+			display: block;
+			width: 80px;
+			font-size: 16px;
+			text-decoration: none;
+			text-align: center;
+			color: black;
+		}
+		.slider{
+			position: absolute;
+			top: 30px;
+			width: 80px;
+			background-color: red;
+			height: 2px;
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<ul>
+			<li><a href="#">🔘</a></li>
+			<li><a href="#">🔘</a></li>
+			<li><a href="#">🔘</a></li>
+			<li><a href="#">🔘</a></li>
+			<li><a href="#">🔘</a></li>
+		</ul>
+		<div class="slider"></div>
+	</div>
+	<script src='js/tween.js'></script>
+	<script>
+	nav();
+	function nav()
+	{
+	    var navList=document.querySelectorAll('.nav a');
+	    var slider=document.querySelector('.slider');
+	    var activeIndex=0;//当前导航选中项的索引
+	    var navTimer=null;
+
+	    init();
+		//选中项执行函数
+        function selected(index)
+        {
+        	activeIndex=index;
+        	var t=0;
+        	var b=slider.offsetLeft;
+        	var end=activeIndex*slider.offsetWidth;//slider最终的left
+        	var c=end-b;
+        	var d=30;
+
+        	clearInterval(navTimer);
+
+        	navTimer=setInterval(function(){
+                t++;
+                if(t>=d)
+                {
+                	clearInterval(navTimer);
+                	navTimer=null;
+                }
+                slider.style.left=Tween.Back.easeOut(t,b,c,d)+'px';
+        	},30)
+
+        }
+
+
+        //事件绑定
+        function bind()
+        {
+           for (var i=0;i<navList.length;i++) {
+           	  (function(i)
+           	  {
+                 navList[i].onmouseover=function()
+                 {
+                 	selected(i);
+                 }
+           	  })(i);
+           }
+        }
+
+
+        //初始化
+        function init()
+        {
+        	bind();
+        }
+        
+    }
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="a">
+</body>
+<script>
+	var a = document.getElementById('a');
+	a.focus();//获取焦点
+	a.blur();//失去焦点
+
+
+	a.onfocus = function(obj)
+	{
+		a.style.background = 'lightgrey';
+		console.log(obj);
+	}
+	
+	a.onchange = function(obj)
+	{
+		a.style.background = 'red';
+		console.log(obj);
+	}
+
+	a.onblur = function(obj)
+	{
+		a.style.background = 'blue';
+		console.log(obj);
+	}
+
+	a.oninput = function(obj)
+	{
+		a.style.background = 'red';
+		console.log(obj);
+	}
+	
+</script>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 300px;
+			height: 300px;
+			border: 1px solid;
+			display: inline-block;
+		}
+		.imgs{
+			width: 100%;
+			height: 200px;
+		}
+		.pagen{
+			width: 50px;
+			height: 50px;
+			display: inline-block;
+			border: 1px solid;
+			text-align: center;
+
+		}
+	</style>
+
+</head>
+<body>
+	<div id="boxout">
+	    <!-- content:用于存放每个页面商品元素 -->
+		<div id="content">
+			<!-- <div class="box">
+				<img src="img/1.jpg" class="imgs">
+				<span>价格</span>
+				<div>标题</div>
+			</div>
+			<div class="box">
+				<img src="img/1.jpg" alt="">
+				<span>价格</span>
+				<div>标题</div>
+			</div>
+ -->
+		</div>
+		<!-- page：存放页码按钮 -->
+		<div id="page">
+			<!-- <span class="pagen">1</span>
+			<span class="pagen">2</span> -->
+		</div>
+	</div>
+</body>
+<script>
+	// 1.获得数据，
+	var str = '[{"img":"img/1.jpg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店1"},{"img":"img/2.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店2"},{"img":"img/3.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店3"},{"img":"img/4.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店4"},{"img":"img/5.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店5"},{"img":"img/6.jpg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店6"},{"img":"img/11.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店7"},{"img":"img/7.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店8"},{"img":"img/8.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店9"},{"img":"img/9.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店10"},{"img":"img/1.jpg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店11"},{"img":"img/12.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店12"},{"img":"img/13.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店13"},{"img":"img/15.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店14"},{"img":"img/14.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"gg宠物店15"},{"img":"img/16.jpg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"gg宠物店16"}]';
+     
+	// 2.解析为数组
+	var arr = JSON.parse(str);
+	var pernum = 6;
+	fenye(pernum,arr);
+	click(1,pernum,arr);
+    
+	// 3.做分页处理
+	function fenye(pernum,arr){
+		// 1.得到有多少页
+		var pagenum = Math.ceil(arr.length/pernum);
+		// console.log(pagenum);
+		//2.创建按钮
+		var pagebox = document.querySelector('#page');
+		var content = document.querySelector('#content');
+
+		for(var i = 0;i<pagenum;i++){
+			var btn = createElement('span',page,'pagen');
+			btn.innerHTML = i+1;
+			// console.log(btn.innerHTML)
+			btn.onclick = function(){
+				click(this.innerHTML,pernum,arr);
+			}
+		}
+	}
+    
+    function click(cnum,pernum,arr){
+    	//点击添加每页内容
+		var start = (cnum-1)*pernum;
+		var end = cnum*pernum;
+		// console.log(cnum)
+		// console.log(start,end);
+		content.innerHTML = '';
+		if(end>=arr.length){
+			end=arr.length;
+		}
+		for(var i = start;i<end;i++){
+			//创建页面
+			var obj = arr[i];
+			create(obj);
+			
+		}
+    }
+    
+    function create(obj){
+    	console.log(obj.img);
+		var box = createElement('div',content,'box');
+
+		var imgs = createElement('img',box,'imgs');
+		imgs.src = obj.img;
+
+		var money = createElement('span',box);
+		money.innerHTML = "$"+obj.money;
+
+		var title = createElement('div',box);
+		title.innerHTML = obj.name;
+    }
+	
+
+	function createElement(elestyle,father,classn){
+		var div = document.createElement(elestyle);
+		father.appendChild(div);
+		div.className = classn;
+		return div;
+	}
+</script>
+</html>

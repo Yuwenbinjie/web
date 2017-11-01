@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// var str = 'http://www.baidu.com?name=nihao&pwd=88&id=99';
+	// var arr = str.split('?');
+	// var arr1 = arr[1].split('&');
+	// // var arr2 = arr1.split('=');
+	// var str1 = arr1.join();
+	// while(str1.indexOf('=')>=0){
+	// 	str1 = str1.replace('=',':');
+	// }
+	// var arr2 = str1.split(',');
+	// console.log(arr2);
+	// var obj = {name:"nihao",pwd:"88",id:"99"};
+ //    var str = JSON.stringify(obj);
+ //    console.log(str)
+
+//老师代码
+   var str = 'http://www.baidu.com?name=nihao&pwd=88&id=99';
+   var obj = splitWeb(str);
+   console.log(obj);
+   function splitWeb(str){
+   	   var arr = str.split('?');
+	   var arr1 = arr[1].split('&');
+	   var obj = new Object();
+	   for(var i=0; i<arr1.length;i++){
+	   	  var arr2 = arr1[i].split('=');
+	   	  obj[arr2[0]] = arr2[1];
+	   }
+
+	   return obj;
+   }
+   
+   
+   
+</script>
+</html>

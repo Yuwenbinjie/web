@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "http://www.baidu.com?name=nihao&pwd=88&id=99";
+	var arr1 = str.split('?');
+	var arr2 = arr1[1].split('&');
+	// console.log(arr2)
+	var obj = new Object;
+	for(var i=0;i<arr2.length;i++){
+	   var arr3 = arr2[i].split('=');
+	   // console.log(arr3)
+       obj[arr3[0]]=arr3[1];
+	}
+	console.log(obj);
+</script>
+</html>

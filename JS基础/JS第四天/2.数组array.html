@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//声明数组／创建数组  特点：数组的数据在［］里
+		var fruits=['apple','banana','lemon'];
+        // 访问数组
+        console.log(fruits);
+        console.log(fruits[1]);
+
+        //数组的属性length
+        console.log(fruits.length);
+
+        //数组的方法
+        //pop（）：删除数组的最后一个元素，并返回新的长度；（改变原数组长度）
+        fruits.pop();
+        console.log(fruits);
+        
+        //push（）：向数组的末尾添加一个或多个元素，并返回新的长度；（改变原数组长度）
+        fruits.push('orange','water');
+        console.log(fruits);
+
+        // shift
+        var del_f=fruits.shift();
+        console.log(del_f);
+        console.log(fruits);
+
+        // unshift
+        fruits.unshift('grape','peach');
+        console.log(fruits);
+
+
+        //splice():从数组中添加或删除元素；（改变原数组长度）
+        var array=['go','to','home'];
+        //参数一：下标  参数二：长度
+        array.splice(1,1);
+        console.log(array);
+
+
+        var array2=['go','to','home','now'];
+        array2.splice(0,3,'come','here');//先删除后添加
+        console.log(array2);
+
+        //不删除但添加
+        array2.splice(2,0,'my','sweet');
+        console.log(array2);
+        
+        // 当第一个参数为负值时，下标从结尾算起
+        var array3=[1,2,5,6];
+        array3.splice(-1,0,3,4);
+        console.log(array3);
+
+
+
+        //slice():选取数组中一部分，创建一个新的数组;  
+        var array4=['why', 'learn',' JS'];
+        var temp=array4.slice(1,2);//第一个参数：开始位置  第二个参数：结束位置（不写代表从开始位置到最后）
+        console.log(temp);
+        console.log(array4);
+
+        //join():将数组中所有转化为字符串
+        var array5=[1,2,3,4,5];
+        var newArray=array5.join();
+        console.log(array5);
+        console.log(newArray);//生成字符串
+        console.log(array5[0]);
+        console.log(newArray[0]);
+        console.log(array5[0]===newArray);
+
+
+        var array6=['abc','def','gih'];
+        console.log(array6.reverse());
+
+
+        /*方法：
+        pop（）：删除数组的最后一个元素，并返回新的长度；（改变原数组长度）
+        push（）：向数组的末尾添加一个或多个元素，并返回新的长度；（改变原数组长度）
+        shift():删除并返回数组的第一个元素，改变了数组长度；（改变原数组长度）
+        unshift():向数组的开头添加一个或多个元素，并返回新的长度；（改变原数组长度）
+        splice():从数组中添加或删除元素；（改变原数组长度）
+        slice():选取数组中一部分，创建一个新的数组;  
+        join():将数组中所有转化为字符串
+        reverse():将数组中的所有元素倒置
+        */
+
+
+	</script>
+</body>
+</html>

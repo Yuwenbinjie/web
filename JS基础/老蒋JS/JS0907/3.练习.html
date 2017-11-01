@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#headTop{
+			width: 1000px;
+			background: grey;
+			text-align: center;
+			margin: 0 auto;
+		}
+		.adv{
+			width: 100%;
+		    padding: 10px;
+			background: #111;
+			color: white;
+			border-bottom: 1px solid grey;
+			overflow: hidden;
+		}
+		.title{
+			float: left;
+		}
+		.date{
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<div id="headTop">
+		<!-- <div class="adv">
+			<div class="title">首页</div>
+			<div class="date">HOME</div>
+		</div>
+		<div class="adv">
+			<div class="title">首页</div>
+			<div class="date">HOME</div>
+		</div> -->
+		
+	</div>
+	
+</body>
+<script>
+	var str = '[{\
+	"title":"首页破宁之战推出",\
+	"date":"2017-08-02"\
+},{\
+	"title":"不朽宝瓶底价",\
+	"date":"2017-08-02"\
+},{\
+	"title":"神秘商店隆重登场",\
+	"date":"2017-08-02"\
+},{\
+	"title":"加快速度回复看见了合适的借口",\
+	"date":"2017-08-02"\
+},{\
+	"title":"dota2国际邀请赛",\
+	"date":"2017-08-02"\
+},{\
+	"title":"为哦啊呜呃哦哦",\
+	"date":"2017-08-02"\
+}]';
+
+  var arr = JSON.parse(str);
+  head(arr);
+  function head(arr){
+  	var head = document.querySelector('#headTop');
+     for(var i=0;i<arr.length;i++){
+     	var obj = arr[i];
+     	var adv = createElement("div",head,'adv');
+
+     	var title = createElement("div",adv,'title');
+     	title.innerHTML = obj.title;
+
+     	var date = createElement("div",adv,'date');
+     	date.innerHTML = obj.date;
+     }
+  }
+
+  function createElement(elestyle,father,classn){
+		var div = document.createElement(elestyle);
+		father.appendChild(div);
+		div.className = classn;
+		return div;
+   }
+</script>
+</html>

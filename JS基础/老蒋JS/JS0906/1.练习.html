@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+/*//有m条数据，每页最多有n条，求页数
+var pa = page(49,20);
+console.log(pa);
+
+function page(m,n){
+	var pa = Math.ceil(m / n);
+	return pa;
+}
+
+function page(m,n){
+	var count = Math.floor(m / n);
+	if(m % n != 0){
+		count++;
+	}
+	return count;
+}
+
+//给定一个字符串查找任意字符的个数
+var a='qweqweew';
+console.log(find(a,'w'));
+
+function find(str,a){
+	var count = 0;
+	for(var i=0;i<str.length;i++){
+		 if(str.charAt(i)==a){
+		 	count++;
+		 }
+	}
+	return count;
+	
+}*/	
+
+//判断数组中重复元素的个数（元素为字符串）
+var a=['q','qw','d','w','qw','d'];
+chong(a);
+var count = 0;
+
+//创建一个数组
+function chong(str){
+	
+	var begin = [];
+	str.sort();
+	for(var i=0;i<str.length-1;i++){
+		for(var j=i+1;j<str.length-1;j++){
+			if(str[i]==str[j]){
+				count++;
+			}
+	
+			var judge = 1;
+			for(var k=0;k<begin.length;k++){
+				if(str[i]==begin[k]){
+					judge=0;
+					break;
+				}
+		    }
+		    if(judge==1){
+		    	begin.push(str[i]);
+		    }else{
+		    	continue;
+		    }
+
+		    var count = 1;
+		    for(var k=0;k<begin.length;k++){
+				if(str[i]==begin[k]){
+					count++
+			}
+           
+	}
+	
+	
+}
+ console.log(count); 
+}
+}
+
+//
+var arr = ['q','w','w','e','q'];
+var xin = quchong(arr);
+console.log(xin);
+
+
+function quchong(arr){
+	var begin = [];
+	arr.sort();
+	for(var i=0;i<arr.length;i++){
+
+		if(arr[i]!=begin[begin.length-1]){
+			begin.push(arr[i]);
+		}//排序去重方法只适用于简单方法
+
+		var judge = 1;
+		for(var j=0;j<begin.length;j++){
+			if(arr[i]==begin[j]){
+				judge=0;
+				break;
+			}
+	    }
+	    if(judge==1){
+	    	begin.push(arr[i]);
+	    }	
+	}
+	return begin;
+}
+
+
+
+
+
+
+var arr1 = ['e','e','t','h'];
+var xin1 = quchong(arr1);
+console.log(xin1);
+
+function quchong(a){
+	var begin = [];
+    for(var i=0;i<a.length;i++){
+
+    	var judge = 1;
+    	for(var j = 0;j<begin.length;j++){
+    		if(begin[j]==a[i]){
+    			judge = 0;
+    			break;
+    		}
+    	}
+    	if(judge==1){
+    		begin.push(a[i]);
+    	}
+    }
+    return begin;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

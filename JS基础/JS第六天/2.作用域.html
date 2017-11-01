@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var func=function()
+		{
+			console.log('匿名函数');
+		}
+		//匿名函数执行
+		func();
+
+        //自执行函数
+        var a=19;
+		(function(age)
+		{
+			console.log('my age '+age+' years');
+		}(a));
+        
+
+        //感叹号型
+		!(function(age)
+		{
+			console.log('my age '+age+' years');
+		}(a));
+
+
+		//加号型
+		+(function(age)
+		{
+			console.log('my age '+age+' years');
+		}(a));
+
+
+		function scope()
+		{
+			var foo='函数内变量';
+			if(1)
+			{
+				var a='i am in if';
+				console.log(a+foo);
+			}
+			while(1)
+			{
+				var b='i am in while';
+				console.log(b+foo);
+				break;
+			}
+			!function()
+			{
+				var c='i am in function';
+				foo='自执行函数内变量';
+				console.log(c+foo);
+			}()
+
+			// console.log(a,b,c,foo);//c抛出异常
+
+		}
+		scope();
+		console.log(a,b,c,foo);//抛出异常。无权访问
+
+
+		function real()
+		{
+			y=200;
+		}
+		real();
+		console.log(y);
+		//在函数内给一个没有定义过的变量赋值，相当于在函数外定义的y，函数里只是改变了y，所以是全局变量。
+		作用域：一般情况下，函数外定义的变量可以在函数内调用，反之不可调用
+
+		/*局部变量：在函数内定义的变量，即为局部变量
+		全局变量：在函数外定义的变量，即全局部变量
+		注意：局部或全局要看相对于那个函数而言*/
+	
+
+	</script>
+</body>
+</html>

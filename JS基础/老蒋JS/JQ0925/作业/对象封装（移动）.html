@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+		}
+		.box1{
+			background: lightblue;
+		}
+		.box2{
+			background: lightgreen;
+			top: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box box1"></div>	
+	<div class="box box2"></div>	
+</body>
+<script>
+	var box = document.querySelectorAll(".box");
+	
+
+	function move(obj){
+		var x = obj.begin;
+		var direction = x < obj.end?1:-1;
+		var timer = setInterval(function(){
+
+            x+=direction;
+            obj.odiv.style[obj.fangwei]=x+"px";
+            // if(direction>0){
+            // 	if(x>=obj.end){
+            // 		clearInterval(timer);
+            // 	}
+            // }else{
+            // 	if(x<=obj.end){
+            // 		clearInterval(timer);
+            // 	}
+            // }
+            console.log(obj.odiv)
+		},obj.pertime)
+	}
+	for(var i=0;i<box.length;i++){
+		box[i].onclick = function(){
+			move({
+				odiv:this,
+				fangwei:"left",
+				begin:100,
+				end:1000,
+				pertime:10,
+			})
+		}
+	}
+</script>
+</html>

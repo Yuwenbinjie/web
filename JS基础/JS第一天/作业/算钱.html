@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	请输入金额：<input type="text" id="money">
+	<button id="look">查询</button>
+	<script>
+		var look=document.getElementById('look'); 
+        look.onclick=function()
+        {
+           var money=document.getElementById('money').value;
+		   // alert(money);
+		   var a=parseInt(money/20);
+		   var ma=money%20;
+
+		   var b=parseInt(ma/10);
+		   var mb=ma%10;
+
+		   var c=parseInt(mb/5);
+		   var mc=mb%5;
+
+		   var d=parseInt(mc/1);
+		   alert(a+"张20美元，"+b+"张10美元，"+c+"张5美元，"+d+"张1美元，");
+        }
+		
+	</script>
+</body>
+</html>

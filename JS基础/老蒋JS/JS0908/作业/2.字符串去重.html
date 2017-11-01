@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*var str = "qweqwerty";
+	var arr = Array.from(str);
+	console.log(arr);
+	var xin = [];
+    for(var i=0;i<arr.length;i++){
+    	var judge = false;
+    	for(var j=0;j<xin.length;j++){
+    		if(xin[j]==arr[i]){
+    			judge = true;
+    			break;
+    		}
+    	}
+    	if(judge == false){
+    		xin.push(arr[i]);
+    	}
+    }
+    var endArr = xin.join('');
+    console.log(endArr);*/
+
+
+    //老师代码
+    var str = "adcdccbca";
+    for(var i=0;i<str.length;i++){
+        var a = str[i];
+        for(var j=i+1;j<str.length;j++){
+            if(a == str[j]){
+                str = str.slice(0,j) + str.slice(j+1,str.length);
+                j--;
+            }
+        }
+    }
+    console.log(str);
+
+</script>
+</html>

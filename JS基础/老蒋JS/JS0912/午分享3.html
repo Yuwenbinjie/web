@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#boxout{
+			width: 600px;
+			height: 400px;
+			border:1px solid;
+			position: relative;
+			margin: 0 auto;
+		}
+		#box{
+			width: 100px;
+			height:100px;
+			background: lightgreen;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="boxout">
+		<div id="box"></div>
+	</div>
+</body>
+<script>
+	var box = document.querySelector('#box');
+	var boxout = document.querySelector('#boxout');
+	var left = bo8x.offsetLeft;
+	var btop = box.offsetTop;
+	var lock = true;
+	var lockTop = true;
+
+	var timer = setInterval(function(){
+		if(lock==true){
+			left++;
+		}else{
+			left--;
+		}
+		if(left>=boxout.offsetWidth-box.offsetWidth){
+			lock = false;
+		}else if(left<=0){
+			lock = true;
+		}
+
+		if(lockTop==true){
+			btop++;
+		}else{
+			btop--;
+		}
+		if(btop>=boxout.offsetHeight-box.offsetHeight){
+			lockTop = false;
+		}else if(btop<=0){
+			lockTop = true;
+		}
+		box.style.top = btop+'px';
+		box.style.left = left+'px';
+	},5)
+
+</script>
+</html>

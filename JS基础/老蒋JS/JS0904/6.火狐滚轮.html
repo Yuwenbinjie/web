@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+		#box{
+			width: 400px;
+			height: 700px;
+			background: lightgreen;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	
+</body>
+<script>
+var box = document.querySelector('#box');
+box.addEventListener("DOMMouseScroll",function(ev){
+	var e = ev || window.event;
+	if(e.wheelDelta){
+		console.log('谷歌');
+	}
+	console.log(e);
+},false)
+</script>
+</html>

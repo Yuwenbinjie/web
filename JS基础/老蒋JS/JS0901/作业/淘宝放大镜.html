@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		#psmall{
+			width: 400px;
+			height: 400px;
+			display: inline-block;
+			position: relative;
+			/*border: 1px solid;*/
+		}
+		#psmall img{
+			width: 400px;
+			height: 400px;
+		}
+		#kuai{
+			width: 200px;
+			height: 200px;
+			background: rgba(61,110,206,0.5);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#pbig{
+			width: 400px;
+			height: 400px;
+			background: url(img/pbig.jpg) 0 0 no-repeat;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+    <div id="psmall">
+    	<img src="img/psmall.jpg" >
+    	<div id="kuai"></div>
+    </div>
+	
+	<div id="pbig"></div>
+</body>
+<script>
+	var psmall=document.getElementById('psmall');
+	var pbig=document.getElementById('pbig');
+	var kuai=document.getElementById('kuai');
+
+	kuai.onmouseover=function(obj)
+	{   
+		// console.log(obj);
+		var beginX=obj.clientX;
+		var beginY=obj.clientY;
+		var offL=kuai.offsetLeft;
+		var offT=kuai.offsetTop;
+		psmall.onmousemove=function(n)
+		{
+   //          console.log(n.offsetX);
+			// console.log(n.offsetY);
+			var endX=n.clientX-beginX+offL;
+			var endY=n.clientY-beginY+offT;
+			if(endX<=0){
+				endX=0;
+			}else if(endX>=200){
+				endX=200;
+			}
+			if(endY<=0){
+				endY=0;
+			}else if(endY>=200){
+				endY=200;
+			}
+			kuai.style.left=endX+'px';
+			kuai.style.top=endY+'px';
+			enlarge(endX,endY);
+		}
+		psmall.onmouseup=function()
+		{
+			psmall.onmousemove=null;
+		}
+	}
+
+	function enlarge(x,y)
+	{
+       var posiX=-2*x;
+       var posiY=-2*y;
+       /*console.log(posiX);
+       console.log(posiY);*/
+       pbig.style.backgroundPosition=posiX+'px '+posiY+'px';
+	}
+</script>
+</html>

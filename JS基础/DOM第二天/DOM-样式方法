@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#thediv{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="thediv" style="border:1px solid"></div>
+</body>
+<script>
+    //style.反回行间样式表的信息
+	var thediv=document.getElementById('thediv');
+	console.log(thediv.style.border);//通过.style的样式只能获取行间样式
+	thediv.style.backgroundColor="green";//‘－’改为驼峰
+    
+
+    //两个方法都会反回浏览器(内部)样式表的信息
+    //getComputedStyle(),此方法不兼容IE
+    //DOM2级样式增强了document.defaultView，提供了getComputedStyle（）方法。第一个参数：要取得样式的元素；第二个参数：伪元素字符串（例如：after），如果不需要伪元素信息，可以为null。
+    // getComputedStyle（）方法返回一个CSSStyleDeclaration对象，其中包含当前元素的所有计算的样式
+	var style1=document.defaultView.getComputedStyle(thediv,null);
+	console.log(style1.height);
+
+	//currentStyle IE方法
+
+	
+
+	
+</script>
+</html>

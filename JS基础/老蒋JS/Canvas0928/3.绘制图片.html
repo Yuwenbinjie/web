@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="canvas" width="400" height="400" style="border: 1px solid"></canvas>
+</body>
+<script>
+	var canvas = document.querySelector("#canvas");
+	var context = canvas.getContext("2d");
+	
+	//1.绘制图片
+	var img = new Image();
+	img.src = "timg.jpeg";
+	img.onload=function(){
+		context.beginPath();
+	    context.drawImage(img,20,20);//画布上定位图片
+	    context.drawImage(img,20,20,200,200);//画布上定位图片,并规定图像宽高
+	    context.drawImage(img,20,20,50,50,20,20,100,100);//画布上定位裁切的图片
+	    context.closePath();
+	}
+	
+</script>
+</html>

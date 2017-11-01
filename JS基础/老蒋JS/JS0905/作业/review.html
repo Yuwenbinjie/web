@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var arr = ['a','s','e','r','e','d','e','w'];
+	arr.sort();
+	console.log(arr);
+	var begin = [arr[0]];
+	for(var i = 0 ; i <arr.length; i++){
+		if(arr[i]!=begin[begin.length-1]){
+			begin.push(arr[i]);
+		}
+	}
+	console.log(begin);
+
+	var s = 'qweiuyqweu'
+	var arrs=Array.from(s);
+	console.log(arrs.join());
+
+	console.log(arrs.splice(2,5));
+
+     console.log(getCss(box,'background'));
+	function getCss(div,css){
+		if(div.currentStyle){
+			return div.currentStyle[css];
+		}else{
+			return getComputedStyle(div,null).getPropertyValue(css);
+		}
+	}
+
+	function setCookie(cname,cvalue,exdays){
+		var d = new Date();
+		d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		var expris = "expris = "+d.toUTCString();
+		document.cookie = 'name' = cname+";"+expris;
+	}
+
+</script>
+</html>

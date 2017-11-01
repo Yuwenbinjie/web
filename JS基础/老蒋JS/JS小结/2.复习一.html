@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#wrap{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap"></div>
+
+</body>
+<script>
+	//写一个函数，把标签传入该函数，并改变其颜色
+	var wrap=document.getElementById('wrap');
+	change(wrap);
+	function change(w)
+	{
+		w.style.backgroundColor='blue';
+	}
+    
+    //或语法得到为真的那个值
+	var a=10;
+	var b=111;
+	var c=a||b;
+	console.log(c);
+
+	//冒泡
+	var arr=[3,2,4,8,6,9]
+	/*for(var j=0;j<arr.length-1;j++)
+	{
+        for(var i=0;i<arr.length-j-1;i++)
+		{
+	       if(arr[i]>arr[i+1])
+	       {
+	       	var temp=arr[i];
+	       	arr[i]=arr[i+1];
+	       	arr[i+1]=temp;
+	       }
+		}
+	}*/
+	maopao(arr);
+
+	function maopao(arr)
+	{
+		for(var i=0;i<arr.length-1;i++)
+		{
+			for(var j=0;j<arr.length-i-1;j++)
+			{
+				comp(arr,j);
+			}
+		}
+	}
+	function comp(arr,j)
+	{
+		if(arr[j]>arr[j+1])
+		{
+			var temp=arr[j];
+			arr[j]=arr[j+1];
+			arr[j+1]=temp;
+		}
+	}
+	
+	console.log(arr);
+	
+</script>
+</html>

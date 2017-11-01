@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+		#btn{
+			width: 100px;
+			height: 50px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">123</button>
+	
+</body>
+<script>
+	var btn = document.querySelector('#btn');
+	function click1()
+	{
+		console.log(123);
+		console.log(this);
+	}
+	function click2()
+	{
+		console.log(456);
+	}
+
+
+	//添加事件监听兼容函数  
+function addHandler(target, eventType, fn){  
+    if(target.addEventListener){//主流浏览器  
+            target.addEventListener(eventType, fn, false);  
+    }else{//IE  
+            target.attachEvent("on"+eventType, fn);   
+    }  
+    //执行新的函数  
+    addHandler(target, eventType, fn);  
+}  
+
+
+//删除事件监听兼容函数  
+function removeHandler(target, eventType, handler){  
+    if(target.removeEventListener){//主流浏览器  
+            target.removeEventListener(eventType, handler, false);         
+    }else{//IE  
+            target.detachEvent("on"+eventType, handler);         
+    }  
+    //执行新的函数  
+    removeHandler(target, eventType, handler);  
+}
+</script>
+</html>

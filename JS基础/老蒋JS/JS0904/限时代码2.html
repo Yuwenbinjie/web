@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var box = document.querySelector('#box');
+	function click(){
+		console.log(123);
+	}
+	add(box,'click',click);
+	remove(box,'click',click);
+
+	function add(box,ev,fn){
+		if(box.attachEvent){
+			box.attachEvent('on'+ev,fn);
+		}else{
+			box.addEventListener(ev,fn,false);
+		}
+	}
+    
+
+	function remove(box,ev,fn){
+		if(box.detachEvent){
+			box.detaEvent('on'+ev,fn)
+		}else{
+			box.removeEventListener(ev,fn,false);
+		}
+	}
+</script>
+</html>

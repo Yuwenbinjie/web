@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 600px;
+			padding: 20px;
+			border: 1px solid #ccc;
+			margin: 0 auto;
+		}
+		input{
+			width: 200px;
+			height: 30px;
+			border-radius: 5px;
+		}
+		.blue{
+			color:lightblue;
+			font-size: 20px;
+		}
+		button{
+			padding: 5px 10px;
+			border-radius: 5px;
+			background: lightblue;
+		}
+		#info{
+			text-align: center;
+			border-collapse: collapse;
+			margin:30px auto;
+
+		}
+		#info td,#info th{
+			width: 150px;
+			height:25px;
+			border:1px solid #ccc;
+		}
+		.del{
+			color: black;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<span class="blue">添加</span>
+		<input type="text" placeholder="请输入姓名" id="aname">
+		<input type="text" placeholder="请输入年龄" id="aage">
+		<button id="add">添加</button><br>
+
+		<table id="info">
+		    <thead>
+		    	<tr>
+					<th>ID</th>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>操作</th>
+				</tr>
+		    </thead>
+
+			<tbody id="infoMain">
+				<!-- <tr>
+					<td>1</td>
+					<td>宇文</td>
+					<td>19</td>
+					<td><a href="＃" class="del">删除</a></td>
+				</tr> -->
+			</tbody>
+		</table>
+
+        <span class="blue">搜索</span>
+		<input type="text" placeholder="请输入姓名" id="sname">
+		<button id="search">搜索</button>
+		<span class="blue">排序</span>
+		<button id="sort">年龄从小到大</button>
+	</div>
+</body>
+<script type="text/javascript">
+	 var aname=document.getElementById('aname');
+	 var aage=document.getElementById('aage');
+	 var add=document.getElementById('add');
+	 var infoMain=document.getElementById('infoMain');
+	 var del=document.getElementsByClassName('del');
+	 var sname=document.getElementById('sname');
+	 var search=document.getElementById('search');
+	 var sort=document.getElementById('sort');
+	 init();
+	 function init()
+	 {
+	 	 addEle();
+	     searchEle();
+	     agesort();
+	 }
+     
+
+	 //添加元素
+	 function addEle()
+	 {
+	 	var aid=0;
+	 	add.onclick=function()
+	 	{
+	 	   aid++;
+           var tr=document.createElement('tr');
+           infoMain.appendChild(tr);
+           tr.innerHTML="<td>"+aid+"</td><td>"+aname.value+"</td><td>"+aage.value+"</td><td><a href='#' class='del'>删除</a></td>"; 
+           removeEle(tr); 
+	 	}
+	 	
+	 }
+
+	 //删除元素
+	 function removeEle(tr)
+	 {
+         var del=tr.getElementsByClassName('del')[0];
+         del.onclick=function()
+         {
+         	infoMain.removeChild(tr);
+         }
+	 }
+
+	 //搜索元素
+	 function searchEle()
+	 {
+	 	 search.onclick=function()
+	 	 {
+                var serName=sname.value;
+	         	for(var j=0;j<infoMain.rows.length;j++)
+	         	{
+ 					if(infoMain.rows[j].cells[1].innerHTML==serName)
+		         	{
+		                infoMain.rows[j].style.background='pink';
+		                
+		         	}
+		         	else
+		         	{
+		                infoMain.rows[j].style.background='white';
+		                
+		         	}
+	         	}
+	 	 }   
+	 }
+
+	 //排序元素
+	 /*function agesort()
+	 {
+	 	sort.onclick=function()
+	 	{
+	 		var  rows=infoMain.rows;
+	 		var rows1=[];
+	 		for (var x = 0; x < rows.length; x++) 
+	 		{ 
+        		rows1[x] = rows[x]; //开辟新的数组，不覆盖原来地址，只是复制
+     		} 
+           for(var i=0;i<rows1.length-1;i++)
+		 	{
+                for(var j=0;j<rows1.length-i-1;j++)
+                {
+                	if(parseInt(rows1[j].cells[2].innerHTML)>parseInt(rows1[j+1].cells[2].innerHTML))
+                	{
+                		var temp=rows1[j];
+                		rows1[j]=rows1[j+1];
+                		rows1[j+1]=temp;
+                	}
+                }
+		 	}
+		 	//数组排序完成后进行渲染，不然没效果（一般使用DOM进行渲染，appedChild）
+		 	for (var x = 0; x < rows1.length; x++)
+		 	 {
+                infoMain.appendChild(rows1[x]); 
+             }		 		 	
+	 	}	 	
+	 }*/
+
+	 //排序（老师）
+	 /*function agesort()
+	 {
+	 	sort.onclick=function()
+	 	{
+	 		
+	 		var  rows=infoMain.rows;
+	 		
+           for(var i=0;i<rows.length-1;i++)
+		 	{
+                for(var j=0;j<rows.length-i-1;j++)
+                {
+                	if(parseInt(rows[j].cells[2].innerHTML)>parseInt(rows[j+1].cells[2].innerHTML))
+                	{
+                		infoMain.insertBefore(rows[j+1],rows[j]);
+                		rows = infoMain.rows;
+                	}
+                }
+		 	}
+		 		 		 	
+	 	}	 	
+	 }*/
+
+	 //排序2（老师）
+	 function agesort()
+	 {
+	 	sort.onclick=function()
+	 	{
+	 		
+	 		var  rows=infoMain.getElementsByTagName('tr');//动态操作数组，querySelector为静态
+           for(var i=0;i<rows.length-1;i++)
+		 	{
+                for(var j=0;j<rows.length-i-1;j++)
+                {
+                	if(parseInt(rows[j].getElementsByTagName('td')[2].innerHTML)>parseInt(rows[j+1].getElementsByTagName('td')[2].innerHTML))
+                	{
+                		infoMain.insertBefore(rows[j+1],rows[j]);
+                	}
+                }
+		 	}
+		 		 		 	
+	 	}	 	
+	 }
+
+</script>
+</html>

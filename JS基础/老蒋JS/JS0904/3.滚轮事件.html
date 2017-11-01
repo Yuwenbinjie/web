@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 400px;
+			height: 700px;
+			background: lightgreen;
+		}
+		#box1{
+			width: 400px;
+			height: 700px;
+			background: lightblue;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="box1"></div>
+</body>
+<script>
+	var box = document.querySelector('#box');
+	var box1 = document.querySelector('#box1');
+	
+
+	box.onmousewheel=function(ev){
+		var e = ev || window.event;
+		var g = gun(e);
+		console.log(g);
+	}
+
+		function gun(e)
+        {
+			if(e.wheelDelta<0){
+				return 0;
+			}else{
+				return 1;
+			}
+	    }
+    
+	
+
+</script>
+</html>

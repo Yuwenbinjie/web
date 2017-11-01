@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<button id="btn">open</button>
+	<button id="move">move</button>
+</body>
+<script>
+	var btn = document.querySelector("#btn");
+	var move = document.querySelector("#move");
+	btn.onclick=function(){
+		// window.open("https://www.baidu.com") 
+		myWindow=window.open('','','width=200,height=200');
+	    myWindow.document.write("<p>这是'我的窗口'</p>");
+	    myWindow.focus();
+		// window.close();
+	}
+
+	move.onclick=function(){
+		// myWindow.moveTo(100,200);//改变窗口位置
+		myWindow.resizeTo(500,500);改变窗口大小
+	}
+	console.log("屏幕可用高度："+screen.availHeight)
+</script>
+</html>

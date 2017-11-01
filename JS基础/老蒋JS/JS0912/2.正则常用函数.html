@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+	var reg = new RegExp('M','i');
+	var str = 'hemllom'
+	//正则函数一：test();  判断是否存在
+	var value = reg.test(str);
+	console.log(value)
+
+	//正则函数二：exec();   判断字符串是否存在并返回索引
+	var value = reg.exec(str);
+	var value1 = reg.exec(str);
+	console.log(value);
+	console.log(value1);
+	console.log(value.index);
+	console.log(value.input);
+	console.log(value[0]);
+</script>
+</html>

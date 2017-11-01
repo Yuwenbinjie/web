@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500" style="border: 1px solid;"></canvas>
+</body>
+<script>
+	var canvas = document.querySelector("#canvas");
+	var context = canvas.getContext("2d");
+	context.beginPath();
+	context.arc(200,200,100,0,Math.PI*2);
+	context.fillStyle="red";
+	context.fill();
+	context.closePath();
+    
+    // context.globalCompositeOperation="source-in";//保留下图重叠部分
+    // context.globalCompositeOperation="source-out";//后面的图形去除重叠部分
+    // context.globalCompositeOperation="destination-over";//提升前面图形的层级
+    // context.globalCompositeOperation="destination-in";//保留上图重叠部分
+    // context.globalCompositeOperation="destination-out";//前面的图形去除重叠部分
+    // context.globalCompositeOperation="destination-atop";//绘制上下图重叠部分以及下图
+    // context.globalCompositeOperation="lighter";//绘制上下图,重叠部分加色处理
+    context.globalCompositeOperation="copy";//绘制下图,覆盖原图
+
+
+	context.beginPath();
+	context.arc(250,200,100,0,Math.PI*2);
+	context.fillStyle="green";
+	context.fill();
+	context.closePath();
+</script>
+</html>

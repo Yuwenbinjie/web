@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+          width: 500px;
+          height: 500px;
+          background: lightgreen;
+		}
+		#small{
+          width: 100px;
+          height: 100px;
+          background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="small"></div>
+	</div>
+</body>
+<script>
+    /*阻止事件冒泡
+    IE下：event.stopPropagation
+    非IE下：event.cancelBubble=true*/
+	var box = document.getElementById('box');
+	var small = document.getElementById('small');
+	box.onclick=function(obj)
+	{
+		box.style.background='green';
+		console.log(obj);
+		console.log(obj.srcElement);
+		console.log(obj.toElement);
+	}
+	small.onclick=function(obj)
+	{
+		//obj兼容写法
+		var e = obj || window.event;
+		/*obj.cancelBubble=true;非IE
+		obj.stopPropagation();IE*/
+
+		//兼容写法
+		small.style.background='lightblue';
+		if(obj.stopPropagation){
+           obj.stopPropagation();
+		}else{
+		   obj.cancelBubble=true;
+		}
+		console.log(obj);
+
+	}
+</script>
+</html>

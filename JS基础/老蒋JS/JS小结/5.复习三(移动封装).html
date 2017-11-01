@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.a{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			left: 0;
+		}
+		.a:nth-child(1)
+		{
+			top: 0px;
+		}
+		.a:nth-child(2)
+		{
+			top: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="a"></div>
+	<div class="a"></div>
+</body>
+ <script>
+ 	var values=document.querySelectorAll(".a");//获取a元素
+ 	for(var i=0;i<values.length;i++)//遍历values数组
+ 	{
+ 		var a=values[i];//当前项赋值给a
+ 		a.onclick=function()//点击事件
+ 		{
+ 			click(this,'left',1500,100,10);//调用点击函数
+ 			// console.log(this.index);
+ 		}
+ 	}
+ 	function click(c,direction,beginValue,endValue,perTime)
+ 	{
+ 		var left=beginValue;//移动距离
+ 		var perValue=beginValue>endValue?-1:1;//判断移动方向
+ 		var timer=setInterval(function()//设置定时器
+ 		{
+ 			left+=perValue;//每次移动perValue
+ 			c.style[direction]=left+'px';//改变方块样式
+ 			if(perValue>0)//开始位置和结束位置
+ 			{
+               if(left>=endValue)//开始大于结束
+	 			{
+	 				clearInterval(timer);//清除定时器
+	 			}
+ 			}
+ 			else
+ 			{
+ 				if(left<=endValue)//开始小于结束
+	 			{
+	 				clearInterval(timer);//清除定时器
+	 			}
+ 			}
+ 			
+ 		},perTime)
+ 	}
+
+ </script>
+</html>

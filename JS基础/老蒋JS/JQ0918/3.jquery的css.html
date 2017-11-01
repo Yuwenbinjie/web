@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+		.box{
+			border: 1px solid;
+			position: absolute;
+			top: 100px;
+			margin: 50px;
+			left: 150px;
+		}
+		.boxout{
+			border: 1px solid;
+			position: relative;
+			left: 100px;
+			top: 2000px;
+			width: 300px;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+    <div class="boxout">
+	<div class="box" style="width: 100px;height:100px;background: red;"></div>
+	</div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+	console.log($(".box").offset().left);
+	console.log($(".box").offset().top);
+	console.log($(".box").position().left);
+	console.log($(".box").position().top);
+	
+	$("body").scrollTop(3000)
+	console.log($("body").scrollTop());
+	// console.log(document.body.scrollTop);
+	
+</script>
+</html>

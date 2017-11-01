@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">
+		<div id="head"></div>
+		<div id="foot"></div>
+	</div>
+</body>
+<script>
+	//载入远程 HTML 文件代码并插入至 DOM 中。
+    $("head").load("head.html");//head.html文件中不能有body和head
+    $("foot").load("foot.html");
+</script>
+</html>

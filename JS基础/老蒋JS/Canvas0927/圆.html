@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="canvas" width="300" height="300"></canvas>
+</body>
+<script>
+	var canvas = document.querySelector("#canvas");
+	var context = canvas.getContext("2d");
+
+/*	context.beginPath();
+	context.moveTo(150,100);//设置一个起始点
+	context.arc(150,100,50,0*deg,270*deg);
+	context.fillStyle="red";
+	context.stroke();
+	context.fill();
+	context.closePath();
+
+	context.beginPath();
+	context.moveTo(150,100);//设置一个起始点
+	context.arc(150,100,50,270*deg,300*deg);
+	context.fillStyle="blue";
+	context.stroke();
+	context.fill();
+	context.closePath();*/
+	
+     var yuan1 = new Yuan({
+     	context:context,
+     	yuanx:150,
+     	yuany:100,
+     	r:100,
+     	begin:0,
+     	end:180,
+     	color:"pink",
+     })
+
+      var yuan2 = new Yuan({
+     	context:context,
+     	yuanx:150,
+     	yuany:100,
+     	r:100,
+     	begin:180,
+     	end:270,
+     	color:"lightblue",
+     })
+
+    function Yuan(obj){
+    	var deg = Math.PI/180;
+    	this.r=obj.r;
+        obj.context.beginPath();
+		obj.context.moveTo(obj.yuanx,obj.yuany);//设置一个起始点
+		obj.context.arc(obj.yuanx,obj.yuany,obj.r,obj.begin*deg,obj.end*deg);
+		obj.context.fillStyle=obj.color;
+		obj.context.stroke();
+		obj.context.fill();
+		obj.context.closePath();
+    }
+console.log(yuan1.r);
+</script>
+</html>

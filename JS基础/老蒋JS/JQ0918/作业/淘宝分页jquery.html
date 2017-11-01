@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    <div id="boxout"></div>
+    <div id="pageUl"></div>
+	
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	var str = '[{"img":"img/1.jpeg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店12"},{"img":"img/22.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店2"},{"img":"img/3.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店3"},{"img":"img/4.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店4"},{"img":"img/25.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店5"},{"img":"img/6.jpeg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店6"},{"img":"img/11.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店7"},{"img":"img/17.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店8"},{"img":"img/18.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店9"},{"img":"img/9.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店10"},{"img":"img/11.jpeg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店11"},{"img":"img/12.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店12"},{"img":"img/13.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店13"},{"img":"img/15.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店14"},{"img":"img/14.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"gg宠物店15"},{"img":"img/15.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"gg宠物店26"},{"img":"img/11.jpeg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店1"},{"img":"img/2.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店2"},{"img":"img/3.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店3"},{"img":"img/14.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店4"},{"img":"img/5.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店5"},{"img":"img/6.jpeg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店6"},{"img":"img/21.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店7"},{"img":"img/17.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店8"},{"img":"img/8.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店9"},{"img":"img/9.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店10"},{"img":"img/1.jpeg","money":222.00,"sales":325,"name":"小狗狗大甩卖了啊","shop":"gogo宠物店11"},{"img":"img/12.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店12"},{"img":"img/13.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店13"},{"img":"img/15.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"mm宠物店14"},{"img":"img/24.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"gg宠物店15"},{"img":"img/15.jpeg","money":56.70,"sales":325,"name":"大小狗狗大甩卖了啊，快来吧","shop":"gg宠物店16"}]';
+	var arr = JSON.parse(str);
+	console.log(arr);
+	var r = 10;//当前页面元素个数
+    var pageCount = Math.ceil(arr.length/r);//页数
+    console.log(pageCount)
+
+    $("#boxout").css({
+    	margin:" 0 auto",
+    	width: "1600px",
+    })
+    
+    $('#pageUl').css({
+		width: "800px",
+		margin: "0 auto",
+		textAlign: "center",
+	})
+
+    //创建页码按钮
+    for(var i=0;i<pageCount;i++){
+    	var pageLi = creatEle('span','#pageUl');
+    	pageLi.css({
+			display: "inline-block",
+			width: "30px",
+			height: "30px",
+			border: "1px solid",
+			textAlign: "center",
+			margin: "10px",
+			background: "#ccc",
+    	})
+    	pageLi.text(i+1);
+    	// pageLi.attr({index:i});//添加自定义属性
+    	// pageLi[0].index = i;
+    	pageLi.click(function(){
+    		// console.log($(this).attr("index"));
+    		$("#boxout").text('');
+    		var m = $(this).text();
+    		create(m);
+    	})
+    }
+    
+    create(1);
+    //创建页面元素
+    function create(m){
+    	var minl = (m-1)*r;
+    	var maxl = m*r;
+    	if(maxl>=arr.length){
+    		maxl = arr.length;
+    	}
+        for(var i=minl;i<maxl;i++)
+	    { 
+	    	var box = creatEle('div','#boxout');
+	    	box.css({
+	    		margin: "10px",
+		    	display: "inline-block",
+		    	width: "300px",
+	    	})
+		    var img = creatEle('img',box);
+		    img.attr({"src":arr[i].img})
+		    img.css({
+		    	width: "300px",
+				height: "300px",
+		    })
+		    var info = creatEle('div',box);
+		    info.css({
+		    	width: "278px",
+				marginTop: "-4px",
+				border: "1px solid #ccc",
+				padding: "10px",
+				overflow: "hidden",
+		    })
+		    var money = creatEle('div',info);
+		    money.text(arr[i].money);
+		    money.css({
+		    	color:"orange",
+				fontSize: "18px",
+				fontWeight: "bold",
+				float: "left",
+		    })
+		    var sales = creatEle('div',info);
+		    sales.text(arr[i].sales);
+		    sales.css({
+		    	color:"grey",
+				fontSize: "16px",
+				float: "right",
+		    })
+		    var sname = creatEle('div',info);
+		    sname.text(arr[i].name);
+		    sname.css({
+		    	clear: "both",
+				color:"#111",
+				fontSize: "14px",
+		    })
+		    var del = creatEle('div',info);
+		    del.text("删除");
+		    del.css({
+		    	color:"red",
+				fontSize: "16px",
+				float: "right",
+		    })
+		    // del.attr({"aaa":box[0]});
+		    // console.log(del[0]);
+		    // console.log(box[0]);
+		    del.click(function(){
+		    	console.log($(this).parent().parent());
+		    	$(this).parent().parent().remove();
+		    })
+		    
+	    }	
+    }
+
+    //创建标签元素
+    function creatEle(stype,father){
+    	var a = $("<"+stype+">");
+	    $(father).append(a);
+	    return a;
+    }
+</script>
+</html>

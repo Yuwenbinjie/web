@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.wrap{
+			width: 300px;
+			height: 60px;
+			border: 1px solid;
+		}
+		#change{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="name">宇文彬杰</div>
+		<div class="tel">123456</div>
+	</div>
+	<div class="wrap">
+		<div class="name">宇文</div>
+		<div class="tel">123235</div>
+	</div>
+	<div class="wrap">
+		<div class="name">彬杰</div>
+		<div class="tel">45734545</div>
+	</div>
+	<div id="change">
+		<input type="text" id="gname">
+		<input type="text" id="gtel">
+		<input type="button" value="确认" id="btn">
+	</div>
+</body>
+<script>
+	var wrap = document.querySelectorAll(".wrap");
+	var change = document.querySelector("#change");
+	var gname = document.querySelector("#gname");
+	var gtel = document.querySelector("#gtel");
+	var btn = document.querySelector("#btn");
+
+    for(var i=0;i<wrap.length;i++){
+        wrap[i].index = i;
+        wrap[i].onclick=function(){
+            var m = this.index;
+			this.bqwrap = this;
+			this.iname = this.querySelectorAll(".name")[0].innerHTML;
+			this.tel = this.querySelectorAll(".tel")[0].innerHTML;
+			this.style.display = "none";
+			change.style.display = "block"; 
+			gname.value = this.iname;
+			gtel.value = this.tel;
+        btn.onclick=function(){
+	    	change.style.display = "none";
+			wrap[m].style.display = "block"; 
+			console.log(wrap[m].bqwrap);
+			wrap[m].bqwrap.querySelectorAll(".name")[0].innerHTML=gname.value;
+			wrap[m].bqwrap.querySelectorAll(".tel")[0].innerHTML=gtel.value;
+	    }
+		}	
+    }	    
+</script>
+</html>

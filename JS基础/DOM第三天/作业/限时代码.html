@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    *{
+	    	margin: 0;
+	    	padding: 0;
+	    }
+		#wrap
+		{
+			width: 320px;
+			height:480px; 
+			background: url(img/game_bg.jpg);
+			margin: 0 auto;
+			position: relative;
+		}
+		#begin{
+			height: 300px;
+			width:100%;
+			padding-top: 180px;
+			font-size: 20px;
+			font-weight: bold;
+			color: red;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			text-align: center;
+			background: rgba(0,0,0,0.3);
+		}
+		.wolf{
+            width: 108px;
+            height: 101px;
+            background: url(grayWolf.png) no-repeat;
+            position: absolute;
+            left: 18px;
+            top: 160px;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="begin">
+			<div id="start">开始游戏</div>
+			<div id="info">游戏说明</div>
+			<!-- <div class="wolf"></div> -->
+		</div>
+	</div>
+
+	<script>
+	    var start=document.getElementById('start');
+	    var wrap=document.getElementById('wrap');
+	    var begin=document.getElementById('begin'); 
+	    var distimer;  
+	    var clicktimer;  
+	    var btn=true;
+		var pos = [
+			{x: 18,y: 160},
+			{x: 98,y: 116},
+			{x: 186,y: 143},
+			{x: 15,y: 222},
+			{x: 104,y: 192},
+			{x: 200,y: 202},
+			{x: 32,y: 288},
+			{x: 120,y: 175},
+			{x: 208,y: 296}
+		];
+
+		//点击开始
+		start.onclick=function()
+		{
+			begin.style.display='none';
+			setInterval(function () 
+			{
+			  create();
+		    }, 2000);
+		}
+
+		//创建狼
+		function create()
+		{
+			var w=document.createElement("div");
+			w.className='wolf';
+			wrap.appendChild(w);
+			display(w);
+			clickw(w);
+			randwolf(w);
+
+		}
+
+		//随机坑位
+		function randwolf(wolf)
+		{
+			
+                var index=rand(0,pos.length-1);
+	            wolf.style.left=pos[index].x+'px';
+	            wolf.style.top=pos[index].y+'px';
+			
+			
+		}
+
+		//出现动画
+		function display(wolf)
+		{
+			var i=0;
+			var n=1;
+            distimer=setInterval(function()
+            {
+               if(i==5) n=-1;
+               	i+=n;
+               wolf.style.backgroundPosition=-108*i+'px';
+               if(i<1)
+               {
+               	clearInterval(distimer);
+               	wrap.removeChild(wolf);
+               } 
+            },100)	
+		}
+        
+        //击中动画
+        function clickw(wolf)
+        {
+	        wolf.onclick=function()
+	        {
+	        	if(btn)
+	        	{
+	        		btn=false;
+	        	    clearInterval(distimer);
+		        	i=6;
+		            clicktimer=setInterval(function()
+		            {
+		               wolf.style.backgroundPosition=-108*i+'px';
+		               i++;
+		               if(i==10)
+		               {
+		               	clearInterval(clicktimer);
+		               	wrap.removeChild(wolf);
+		               	btn=true;
+		               }
+		            },100)
+		        }
+	        	
+	        }
+        }
+
+        //随机数
+        function rand(min,max)
+        {
+        	var r=parseInt(Math.random()*(max-min+1)+min);
+        	return r;
+        }
+        
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="sname">
+	<input type="text" id="psd">
+	<button id="btn">登陆</button>
+</body>
+<script>
+	var sname = document.getElementById('sname');
+	var psd = document.getElementById('psd');
+	var btn = document.getElementById('btn');
+
+	window.onkeydown = function(ev)
+	{
+		var e = ev || window.event;
+		console.log(e.keyCode);
+		/*if(e.keyCode == 16){
+			psd.focus();
+		}
+		if(e.keyCode == 13){
+			btn.focus();
+		}*/
+		switch(e.keyCode){
+			case 16:psd.focus()
+			    break;
+			case 13:btn.focus()
+			    break;
+			default:
+			    break;
+		}
+	}
+	btn.onclick = function()
+	{
+		alert('登录成功')
+	}
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//规则一： ｜或语法
+	var reg = /d((sd)|(a)|(f))/ig;
+	var str = "dadflsdda";
+	var value = str.replace(reg,"M");
+	console.log(value)
+
+	//将数字清空
+	var reg = /(1)|(2)|(3)|(4)|(5)|(6)|(7)|(8)|(9)|(0)/ig;//相当于［0-9］
+	var str = "da231d3fls21d123da";
+	var value = str.replace(reg,"");
+	console.log(value)
+
+	//规则一： []
+	var reg = /[a-zA-Z]/ig;//字母写法
+	var reg = /[0-9]/ig;//数字写法
+	var reg = /[\u4e00-\u9fa5]/ig;//汉字写法
+	// var reg = /[da2]/ig;//或，不是整体替换
+	var str = "da23史蒂夫1d3首发fls21d1时23da";
+	var value = str.replace(reg,"");
+	console.log(value)
+</script>
+</html>

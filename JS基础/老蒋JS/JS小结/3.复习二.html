@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a=10;
+	
+    change();
+	/*function change()
+	{
+       this;
+	}
+	console.log(window);*/
+
+	/*function change()
+	{
+       m=100;//没有用var定义，所以为全局变量
+	}
+	console.log(window.m);*/
+
+	function change()
+		{
+			console.log("1"+this);
+			getday=function()
+			{
+				console.log("2"+this);
+			}
+			return this;
+		}
+        //1.当没有return返回值时，该方法错误
+        change().getday();
+        //2.
+        var a=change();
+        a.getday();
+        //3.
+        change();
+        getday();
+
+
+
+</script>
+</html>

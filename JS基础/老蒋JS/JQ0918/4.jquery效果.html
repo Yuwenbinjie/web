@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+click();
+function click(){
+	  var btn = $("<button>按钮</button>");
+	  $(document.body).append(btn);
+	  //1.显示隐藏
+	  /* var lock = true;
+	  btn.click(function(){
+	     if(lock){
+	     	$('#box').hide('slow',function(){
+	     		console.log('hidden')
+	     	});	
+
+	     }else{
+	     	$("#box").show(2000,function(){
+			   $(this).text("123");
+			 });	
+	     }
+	     lock=!lock;//上锁
+	  })*/
+   
+	  /*
+	  btn.click(function(){
+	        $('#box').toggle('slow');
+	       
+	  })*/
+
+	  /*//2.滑入滑出
+	  var lock = true;
+	  btn.click(function(){
+	     if(lock){
+	     	$('#box').slideDown('slow',function(){
+	     	  console.log(456);
+	     
+	     	});	
+
+	     }else{
+	     	$("#box").slideUp(2000,function(){
+			   $(this).text("123");
+			 });	
+	     }
+	     lock=!lock;//上锁
+	  })*/
+
+
+	  /*//3.淡入淡出
+	  var lock = true;
+	  btn.click(function(){
+	     if(lock){
+	     	$('#box').fadeOut('slow',function(){
+	     	  console.log(456);
+	     
+	     	});	
+
+	     }else{
+	     	$("#box").fadeIn(2000,function(){
+			   $(this).text("123");
+			 });	
+	     }
+	     lock=!lock;//上锁
+	  })*/
+
+	  var lock = true;
+	  btn.click(function(){
+	     // $("#box").fadeTo("slow",0.5)//改变透明度
+	     $("#box").fadeToggle(2000,function(){
+	     	console.log(123);
+	     })
+	  })
+}
+  
+  
+</script>
+</html>

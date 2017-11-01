@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#headTop{
+			width: 1000px;
+			background: grey;
+			text-align: center;
+			margin: 0 auto;
+		}
+		.adv{
+			width: 120px;
+			height: 100px;
+			background: #111;
+			text-align: center;
+			display: inline-block;
+			color: white;
+			line-height: 40px;
+			margin: 1px;
+		}
+	</style>
+</head>
+<body>
+	<div id="headTop">
+		<!-- <div class="adv">
+			<div class="chin">首页</div>
+			<div class="eng">HOME</div>
+		</div>
+		<div class="adv">
+			<div class="chin">首页</div>
+			<div class="eng">HOME</div>
+		</div> -->
+		
+	</div>
+</body>
+<script>
+	// var str = '[{"title":"官方活动","content":[{"img":"img/1.jpg","state":1,"title":"新战衣推出"},{"img":"img/2.jpg","state":2,"title":"神秘商店"},{"img":"img/3.jpg","state":2,"title":"多重好礼推出"},{"img":"img/4.jpg","state":2,"title":"破宁之战推出"}]},{"title":"赛事活动","content":[{"img":"img/1.jpg","state":1,"title":"新战衣推出"},{"img":"img/2.jpg","state":2,"title":"神秘商店"},{"img":"img/3.jpg","state":2,"title":"多重好礼推出"},{"img":"img/4.jpg","state":2,"title":"破宁之战推出"}]}]'
+
+	var str = '[{\
+	"chinese":"首页",\
+	"english":"HOME"\
+},{\
+	"chinese":"资讯",\
+	"english":"NEWS"\
+},{\
+	"chinese":"赛事",\
+	"english":"MATCH"\
+},{\
+	"chinese":"互动",\
+	"english":"INTERACTION"\
+},{\
+	"chinese":"资料",\
+	"english":"DATA"\
+},{\
+	"chinese":"服务",\
+	"english":"SERVICE"\
+},{\
+	"chinese":"下载",\
+	"english":"DOWN"\
+}]'
+
+  var arr = JSON.parse(str);
+  head(arr);
+  function head(arr){
+  	var head = document.querySelector('#headTop');
+     for(var i=0;i<arr.length;i++){
+     	var obj = arr[i];
+     	var adv = createElement("div",head,'adv');
+
+     	var chin = createElement("div",adv,'chin');
+     	chin.innerHTML = obj.chinese;
+
+     	var eng = createElement("div",adv,'eng');
+     	eng.innerHTML = obj.english;
+     }
+  }
+
+  function createElement(elestyle,father,classn){
+		var div = document.createElement(elestyle);
+		father.appendChild(div);
+		div.className = classn;
+		return div;
+   }
+</script>
+</html>

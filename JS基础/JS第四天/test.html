@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+// 定义存放生成随机数的数组 
+var array=new Array(); 
+// 循环N次生成随机数 
+for(var i = 0 ; ; i++){ 
+    // 只生成10个随机数 
+    if(array.length<10){ 
+          generateRandom(10); 
+    }else{ 
+      break; 
+   } 
+} 
+// 循环遍历随机数数组 
+/*for(var i = 0 ; i < array.length; i++){ 
+	
+     alert(array[i]); 
+} */
+// 生成随机数的方法 
+function generateRandom(count){ 
+     var rand = parseInt(Math.random()*count); 
+     for(var i = 0 ; i < array.length; i++){ 
+          if(array[i] == rand){ 
+               return false; 
+          }      
+     } 
+     array.push(rand); 
+} 
+alert(array);
+	</script>
+</body>
+</html>

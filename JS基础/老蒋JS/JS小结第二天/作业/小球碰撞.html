@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#a{
+           width: 100px;
+           height: 100px;
+           background: pink;
+           border-radius: 50%;
+           position: absolute;
+           left: 0;
+           top: 0;
+		}
+		#b{
+           width: 100px;
+           height: 100px;
+           background: yellowgreen;
+           border-radius: 50%;
+           position: absolute;
+           left:  500px;
+           top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="a"></div>
+	<div id="b"></div>
+</body>
+<script>
+	var a = document.getElementById('a');
+	var b = document.getElementById('b');
+    
+    click(a);
+    click(b);
+    //拖拽事件
+	function click(obj)
+	{
+       obj.onmousedown = function(m)
+		{
+			var offX = this.offsetLeft;
+			var offY = this.offsetTop;
+			var nowX = m.clientX;
+			var nowY = m.clientY;
+			document.onmousemove=function(n)
+			{
+				endX = n.clientX - nowX + offX;
+				endY = n.clientY - nowY + offY;
+				obj.style.left = endX + 'px';
+				obj.style.top = endY + 'px';
+                var i = peng(a,b);
+                if(i){
+                	alert('你碰到我了！');
+                	document.onmousemove = null;
+                }
+			}
+			document.onmouseup = function()
+			{
+				document.onmousemove = null;
+			}
+		}
+	}
+		
+	
+
+	//判断是否碰撞
+	function peng(x,y)//传形参减少代码修改量
+	{
+		var yuanAR = x.offsetWidth * 0.5;
+		var yuanBR = y.offsetWidth * 0.5;
+		var yuanAX = x.offsetLeft + yuanAR;
+		var yuanAY = x.offsetTop + yuanAR;
+		var yuanBX = y.offsetLeft + yuanBR;
+		var yuanBY = y.offsetTop + yuanBR;
+		var rs = yuanAR + yuanBR;
+		var abX = Math.pow((yuanBX - yuanAX),2);
+		var abY = Math.pow((yuanBY - yuanAY),2);
+		var dis = Math.sqrt(abX + abY);
+		console.log(rs);
+		if(dis <= rs){
+			return true;
+		}else{
+			return false;
+		}
+	}
+</script>
+</html>

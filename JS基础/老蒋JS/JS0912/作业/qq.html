@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	QQ号码:<input type="text" id="qq"><span id="hint"></span>
+</body>
+    <script>
+    	var qq = document.querySelector('#qq');
+    	var hint = document.querySelector('#hint');
+
+    	qq.onchange=function(){
+    		
+    		var reg = /^[1-9][0-9]{4,9}$/ig;
+	    	var qqStr = qq.value;
+	    	console.log(qqStr);
+	    	var vel = reg.test(qqStr);
+	    	if(vel){
+	    		hint.innerHTML = "成功";
+	    	}else{
+	    		hint.innerHTML = "信息错误"
+	    	}
+    	}
+    	
+    </script>
+</html>

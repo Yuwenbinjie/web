@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="">
+		<span>name:</span>
+		<input type="text" id="name">
+		<span>password:</span>
+		<input type="password" id="pwd">
+		<input type="button" id="btn" value="加密">
+		<span>加密后:</span>
+		<input type="text" id="rel">
+	</form>
+</body>
+<script src="md5.js"></script>
+<script>
+	var name = document.querySelector("#name");
+	var pwd = document.querySelector("#pwd");
+	var btn = document.querySelector("#btn");
+	var rel = document.querySelector("#rel");
+    
+    btn.onclick=function(){
+    	var a = hex_md5(pwd.value);
+    	pwd.value = a;
+    	rel.value = a;
+    }
+</script>
+</html>

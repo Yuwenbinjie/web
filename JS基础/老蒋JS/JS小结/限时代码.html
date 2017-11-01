@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.a{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			left: 0;
+		}
+		.a:nth-child(1)
+		{
+			top: 0px;
+		}
+		.a:nth-child(2)
+		{
+			top: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="a">1</div>
+	<div class="a">2</div>
+</body>
+<script>
+	var aa=document.getElementsByClassName('a');
+	for(var i=0;i<aa.length;i++)
+	{
+		aa[i].onclick=function()
+		{
+			var x=0;
+			var m=this;
+			var timer=setInterval(function()
+			{
+				x+=10;
+				m.style.left=x+'px';
+				if(x>=500) clearInterval(timer);
+			},100)
+		}
+	}
+
+</script>
+</html>

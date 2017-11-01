@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+    //影响界面（渲染）－操作标签的
+	1.appendChild
+	2.removeChile
+	3.insertBefore
+	4.insertAfter
+	5.createElement
+
+	//获得left，top，width，height－碰撞检测
+	1.标签.offsetLeft
+	2.标签.offsetTop
+	3.标签.offsetWidth
+	4.标签.offsetHeight
+
+	//浏览器的属性
+	1.docoment.documentElement.scrollTop  scrollLeft;//滚动条偏移量－火狐
+	2.docoment.body.scrollTop  scrollLeft;//滚动条偏移量－谷歌
+	3.window.pageYoffset  pageXoffset;//safari浏览器
+	4.兼容写法：document.documentElement.scrollTop||docoment.body.scrollTop||window.pageYoffset
+
+	//获得页面高度
+	1.document.documentElement.scrollHeight;//获取页面实际高度
+	2.document.documentElement.scrollWeight;//获取页面实际宽度
+
+	//图片对象
+	1.var a=new Image();
+	a.onload=function()
+	{
+		console.log('图片加载成功后由系统自己调用');
+	}
+
+	//添加属性
+	1.setAttribute
+	2.getAttribute
+	3.removeAttribute
+	4.getComputedStyle和currenStyle
+
+
+	//节点操作
+	1.children
+	2.firstChild
+	3.lastChild
+	4.nodeName
+	5.parentNode
+
+	//1.标签中为不加边框的元素宽高，2.当前body可视宽高
+	1.clientHeight
+	2.clientWidth
+</script>
+</html>

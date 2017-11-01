@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			height: 1000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	document.body.oncontextmenu = function(ev)
+	{
+        var e = ev || window.event;
+        //取消默认事件－兼容写法
+        e.preventDefault();//非IE
+        return false;//IE
+	}
+</script>
+</html>

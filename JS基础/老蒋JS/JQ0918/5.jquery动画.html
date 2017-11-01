@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: relative;
+			top: 0;
+			left: 0;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<button id="begin">开始</button>
+	<button id="end">结束</button>
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+	/*$("#begin").click(function(){
+		$("#box").animate({
+			left:"1000px",
+			borderRadius:"50%",
+			backgroundColor:"blue",
+		},2000);
+	});
+	$("#end").click(function(){
+		$("#box").finish();
+	});*/
+
+	//jquery的链式写法，没有顺序
+	$("#begin").click(function(){
+		/*$('#box').slideUp(2000).delay(1000).fadeIn(2000);//设置一个延时来推迟执行队列中之后的项目。*/
+		$("#box").animate({
+			left:"1000px",
+			borderRadius:"50%",
+			backgroundColor:"blue",
+		},2000).delay(10).animate({
+			left:"0px",
+			borderRadius:"10%",
+			backgroundColor:"blue",
+		},2000);
+	});
+	console.log($('button').eq(0));
+
+	// parents()将查找所有祖辈元素，而children()只考虑子元素而不考虑所有后代元素。
+</script>
+</html>

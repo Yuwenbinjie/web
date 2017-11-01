@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box">
+		<p class="p1"></p>
+	</div>
+	<div class="box">
+		<p class="p2"></p>
+	</div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //1.jquery中如果有多个标签，那么这个jquery对象调用函数的时候相当于所有标签都在调用
+	/*var m = $('.box');
+    console.log(m)
+    m.css({
+    	width:'100px',
+    	height:'100px',
+    	background:'red'
+    })*/
+
+     //2.通过jquery获得标签的方式
+     /*var n = m[0];
+     console.log(n)*/
+     
+     //3.通过jquery获得标签的方式
+     /*var m = $('<p class=nihao>');
+     var n = $('.box');
+     $(n).append(m);*/
+     var a = $('.p1', $('.box'));
+     // console.log(a)
+     var n = $('<div>',{
+     	text:"click me!"
+     }).appendTo($('.box'))
+
+     //each函数原理
+     var arr = document.querySelectorAll(".box");
+    arr.setInner = function (fn) {
+        for (var i = 0; i < this.length; i++) {
+            var m = this[i];
+            if(fn){
+                var r = fn.call(m,i);
+                if(r == true) {
+                    continue;
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+    arr.setInner(function (i) {
+        console.log(this);
+        return true;
+    })
+
+</script>
+</html>

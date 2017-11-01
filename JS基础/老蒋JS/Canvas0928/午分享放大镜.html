@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.small{
+			width: 450px;
+			height: 450px;
+			border: 1px solid ;
+			background-image: url("timg1.jpeg");
+			background-size: 450px 450px;
+		}
+		ul li{
+			width: 50px;
+			height: 50px;
+			border: 1px solid;
+			display: inline-block;
+		}
+		.big{
+			position: absolute;
+			top: 0;
+			left: 600px;
+			width: 450px;
+			height: 450px;
+			border: 1px solid;
+		}
+	</style>
+</head>
+<body>
+	<div class="small"></div>
+	<ul>
+		<li class="smallcube"></li>
+		<li class="smallcube"></li>
+		<li class="smallcube"></li>
+		<li class="smallcube"></li>
+		<li class="smallcube"></li>
+	</ul>
+	<div class="big"></div>
+</body>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	var a = $(".smallcube");
+	for(var i=0;i<a.length;i++){
+		a[i].index=i;
+		a.on("mouseover",function(){
+			var x=this.index;
+			console.log(x);
+			$(".small").css({"background-image":"url(timg"+(x+1)+".jpeg)"});
+			$(".big").css({"background-image":"url(timg"+(x+1)+".jpeg)"});
+		})
+	}
+</script>
+</html>

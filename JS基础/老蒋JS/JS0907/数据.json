@@ -1,0 +1,223 @@
+// 分页
+{
+	"title":"赛事活动",
+	"data":[
+		{
+			"img":"img/1.jpg",
+			"title":"2017国际邀请赛"
+		},{
+			"img":"img/2.jpg",
+			"title":"2017邀请赛线下活动"
+		},{
+			"img":"img/3.jpg",
+			"title":"2017邀请赛线上观战"
+		},{
+			"img":"img/4.jpg",
+			"title":"2017邀请赛公开报名"
+		}]
+}
+
+
+// 轮播图
+[{
+	"index":"1",
+	"img":"img/1.jpg"
+},{
+	"index":"1",
+	"img":"img/1.jpg"
+},{
+	"index":"1",
+	"img":"img/1.jpg"
+}]
+
+
+// 标题
+[{
+	"chinese":"首页",
+	"english":"HOME"
+},{
+	"chinese":"资讯",
+	"english":"NEWS"
+},{
+	"chinese":"赛事",
+	"english":"MATCH"
+},{
+	"chinese":"互动",
+	"english":"INTERACTION"
+},{
+	"chinese":"资料",
+	"english":"DATA"
+},{
+	"chinese":"服务",
+	"english":"SERVICE"
+},{
+	"chinese":"下载",
+	"english":"DOWN"
+}]
+
+
+//通讯录
+[{
+	"name":"yuwen",
+	"phone":12345678998,
+},{
+	"name":"jacob",
+	"phone":15735104793,
+},{
+	"name":"binjie",
+	"phone":98787878978,
+}]
+
+
+
+[{
+	"daxie":"A",
+	"person":[{
+		"name":"艾琳",
+		"call":"654654135"
+	}]
+
+},{
+	"daxie":"C",
+	"person":[{
+		"name":"崔莹星",
+		"call":"654654135"
+	}]
+
+},{
+	"daxie":"G",
+	"person":[{
+		"name":"高超",
+		"call":"654654135"
+	},{
+		"name":"郭晓瞎",
+		"call":"654654135"
+	}]
+
+},{
+	"daxie":"L",
+	"person":[{
+		"name":"李小冉",
+		"call":"654654135"
+	},{
+		"name":"李小凤",
+		"call":"654654135"
+	},{
+		"name":"李梦月",
+		"call":"654654135"
+	}]
+
+},{
+	"daxie":"M",
+	"person":[{
+		"name":"苗杰",
+		"call":"654654135"
+	}]
+
+},{
+	"daxie":"Q",
+	"person":[{
+		"name":"全赢",
+		"call":"654654135"
+	}]
+
+},{
+	"daxie":"S",
+	"person":[{
+		"name":"宋传勇",
+		"call":"654654135"
+	},{
+		"name":"孙帅",
+		"call":"654654135"
+	},{
+		"name":"孙晓晨",
+		"call":"654654135"
+	}]
+
+},{
+	"daxie":"T",
+	"person":[{
+		"name":"天之冬",
+		"call":"654654135"
+	}]
+
+},{
+	"daxie":"W",
+	"person":[{
+		"name":"王浩亮",
+		"call":"654654135"
+	},{
+		"name":"王子好",
+		"call":"654654135"
+	},{
+		"name":"吴超敏",
+		"call":"654654135"
+	},{
+		"name":"王金柳",
+		"call":"654654135"
+	},{
+		"name":"王玉",
+		"call":"654654135"
+	},{
+		"name":"王彦琨",
+		"call":"654654135"
+	}]
+
+},{
+	"daxie":"X",
+	"person":[{
+		"name":"许飞",
+		"call":"654654135"
+	}]
+
+},{
+	"daxie":"Y",
+	"person":[{
+		"name":"银子套",
+		"call":"654654135"
+	},{
+		"name":"宇文彬杰",
+		"call":"654654135"
+	},{
+		"name":"游洲",
+		"call":"654654135"
+	},{
+		"name":"杨婷",
+		"call":"654654135"
+	}]
+
+},{
+	"daxie":"Z",
+	"person":[{
+		"name":"张然",
+		"call":"654654135"
+	},{
+		"name":"张乐",
+		"call":"654654135"
+	},{
+		"name":"邹欣欣",
+		"call":"654654135"
+	},{
+		"name":"赵紫韵",
+		"call":"654654135"
+	},{
+		"name":"张云",
+		"call":"654654135"
+	},{
+		"name":"赵鹏",
+		"call":"654654135"
+	}]
+
+}]
+
+
+
+
+
+
+
+
+
+
+
+

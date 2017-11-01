@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			height: 2000px;
+			position: relative;
+		}
+		#underline{
+			position: absolute;
+			bottom: 0;
+			left: 300px;
+		}
+		#gotop{
+			position: fixed;
+			width: 100px;
+			height: 100px;
+			background: lightblue;
+			bottom: 0;
+			right: 0;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="underline">我是底线</div>
+	<div id="gotop">回到顶部</div>
+</body>
+<script>
+	var gotop = document.querySelector('#gotop');
+	window.onscroll=function(){
+		var current = document.documentElement.scrollTop||document.body.scrollTop;
+		if(current>0){
+			gotop.style.display='block';
+		}else{
+			gotop.style.display='none';
+		}
+	}
+	gotop.onclick=function(){
+		if(document.body.scrollTop){
+			document.body.scrollTop=0;
+		}else{
+			document.documentElement.scrollTop=0;
+		}
+	}
+</script>
+</html>

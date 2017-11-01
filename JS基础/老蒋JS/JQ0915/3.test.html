@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+	<input name="apple" />
+	<input name="flower" checked="checked" type="radio" />
+	<p>5p</p>
+	<label for="">
+		<p>你好</p>
+	</label>
+		<p>1p</p>
+		<a href="#">1a</a>
+		<span>1s</span>
+		<p>2p</p>
+		<h1></h1>
+		<h2></h2>
+	</div>
+	<p>3p</p>
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+var a = $("div  p");//后代p元素
+var a = $("div>p");
+var a = $("label + p");//之后一个
+var a = $("label ~ p");//获取同辈元素
+var a = $("p:first");//元素中的第一个
+var a = $("p:last");//元素中的最后一个
+var a = $("input:not(:checked)");//未选中的元素
+var a = $("p:even");//获取索引为偶数的元素
+var a = $("p:odd");//获取索引为奇数的元素
+var a = $("div~p:eq(0)");//获取指定索引的元素
+var a = $("p:gt(1)");//获取大于指定索引的元素
+var a = $("p:lt(2)");//获取小于指定索引的元素
+var a = $(":header");//获取小于指定索引的元素
+var a = $(":animated");//获取小于指定索引的元素
+var a = $(":root");//获取文档根元素
+var a = $("p:contains('你好')");//获取文档根元素
+
+console.log(a)
+</script>
+</html>

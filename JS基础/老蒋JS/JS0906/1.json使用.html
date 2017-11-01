@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "yuwen|18|男|1462140846";
+	var info = str.split('|');
+	console.log('姓名：'+info[0]);
+	console.log('年龄：'+info[1]);
+	console.log('性别：'+info[2]);
+	console.log('学号：'+info[3]);
+
+    var s = '{\
+    	"name":"yuwen",\
+        "age":18,\
+        "婚否":true,\
+        "记录":null,\
+    }'
+	//json:"key":"value",key尽量不使用中文
+	// 中括号：［］－－数组
+	// 大括号：｛｝－－一条数据，大括号内容为"key":"value"
+	//数据格式：字符串，bool，number，null
+
+	var s2 = '[{"name":"yuwen","phone":15735104793,"photo":"img/1.jpg"},{"name":"binjie","phone":15735104794,"photo":"img/2.jpg"}]';
+
+	//学校里有三个班级，每个班3个人，每个人属性：姓名，年龄，性别
+	var info = '[\
+	    {"class":"教室1",\
+	     "students":[{"name":"yuwen","age":19,"sex":"男"},{"name":"binjie","age":18,"sex":"男"}]\
+	    },\
+	    {"class":"教室2",\
+	     "students":[{"name":"xiaoming","age":23,"sex":"男"},{"name":"xiaowang","age":24,"sex":"男"}]\
+	    },\
+	    {"class":"教室3",\
+	     "students":[{"name":"marry","age":34,"sex":"女"},{"name":"jacob","age":21,"sex":"男"}]\
+	    }\
+	]'
+</script>
+</html>

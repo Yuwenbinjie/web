@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    /*当。。。条件表达式为真的时候，那么执行花括号里面的语句，否则不执行
+		while(条件表达式)
+		{
+           //执行的代码
+		}*/
+
+
+		//快速打印hello world 10遍
+		/*var a=0;
+		while(a<10)
+		{
+			// alert('hello world!');
+			
+			console.log('hello');
+			a++;
+		}*/
+
+
+		//打印1+2+3...＋100的总和
+		/*var a=1;
+		var sum=0;
+		while(a<=100)
+		{
+			sum+=a;
+			a++;
+		}
+		console.log(sum);*/
+
+
+		//用while打印出1～100之间不是7的倍数且不能出现7的数
+		var a=0;
+		while(a<100)
+		{
+			a++;
+			if(a%7==0||a%10==7||parseInt(a/10)==7) continue;
+			console.log(a);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    *{
+	    	padding: 0;
+	    	margin: 0;
+	    }
+	    #box{
+	    	border: 1px solid red;
+	    	width: 1000px;
+	    	min-height: 500px;
+	    	position: relative;
+	    	margin: 0 auto;
+	    }
+		ul{
+			display: inline-block;
+			list-style: none;
+			/*border: 1px solid green;*/
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+		li{
+			float: left;
+			width: 18px;
+			height: 18px;
+			background: gray;
+			border:1px solid;
+
+		}
+	</style>
+</head>
+<body>
+<div id="box">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+	
+</body>
+<script>
+	var ul = document.getElementsByTagName('ul')[0];
+	var li = document.getElementsByTagName('li')[0];
+	var box = document.getElementById('box');
+	var x = 0;
+	var y = 0;
+	var n = 1;
+	var timer=null;
+	// console.log(box.clientWidth);
+	animation(ul,li.offsetWidth);
+    function create()
+    {
+    	    
+    	    var ul1 = document.createElement('ul');
+	        box.appendChild(ul1);
+	         for(var i=0;i<20;i++)
+	        {
+	          var li1 = document.createElement('li');
+	       	  ul1.appendChild(li1);
+	        }
+	        var perbu = li1.offsetWidth;
+	        y += perbu;
+	        ul1.style.bottom = y + 'px';
+	        ul1.style.left = x + 'px';
+
+	        animation(ul1,perbu);
+    }
+	
+
+	box.onclick=function()
+	{
+	   clearInterval(timer);
+	   create(); 
+	}
+
+	//左右动画
+	function animation(ul1,perbu)
+	{
+            
+			timer = setInterval(function()
+			{
+				if(x+ul1.offsetWidth >= box.clientWidth){
+		           n = -1;
+				}
+				if(x <= 0){
+		           n = 1;
+				}
+				x += perbu * n;
+		        ul1.style.left = x + 'px';
+			},100)
+	}
+			  
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//1.创建方式
+	// var obj = {
+ //       name:"qwe",
+ //       age:19
+	// }
+
+	// //创建方式2
+	// var obj = new Object();
+	// obj.letter = 'qwe';
+	// obj.arr = ['qwe','ert'];
+	// console.log(obj);
+
+	var p1 = {name:"游洲",tell:110,daxie:"Y"};
+	var p2 = {name:"张然",tell:111,daxie:"Z"};
+	var p3 = {name:"苗杰",tell:112,daxie:"M"};
+	var p4 = {name:"宇文",tell:113,daxie:"Y"};
+	var p5 = {name:"张乐",tell:114,daxie:"Z"};
+	var p6 = {name:"杨婷",tell:115,daxie:"Y"};
+	var arr=[p1,p2,p3,p4,p5,p6];
+	var end=sort(arr);
+    console.log(end);
+	function sort(arr){	
+		var endArr = [];
+		for(var i=0;i<arr.length;i++){
+			var first = arr[i];
+			var judge = false;
+
+			for(var j=0;j<endArr.length;j++){
+				var second = endArr[j];
+				
+				if(first.daxie==second.letter){
+					second.arr.push(first);
+					judge = true;
+				}
+			}
+			if(judge==false){
+				var obj = new Object();
+				obj.letter = first.daxie;
+				obj.arr = [first];
+				endArr.push(obj);
+				
+			}
+		}
+	return endArr;
+	}
+</script>
+</html>

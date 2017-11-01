@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <button id="compare">比较</button>
+	<script>
+		// 判断两个值的大小，输出较大的值
+		/*var a=10;
+		var b=20;
+		if(a>b)
+		{
+			alert(a);
+		}
+		else
+		{
+			alert(b);
+		}
+		var c=a>b?a:b;
+		alert(c);*/
+
+		// 随便输入两个数，弹出两个数的最小值
+		/*var a=prompt('请输入a');
+		var b=prompt('请输入b');
+		var c=a<b?a:b;
+		alert(c);*/
+
+		// 在input标签随便输入两个数，弹出两个数的最小值
+        var a=document.getElementById('compare');
+        a.onclick=function(){
+           var a=parseInt(document.getElementById('num1').value);
+           var b=parseInt(document.getElementById('num2').value);
+           var c=a<b?a:b;
+		   alert(c);
+	    }   
+
+	</script>
+</body>
+</html>

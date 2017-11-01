@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 150px;
+			height: 150px;
+			background: red;
+            margin: 20px;
+            text-align: center;
+            color: white;
+		}
+	</style>
+</head>
+<body>
+    <div id="box1">onmousedown  onmouseup</div>
+    <div id="box2">onmouseover  onmouseout</div>
+    <div id="box3">onmousemove</div>
+    <div id="box4">ondblclick</div>
+    <div id="box5">oncontextmenu</div>
+</body>
+<script>
+	//鼠标事件
+	/*onmousedown
+	onmouseup
+	onmouseover
+	onmouseout
+	onclick
+	onmousemove
+	ondblclick
+	oncontextmenu*/
+    
+    var box1=document.getElementById('box1');
+    var box2=document.getElementById('box2');
+    var box3=document.getElementById('box3');
+    var box4=document.getElementById('box4');
+    var box5=document.getElementById('box5');
+    box1.onmousedown = function(obj)
+    {
+    	box1.style.background='green';
+    	console.log(obj);
+    }
+    box1.onmouseup = function(obj)
+    {
+    	box1.style.background='grey';
+    	console.log(obj);
+    }
+    box2.onmouseover = function(obj)
+    {
+    	box2.style.background='pink';
+    	console.log(obj);
+    }
+    box2.onmouseout = function(obj)
+    {
+    	box2.style.background='blue';
+    	console.log(obj);
+    }
+    box3.onmousemove = function(obj)
+    {
+    	box3.style.background='yellowgreen';
+    	console.log(obj);
+    }
+    box4.ondblclick = function(obj)
+    {
+    	box4.style.background='lightblue';
+    	console.log(obj);
+    }
+    box5.oncontextmenu = function(obj)
+    {
+    	box5.style.background='lightgreen';
+    	console.log(obj);
+    }
+    
+</script>
+</html>

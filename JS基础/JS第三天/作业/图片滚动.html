@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.box{
+		width: 1000px;
+		height: 420px;
+		/*background: red;*/
+		margin:100px auto;
+		position: relative;
+		overflow: hidden;
+	}
+	.imgs{
+		width: 3000px;
+		margin-left: -1000px;
+		transition:all 1s ease;
+	}
+	.imgs img{
+	    width: 1000px;
+	}
+	.button_left{
+		position: absolute;
+		top: 190px;
+		left: 20px;
+	}
+	.button_right{
+		position: absolute;
+		top: 190px;
+		right: 20px;
+	}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="imgs" id="imgs"><img src="img/bjx1.jpg" alt=""><img src="img/bjx2.jpg" alt=""><img src="img/bjx3.jpg" alt=""></div>
+		<img src="img/button_left.png" class="button_left" id="button_left">
+		<img src="img/button_right.png" class="button_right" id="button_right">
+	</div>
+	<script>
+		var button_left=document.getElementById('button_left');
+		var button_right=document.getElementById('button_right');
+		var x=0;
+		button_left.onclick=function(){
+			var imgs=document.getElementById('imgs');
+            x-=1000;
+			imgs.style="transform:translateX("+x+"px)";
+			// alert(imgs);
+		}
+		button_right.onclick=function(){
+			var imgs=document.getElementById('imgs');
+			x+=1000;
+			imgs.style="transform:translateX("+x+"px)";
+			// alert(imgs);
+		}
+	</script>
+</body>
+</html>

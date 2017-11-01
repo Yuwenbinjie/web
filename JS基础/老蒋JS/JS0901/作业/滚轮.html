@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#wrap{
+			width: 200px;
+			height: 300px;
+			/*border: 5px solid red;*/
+			overflow: hidden;
+			position: relative;
+		}
+		#wrap::after{
+			content: "";
+			display: block;
+			clear:both;
+		}
+		#content{
+			width: 170px;
+            
+			float: left;
+			position: absolute;
+			left: 0;
+			top: 0;
+
+		}
+		#line{
+			height: 100%;
+			width: 30px;
+			background: gray;
+			float: right;
+			position: relative;
+		}
+		#move{
+			width: 100%;
+			border-radius: 20px;
+			background: red;
+			height: 40px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="content">
+			1 不懂拒绝，是一种病
+
+　　很多人都喜欢《欢乐颂》里的关雎尔，因为她人长得甜美，心地也好。但她也常常为人诟病：正因为心地太好，她不懂得拒绝别人。
+
+　　关雎尔很多时候加班加得晚，都是因为帮别人做事。终于有一次，同事又病了请她完成剩下的工作，最后也是她签名确认。
+
+　　同事做的那一部分错漏百出，经理知道后却只骂了关雎尔。因为最后签名的是她，所有责任都要她来承担。而那个同事，出事之后一句话也没替她说，也没有一句安慰。
+
+　　关雎尔的傻白甜行径，其实也是今天许多人的写照：
+
+　　因为想塑造自己的良好形象，所以对朋友的请求来者不拒。终于，我们温暖了别人，却累死了自己。
+
+　　2 你有多重要？
+
+　　“TA一定是走投无路了，才来找我……”、“要是我把TA拒绝了，我就是坏人……”这是我们在接受求助时的心理。
+
+　　不懂拒绝的背后，是我们往往将自己放在太重要的位置。
+
+　　斗米恩升米仇的故事，却告诉了我们一个无法违背的人性：
+
+　　帮得了一次，就有第二次；帮得了第二次，就有后面无穷多次。而无休止帮助的剧情发展，往往是始于感恩，终于嫌隙。当哪一次帮不上忙，你就会变成罪人。
+
+　
+		</div>
+		<div id="line">
+			<div id="move"></div>
+		</div>
+	</div>
+</body>
+  <script>
+  	var move=document.querySelector('#move');
+  	var line=document.querySelector('#line');
+  	var content = document.querySelector('#content');
+  	var wrap = document.querySelector('#wrap');
+
+  	function scale(){
+  		var cHeight = content.offsetHeight - wrap.offsetHeight;
+  		var lHeight = line.offsetHeight - move.offsetHeight;
+  		var s = cHeight / lHeight;
+  		return s;
+  	}
+
+
+  	move.onmousedown = function(ev){
+ 		var e = ev || window.event;
+ 		var beginY = e.clientY;
+ 		var offY = move.offsetTop;
+
+ 		document.onmousemove = function(ev){
+ 			var e = ev || window.event;
+
+ 			// var endY =  e.clientY - beginY +offY ;
+ 			move.style.top =e.clientY - beginY +offY+ "px";
+
+ 			conmove(move,content);
+ 		}
+ 		document.onmouseup = function(){
+ 			document.onmousemove = null;
+ 		}
+  	}
+    
+
+    
+  	window.onkeydown = function(ev){
+  		var conY = move.offsetTop;
+  		console.log(ev.keyCode);
+  		switch(ev.keyCode){
+  			case 38:
+  			   conup();
+  			   break;
+  			case 40:
+  			   condown();
+  			   break;
+  			default:
+  			   break;
+  		}
+
+  		function condown(){
+  			conY+=10;
+  			move.style.top = conY+"px";
+            conmove(move,content);
+  			
+  		}
+  		function conup(){
+  			conY-=10;
+  			move.style.top = conY+"px";
+  			conmove(move,content);
+  		}
+  		
+  	}
+
+  	//内容移动
+        function conmove(move,content)
+        {
+        	if(move.offsetTop<0){
+ 				move.style.top = 0;
+ 			}
+ 			if(move.offsetTop>line.offsetHeight-move.offsetHeight){
+ 				move.style.top = line.offsetHeight-move.offsetHeight+"px";
+ 			}
+
+ 			var s = scale();
+ 			var value = move.offsetTop * s;
+ 			content.style.top = -value+"px";
+        }
+
+        document.body.onmousewheel = function(ev) {
+           e = ev || window.event;
+           // console.log(e.deltaY);
+           var conY	= move.offsetTop;
+           conY+=e.deltaY;
+           move.style.top = conY+"px";
+           conmove(move,content);
+        };
+  </script>
+</html>

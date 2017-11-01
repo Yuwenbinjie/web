@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 400px;
+			height: 600px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script src="wheel.js"></script>
+<script>
+	var box = document.querySelector('#box'); 
+
+	wheel(box,function(){
+				box.style.background = 'blue';
+			},function(){
+				box.style.background = 'red';
+			});
+
+</script>
+</html>

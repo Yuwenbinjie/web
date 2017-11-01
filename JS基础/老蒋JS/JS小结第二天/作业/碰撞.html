@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#a{
+           width: 100px;
+           height: 100px;
+           background: pink;
+           position: absolute;
+           left: 0;
+           top: 0;
+		}
+		#b{
+           width: 100px;
+           height: 100px;
+           background: yellowgreen;
+           position: absolute;
+           left:  500px;
+           top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="a"></div>
+	<div id="b"></div>
+</body>
+<script>
+	var a = document.getElementById('a');
+	var b = document.getElementById('b');
+    
+    click(a);
+    click(b);
+    //拖拽事件
+	function click(obj)
+	{
+       obj.onmousedown = function(m)
+		{
+			var offX = this.offsetLeft;
+			var offY = this.offsetTop;
+			var nowX = m.clientX;
+			var nowY = m.clientY;
+			document.onmousemove=function(n)
+			{
+				endX = n.clientX - nowX + offX;
+				endY = n.clientY - nowY + offY;
+				obj.style.left = endX + 'px';
+				obj.style.top = endY + 'px';
+                var i = peng(a,b);
+                if(i){
+                	alert('你碰到我了！');
+                	document.onmousemove = null;
+                }
+			}
+			document.onmouseup = function()
+			{
+				document.onmousemove = null;
+			}
+		}
+	}
+		
+	
+
+	//判断是否碰撞
+	function peng(x,y)
+	{
+		var minX = y.offsetLeft - x.offsetWidth;
+		var maxX = y.offsetLeft + y.offsetWidth;
+		var minY = y.offsetTop - x.offsetHeight;
+		var maxY = y.offsetTop + y.offsetHeight;
+
+		var ax = x.offsetLeft;
+		var ay = x.offsetTop;
+
+		if(ax >= minX && ax <= maxX && ay >= minY && ay <= maxY)
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}
+</script>
+</html>

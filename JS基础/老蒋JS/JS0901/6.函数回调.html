@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function add(f)
+	{
+		f();
+	}
+	var n = function()
+	{
+		console.log(123);
+	}
+    add(n);
+
+
+	//调用匿名函数
+	add(function(){
+			console.log(234);
+		});
+
+
+
+	function peng(x,y,fn,errorFn)
+	{
+		var minx=y.offsetLeft-x.offsetWidth;
+		var maxx=y.offsetLeft+y.offsetWidth;
+		var miny=y.offsetTop-x.offsetHeight;
+		var maxy=y.offsetTop+y.offsetHeight;
+		if(x.offsetLeft>=minx&&x.offsetLeft<=maxx&&x.offsetTop>=miny&&x.offsetTop<=maxy){
+			if(fn){//判断函数的形参是否存在
+				fn();
+			}
+			return;
+		}
+		if(errorFn)
+		{
+			errorFn();
+		}	
+	}
+    /*peng(x,y);//不传函数的情况*/
+    peng(x,y,function(){
+		alert('碰撞成功！');
+	},function(){
+		console.log('没有碰到')
+	})
+	
+	/*peng(x,y,function(value){
+		if(value){
+			alert('碰撞成功！');
+		}else{
+			console.log('没有碰到')
+		}	
+	})*/
+	/*peng(x,y,fun());//函数回调相当于将函数的形参变为匿名函数
+	function fun(value){
+		if(value){
+			alert('碰撞成功！');
+		}
+		
+	}*/
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input{
+			width: 150px;
+			height: 20px;
+		}
+		#button{
+			width: 100px;
+			height: 30px;
+		}
+	</style>
+</head>
+<body>
+	美女：
+	<input type="text" id="w_count" placeholder="美女的手指数" >
+	<input type="text" id="w_sum" placeholder="美女说的总数"><br>
+
+	帅哥：
+	帅哥的手指数：
+	<select id="m_count">
+		<option value="0">0</option>
+		<option value="5">5</option>
+		<option value="10">10</option>
+	</select>
+	帅哥说的总数：
+	<select id="m_sum">
+		<option value="0">0</option>
+		<option value="5">5</option>
+		<option value="10">10</option>
+		<option value="15">15</option>
+		<option value="20">20</option>
+	</select>
+	<button id="button">come on</button>
+
+	<script>
+		var button=document.getElementById('button');
+        button.onclick=function(){
+
+		    var w_count=document.getElementById('w_count');
+		    var w_sum=document.getElementById('w_sum');
+		    w_count.value=Math.floor(Math.random()*3)*5;
+		    w_sum.value=Math.floor(Math.random()*5)*5;
+
+		    var m_count=document.getElementById('m_count');
+		    var m_sum=document.getElementById('m_sum');
+		    
+		    var sum=parseInt(w_count.value)+parseInt(m_count.value);
+		    // alert(sum);
+		    if(parseInt(w_sum.value)==sum&&parseInt(m_sum.value)!=sum) alert('恭喜美女获胜！再接再厉！');
+		    if(parseInt(m_sum.value)==sum&&parseInt(w_sum.value)!=sum) alert('帅哥获胜！你就不能让一下女生么？');
+		    if(parseInt(w_sum.value)!=sum&&parseInt(m_sum.value)!=sum) alert('很遗憾都输了！不要气馁，再来一局！');
+		    if(parseInt(w_sum.value)==sum&&parseInt(m_sum.value)==sum) alert('你俩平分秋色，打成平局！');
+	    }
+	</script>
+	
+
+</body>
+</html>

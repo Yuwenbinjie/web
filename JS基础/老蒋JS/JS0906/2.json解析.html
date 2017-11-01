@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+	var str = '[{"name":"yuwen","age":14},{"name":"binjie","age":15},{"name":"jacob","age":21}]';
+	var str1 = '[\
+	    {"class":"教室1",\
+	     "students":[{"name":"yuwen","age":19,"sex":"男"},{"name":"binjie","age":18,"sex":"男"}]\
+	    },\
+	    {"class":"教室2",\
+	     "students":[{"name":"xiaoming","age":23,"sex":"男"},{"name":"xiaowang","age":24,"sex":"男"}]\
+	    },\
+	    {"class":"教室3",\
+	     "students":[{"name":"marry","age":34,"sex":"女"},{"name":"jacob","age":21,"sex":"男"}]\
+	    }\ 
+	]';//json在网页在线校验时，不能加\,最后一条
+	var arr = JSON.parse(str1);//json将字符串解析为数组
+	console.log(str1);
+
+	for(var i=0;i<arr.length;i++){
+		var obj = arr[i].students;
+		for(var j=0;j<obj.length;j++){
+			var oname = obj[j];
+			console.log(oname.name);
+		}
+		
+	}
+</script>
+</html>

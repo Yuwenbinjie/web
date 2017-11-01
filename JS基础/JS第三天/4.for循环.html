@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	//打印1～10之间的数；
+	/*var i=1;
+	for(;i<=10;)
+	{
+       alert(i);
+       i++;
+	}*/
+
+	/*for(var i=1;i<=10;i++)
+	{
+		alert(i);
+	}*/
+
+	//第一步:var i=1;
+	//第二步：i<=10;
+	//第三步：alert（i）；
+	//第四步：i++；
+
+
+
+	//用for打印出1～100之间个位数为7的数
+	for(var a=1;a<=100;a++)
+	{
+		if(a%10==7)
+		{
+			console.log(a);
+		}
+	}
+
+
+    //用for打印出1～100之间十位数为7的数
+	for(var b=1;b<=100;b++)
+	{
+		if(parseInt(b/10)==7)
+		{
+			console.log(b);
+		}
+	}
+
+	for循环是最常用的循环方法：
+	for 循环自带四个武器
+		initialization:初始化  var i＝1；
+	    condation:循环条件  i<100;
+	    loop statement：循环语句｛｝里面的语句；
+	    increment ：循环增量 i＋＋；
+
+</script>
+</body>
+</html>

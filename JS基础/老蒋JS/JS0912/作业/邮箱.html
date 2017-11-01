@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	邮箱:<input type="text" id="email"><span id="hint"></span>
+</body>
+    <script>
+    	var email = document.querySelector('#email');
+    	var hint = document.querySelector('#hint');
+
+    	email.onchange=function(){
+    		
+    		var reg = /^[0-9a-zA-Z](\w|\-)*@[0-9a-zA-Z]*\.[a-zA-Z]{2,4}/ig;
+    		// var reg = /^[0-9a-zA-Z](\w|\-)*@$/ig;
+	    	var emailStr = email.value;
+	    	console.log(emailStr);
+	    	var vel = reg.test(emailStr);
+	    	if(vel){
+	    		hint.innerHTML = "成功";
+	    	}else{
+	    		hint.innerHTML = "信息错误"
+	    	}
+    	}
+    	
+    </script>
+</html>

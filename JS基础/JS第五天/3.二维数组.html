@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*var array1=[];
+		array1[0]=[5,9,8];
+		array1[0][1]=6;
+		console.log(array1);*/
+
+		//创建二维数组第二种方式
+		var array=[[15,23,2,4,5],[1,12,3,43,54,6],[23,34,2,5]];
+		// console.log(array[1][2]);
+
+		//把这个数组从小到大排列顺序，完毕之后还是二维数组。
+		var t=0;
+		for(var a=0;a<array.length;a++)
+		{
+		for( var l=array[a].length;l>0;l--)
+		{
+		for(var i=0;i<l-1;i++)
+		{
+			if(array[a][i]>array[a][i+1])
+			{
+                 t=array[a][i];
+                 array[a][i]=array[a][i+1];
+                 array[a][i+1]=t;
+			}
+		}
+	    }
+	    }   
+		console.log(array);
+
+		二维数组：数组中承载另外的数组们
+		第一维数组下标［］：控制外围数组
+		第二维数组下标［］：控制内层数组
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var box = document.querySelector('#box');
+	box.onclick=function(){
+		
+		add.call(box,10,20);
+		add.apply(box,[10,20]);
+		// box.m = add;//与上面等价
+		// box.m();
+	}
+
+	/*argument:参数
+	add(标签，arg，arg，......)
+	apply(标签，[arg，arg，......])
+	*/
+	function add(r,m){
+		console.log(this);
+		console.log(r);
+		console.log(m);
+	}
+</script>
+</html>

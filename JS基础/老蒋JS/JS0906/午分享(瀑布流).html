@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+        *{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		#box{
+			width: 960px;
+			margin: 0 auto;
+		}
+		#box ul{
+			float: left;
+			width: 300px;
+			margin: 0 10px;
+		}
+		 #box ul li img{
+		 	width: 300px;
+		 	margin-bottom: 20px;
+
+		 }
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+	</div>
+</body>
+<script>
+createLi();
+function createLi()
+{
+	var oul = document.querySelectorAll('ul');
+	for(var i=1;i<=18;i++){
+		var oimg = document.createElement('img');
+		oimg.src = 'img/'+i+'.jpg';
+		var oli = document.createElement('li');
+		oli.appendChild(oimg);
+		var min_index=checkHeight(oul);
+		oul[min_index].appendChild(oli);
+	}
+}
+	
+
+	//获取最小ul的索引
+	function checkHeight(oul)
+	{
+		var height = 100000000;
+		var index = 0;
+		for(var i=0;i<oul.length;i++){
+			var now_height = oul[i].offsetHeight;
+			if(now_height<height){
+				height = now_height;
+				index = i;
+			}
+		}
+		return index;
+	}
+
+	window.onscroll=function(){
+		var vH=document.documentElement.clientHeight;
+		var sH=document.documentElement.scrollTop||document.body.scrollTop;
+
+		//滚动高度＋浏览器窗口高度 ＝ body的高度
+		if(vH+sH>=document.documentElement.offsetHeight-600){
+			createLi();
+		}
+	}
+</script>
+</html>
