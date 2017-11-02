@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    *{
+	    	margin:0;
+	    	padding: 0;
+	    }
+		#box{
+           width: 320px;
+           height: 480px;
+           background: url(img/game_bg.jpg) no-repeat;
+           margin:0px auto;
+           position: relative;
+		}
+		.bigwolf{
+			width: 108px;
+			height: 101px;
+			background: url(img/grayWolf.png) 108px 0px no-repeat;
+			/*border: 1px solid;*/
+			overflow: hidden;
+			position: absolute;
+			display: none;
+		}
+		.smallwolf{
+			width: 108px;
+			height: 101px;
+			background: url(img/redWolf.png) 108px 0px no-repeat;
+			/*border: 1px solid;*/
+			overflow: hidden;
+			position: absolute;
+			display: none;
+		}
+
+		.w1{top: 160px;left: 15px;}
+		.w2{top: 115px;left: 95px;}
+		.w3{top: 142px;left: 185px;}
+        
+        .w4{top: 220px;left: 15px;}
+		.w5{top: 192px;left: 100px;}
+		.w6{top: 212px;left: 200px;}
+
+		.w7{top: 295px;left: 30px;}
+		.w8{top: 275px;left: 115px;}
+		.w9{top: 295px;left: 205px;}
+
+		#score{
+			position: absolute;
+			top: 10px;
+			left: 70px;
+			font-size: 18px;
+			color: white;
+		}
+		#progress{
+			height: 16px;
+			position:absolute;
+			top: 66px;
+			left: 63px;
+
+		}
+		#btn{
+           width: 100px;
+           height: 50px;
+           background: pink;
+           font-size: 18px;
+           color: white;
+           border-radius: 20px;
+           margin:20px auto;
+           display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+        <div id="score">0</div>
+        <img src="img/progress.png" id="progress">
+
+
+		<div id="bigwolf" class="bigwolf w1"></div>
+		<div id="bigwolf" class="bigwolf w2"></div>
+		<div id="bigwolf" class="bigwolf w3"></div>
+		<div id="bigwolf" class="bigwolf w4"></div>
+		<div id="bigwolf" class="bigwolf w5"></div>
+		<div id="bigwolf" class="bigwolf w6"></div>
+		<div id="bigwolf" class="bigwolf w7"></div>
+		<div id="bigwolf" class="bigwolf w8"></div>
+		<div id="bigwolf" class="bigwolf w9"></div>
+
+
+		<div id="smallwolf" class="smallwolf w1"></div>
+		<div id="smallwolf" class="smallwolf w2"></div>
+		<div id="smallwolf" class="smallwolf w3"></div>
+		<div id="smallwolf" class="smallwolf w4"></div>
+		<div id="smallwolf" class="smallwolf w5"></div>
+		<div id="smallwolf" class="smallwolf w6"></div>
+		<div id="smallwolf" class="smallwolf w7"></div>
+		<div id="smallwolf" class="smallwolf w8"></div>
+		<div id="smallwolf" class="smallwolf w9"></div>
+	</div>
+	<button id="btn">开始游戏</button>
+
+	<script>
+	game();
+	function game()
+	{
+		var bigwolf=document.getElementsByClassName('bigwolf');
+		var smallwolf=document.getElementsByClassName('smallwolf');
+		var score=document.getElementById('score');
+		var progress=document.getElementById('progress');
+		var btn=document.getElementById('btn');
+		var scoreVal=0;
+
+		var timerDis=null;
+		var timerRan=null;
+		var timerClick=null;
+		var timerPro=null;
+		var x=108;
+		var lock=true;
+        
+        init();
+		function init()
+		{
+			begin();
+		}
+
+		//出现动画
+		function display(index,bs)
+		{
+		       var k=-1;
+		       clearInterval(timerDis);		   
+	           timerDis=setInterval(function()
+	           {
+	           	   x+=108*k;
+	           	   if(x==-540) k=1;
+	           	   if(x>=108) 
+	           	   	{
+	           	   		x=108;
+	           	   		clearInterval(timerDis);
+                        timerDis=null;
+	           	   		bigwolf[index].style='display:none';
+	           			smallwolf[index].style='display:none';
+	           			// console.log(index);
+	           			return;
+                        
+	           	   	}
+		           	if(bs==0)
+		           	{
+                       bigwolf[index].style='display:block;background:url(img/grayWolf.png)'+x+'px 0px no-repeat';
+		           	}
+
+		           	if(bs==1)
+		           	{
+                       smallwolf[index].style='display:block;background:url(img/redWolf.png)'+x+'px 0px no-repeat';
+		           	}
+		           	wclick(x,index);
+	           },70)
+		}
+
+		//获取随机数
+		function rand()
+		{
+			timerRan=setInterval(function()
+			{
+				var randnum=Math.floor(Math.random()*9);
+			    var randbs=Math.floor(Math.random()*2);
+			    display(randnum,randbs);
+
+			},1500)			
+		}
+
+		//点击事件
+		function wclick(x,index)
+		{ 
+			//点击大狼＋10
+	           bigwolf[index].onclick=function()
+	           {
+	           	if(lock)
+	           	{
+		           	lock=false;
+		           	clearInterval(timerDis);
+		           	clearInterval(timerClick);
+		           	scoreVal+=10;
+		           	score.innerHTML=scoreVal;
+		           	x=-540;
+		           	timerClick=setInterval(function()
+		           	{
+		              x-=108;
+		              if(x<=-1080)
+		              {
+		              	x=108;
+				        clearInterval(timerClick);
+			            timer3=null;
+				        bigwolf[index].style='display:none';
+				        lock=true;
+				        return;  
+		              }   
+		            bigwolf[index].style='display:block;background:url(img/grayWolf.png)'+x+'px 0px no-repeat';       
+		           	},70)
+	            }
+	           }
+	           
+	           //点击小狼-10
+	           smallwolf[index].onclick=function()
+	           {
+	           	if(lock)
+	           	{
+		           	lock=false;
+		           	clearInterval(timerDis);
+		           	clearInterval(timerClick);
+		           	scoreVal-=10;
+		           	score.innerHTML=scoreVal;
+		           	x=-540;
+		           	timerClick=setInterval(function()
+		           	{
+		              x-=108;
+		              if(x<=-1080)
+		              {
+		              	x=108;
+				        clearInterval(timerClick);
+			            timer3=null;
+				        smallwolf[index].style='display:none';
+				        lock=true;
+				        return;  
+		              }  
+		            smallwolf[index].style='display:block;background:url(img/redWolf.png)'+x+'px 0px no-repeat';       
+		           	},70)
+	            }
+	          }
+		}
+
+		//时间进度条
+		function proTime()
+		{  
+		   rand();
+		   var proWidth=180;
+           timerPro=setInterval(function()
+           {
+
+              proWidth-=1;
+              progress.style.width=proWidth+'px';
+              if(proWidth<0)
+              {
+              	clearInterval(timerRan);
+              	clearInterval(timerPro);
+              	alert('时间结束！您的得分是：'+score.innerHTML+'分，再接再厉！');
+              }
+              
+           },200)
+		}
+
+		//开始游戏
+		function begin()
+		{
+			btn.onclick=function()
+			{
+				proTime();
+			}
+		}
+	}
+	</script>
+</body>
+</html>
